@@ -4,7 +4,10 @@ import { View, Text } from "react-native";
 function report() {
   return (
     <View>
-      <Text>제보하기</Text>
+      <Button
+        title="제보하기"
+        onPress={()=> navigation.navigate('myPage')}
+        />
     </View>
   );
 }
