@@ -1,0 +1,10 @@
+import React from "react";
+import { View, Text } from "react-native";
+
+function settings() {
+  return (
+    <View>
+      <Text>앱 설정 관리</Text>
+    </View>
+  );
+}
