@@ -1,17 +1,20 @@
 //마이페이지 화면
 import React from 'react';
 import {StatusBar} from 'expo-status-bar';
-import { Image, View, Text, TextInput, SafeAreaView, StyleSheet, Button,} from 'react-native';
+import { View, Text} from 'react-native';
 
+// import "react-native-gesture-handler";
+// import { NavigationContainer } from '@react-navigation/native';
+// import StackNavigator from './src/navigation/StackNavigator.js';
 
 import CustomButton from './src/component/CustomButton.js';
 import styles from './src/styles.js';
 
-
 export default function App() {
   return (
-    <View>
+    
 
+    <View>
         <CustomButton
         buttonColor={'skyblue'}
         titleColor={'black'}
@@ -39,18 +42,3 @@ export default function App() {
     </View> //container
   );//return
 }
-
-// const styles = StyleSheet.create({
-//   title: {
-//     //marginTop: 30,
-//     marginLeft: 20,
-//     fontSize: 30,
-//     fontWeight: 'bold',
-
-//   },
-//   content: {
-//     margin: 24,
-//     fontSize: 18,
-//     fontWeight: 'bold',
-//   },
-// });

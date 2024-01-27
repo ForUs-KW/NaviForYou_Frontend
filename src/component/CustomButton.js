@@ -32,6 +32,7 @@ export default class CustomButton extends Component{
   }
 }
 
+
 const styles = StyleSheet.create({
     button: {
         backgroundColor: 'white',

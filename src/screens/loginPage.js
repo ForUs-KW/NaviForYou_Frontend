@@ -1,5 +1,8 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text} from "react-native";
+
+import CustomButton from "../component/CustomButton.js";
+import styles from '../styles.js';
 
 function loginPage() {
   return (
@@ -10,12 +13,8 @@ function loginPage() {
         title={'<'}
         onPress={()=> {alert('뒤로가기');}}/>
 
-    <Text style={styles.title}>마이 페이지</Text>
-
-
-
-
+    <Text style={styles.title}>로그인</Text>
 
     </View>
   );
-}
+};
