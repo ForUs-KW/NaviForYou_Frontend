@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
       marginLeft: 20,
       fontSize: 30,
       fontWeight: 'bold',
-  
+      //textAlign: 'left',
     },
     content: {
       margin: 24,
