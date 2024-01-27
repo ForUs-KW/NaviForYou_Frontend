@@ -12,8 +12,6 @@ import styles from './src/styles.js';
 
 export default function App() {
   return (
-    
-
     <View>
         <CustomButton
         buttonColor={'skyblue'}
