@@ -5,6 +5,7 @@ import { Image, View, Text, TextInput, SafeAreaView, StyleSheet, Button,} from '
 
 
 import CustomButton from './src/component/CustomButton.js';
+import styles from './src/styles.js';
 
 
 export default function App() {
@@ -17,14 +18,13 @@ export default function App() {
         title={'<'}
         onPress={()=> {alert('뒤로가기');}}/>
 
-        <View>
-          <Text style={styles.title}>마이 페이지</Text>
-        </View>
-
+        <Text style={styles.title}>마이 페이지</Text>
 
       
       <View>
-        
+        <Text style={styles.content}
+          onPress={() => {alert('로그인/회원가입');}}>&gt; 로그인/회원가입
+        </Text>
         <Text style={styles.content}
           onPress={() => {alert('회원 정보 수정');}}>&gt; 회원 정보 수정
         </Text>
@@ -40,17 +40,17 @@ export default function App() {
   );//return
 }
 
-const styles = StyleSheet.create({
-  title: {
-    //marginTop: 30,
-    marginLeft: 20,
-    fontSize: 30,
-    fontWeight: 'bold',
+// const styles = StyleSheet.create({
+//   title: {
+//     //marginTop: 30,
+//     marginLeft: 20,
+//     fontSize: 30,
+//     fontWeight: 'bold',
 
-  },
-  content: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-});
+//   },
+//   content: {
+//     margin: 24,
+//     fontSize: 18,
+//     fontWeight: 'bold',
+//   },
+// });
