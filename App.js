@@ -1,7 +1,7 @@
 //마이페이지 화면
 import React from 'react';
 import {StatusBar} from 'expo-status-bar';
-import { View, Text} from 'react-native';
+import { View, Text, StyleSheet} from 'react-native';
 
 // import "react-native-gesture-handler";
 // import { NavigationContainer } from '@react-navigation/native';
@@ -9,6 +9,7 @@ import { View, Text} from 'react-native';
 
 import CustomButton from './src/component/CustomButton.js';
 import styles from './src/styles.js';
+import HorizonLine from './src/component/HorizontalLine.js';
 
 export default function App() {
   return (
@@ -24,7 +25,7 @@ export default function App() {
       
       <View>
         <Text style={styles.content}
-          onPress={() => {alert('로그인/회원가입');}}>&gt; 로그인/회원가입
+          onPress={() => {alert('로인/회원가입');}}>&gt; 로그인/회원가입
         </Text>
         <Text style={styles.content}
           onPress={() => {alert('회원 정보 수정');}}>&gt; 회원 정보 수정
@@ -37,6 +38,23 @@ export default function App() {
         </Text>
       </View>
 
+
     </View> //container
   );//return
 }
+
+
+const appstyles = StyleSheet.create({
+  title: {
+    //marginTop: 30,
+    marginLeft: 20,
+    fontSize: 30,
+    fontWeight: 'bold',
+    //textAlign: 'left',
+  },
+  content: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+});

@@ -1,7 +1,9 @@
 //styles.js
 
-import React, { Component } from 'react';
-import { Text, StyleSheet,} from 'react-native';
+import React from 'react';
+import { Text, StyleSheet} from 'react-native';
+
+
 
 const styles = StyleSheet.create({
     title: {
@@ -11,9 +13,16 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       //textAlign: 'left',
     },
+    centerText: {
+      margin: 12,
+      fontSize: 20,
+      textAlign: 'center',
+    },
     content: {
       margin: 24,
       fontSize: 18,
       fontWeight: 'bold',
     },
   });
+
+  export default styles;

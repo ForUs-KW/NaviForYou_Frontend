@@ -1,16 +1,17 @@
 import React from "react";
-import { View, Text, TextInput} from "react-native";
+import { View, Text, Image} from "react-native";
 
 import CustomButton from "../../component/CustomButton.js";
 import styles from '../../styles.js';
+import exImg from './img/exImg.png';
 
-function signUpFinishPage() {
+function loginPage_4() {
   return (
     <View>
 
         <Text style={styles.title}>세바지와 함께 해주셔서 고마워요</Text>
 
-        
+        <Image source={exImg}/>
 
         <CustomButton
             buttonColor={'skyblue'}

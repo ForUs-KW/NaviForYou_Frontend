@@ -4,7 +4,7 @@ import { View, Text, TextInput} from "react-native";
 import CustomButton from "../../component/CustomButton.js";
 import styles from '../../styles.js';
 
-function signUpTermPage() {
+function loginPage_2() {
   return (
     <View>
         <CustomButton
