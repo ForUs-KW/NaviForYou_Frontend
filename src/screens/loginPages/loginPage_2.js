@@ -2,20 +2,20 @@ import React from "react";
 import { View, Text, TextInput} from "react-native";
 
 import CustomButton from "../../component/CustomButton.js";
-import styles from '../../styles.js';
+import styles from '../../style/styles.js';
 
-function loginPage_2() {
+const loginPage_2=({navigation})=> {
   return (
     <View>
         <CustomButton
             buttonColor={'skyblue'}
             titleColor={'black'}
             title={'<'}
-            onPress={()=> {alert('뒤로가기');}}/>
+            onPress={()=> navigation.navigate('loginPage_1')}/>
 
         <Text style={styles.title}>회원가입을 시작합니다</Text>
 
-        <View>
+        <View style={styles.tabview}>
             <CustomButton
                 buttonColor={'skyblue'}
                 borderRad={50}
@@ -27,7 +27,7 @@ function loginPage_2() {
             </Text>
         </View>
 
-        <View>
+        <View style={styles.tabview}>
             <CustomButton
                 buttonColor={'skyblue'}
                 borderRad={50}
@@ -39,7 +39,7 @@ function loginPage_2() {
             </Text>
         </View>
 
-        <View>
+        <View style={styles.tabview}>
             <CustomButton
                 buttonColor={'skyblue'}
                 borderRad={50}
@@ -51,7 +51,7 @@ function loginPage_2() {
             </Text>
         </View>
 
-        <View>
+        <View style={styles.tabview}>
             <CustomButton
                 buttonColor={'skyblue'}
                 borderRad={50}
@@ -63,7 +63,7 @@ function loginPage_2() {
             </Text>
         </View>
 
-        <View>
+        <View style={styles.tabview}>
             <CustomButton
                 buttonColor={'skyblue'}
                 borderRad={50}
@@ -77,9 +77,13 @@ function loginPage_2() {
         
         <CustomButton
                 buttonColor={'skyblue'}
-                titleColor={'black'}
+                buttonWidth={'20%'}
                 title={'다음'}
-                onPress={()=> {alert('다음');}}/>
+                titleColor={'black'}
+                titleSize={20}
+                onPress={()=> navigation.navigate('loginPage_3')}/>
     </View>
   );
 };
+
+export default loginPage_2

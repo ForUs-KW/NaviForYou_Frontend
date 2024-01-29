@@ -2,9 +2,9 @@ import React from "react";
 import { View, Text, TextInput} from "react-native";
 
 import CustomButton from "../../component/CustomButton.js";
-import styles from '../../styles.js';
+import styles from '../../style/styles.js';
 
-function reportFinishPage() {
+const reportPage_2=({navigation})=> {
   return (
     <View>
 
@@ -16,7 +16,9 @@ function reportFinishPage() {
             buttonColor={'skyblue'}
             titleColor={'black'}
             title={'확인'}
-            onPress={()=> {alert('확인');}}/>
+            onPress={()=> navigation.navigate('myPage')}/>
     </View>
   );
 };
+
+export default reportPage_2

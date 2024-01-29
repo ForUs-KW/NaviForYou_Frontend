@@ -1,60 +1,42 @@
-//마이페이지 화면
+
 import React from 'react';
 import {StatusBar} from 'expo-status-bar';
-import { View, Text, StyleSheet} from 'react-native';
 
-// import "react-native-gesture-handler";
-// import { NavigationContainer } from '@react-navigation/native';
-// import StackNavigator from './src/navigation/StackNavigator.js';
+import "react-native-gesture-handler";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import {enableScreens} from 'react-native-screens';
 
-import CustomButton from './src/component/CustomButton.js';
-import styles from './src/styles.js';
-import HorizonLine from './src/component/HorizontalLine.js';
+import {default as myPage} from "./src/screens/myPage.js";
+import {default as loginPage_1} from "./src/screens/loginPages/loginPage_1.js";
+import {default as loginPage_2} from "./src/screens/loginPages/loginPage_2.js";
+import {default as loginPage_3} from "./src/screens/loginPages/loginPage_3.js";
+import {default as loginPage_4} from "./src/screens/loginPages/loginPage_4.js";
+import {default as editInfo} from "./src/screens/editInfo.js";
+import {default as settings} from "./src/screens/settings.js";
+import {default as reportPage_1} from "./src/screens/reportPages/reportPage_1.js";
+import {default as reportPage_2} from "./src/screens/reportPages/reportPage_2.js";
 
-export default function App() {
+
+enableScreens();
+const stack = createStackNavigator();
+
+
+function App() {
   return (
-    <View>
-        <CustomButton
-        buttonColor={'skyblue'}
-        titleColor={'black'}
-        title={'<'}
-        onPress={()=> {alert('뒤로가기');}}/>
-
-        <Text style={styles.title}>마이 페이지</Text>
-
-      
-      <View>
-        <Text style={styles.content}
-          onPress={() => {alert('로인/회원가입');}}>&gt; 로그인/회원가입
-        </Text>
-        <Text style={styles.content}
-          onPress={() => {alert('회원 정보 수정');}}>&gt; 회원 정보 수정
-        </Text>
-        <Text  style={styles.content}
-         onPress={() => {alert('앱 설정 관리');}}>&gt; 앱 설정 관리
-        </Text>
-        <Text  style={styles.content}
-          onPress={() => {alert('제보하기');}}>&gt; 제보하기
-        </Text>
-      </View>
-
-
-    </View> //container
+    <NavigationContainer>
+      <stack.Navigator initialRouteName = "myPage">
+        <stack.Screen name="myPage" component={myPage}/>
+        <stack.Screen name="loginPage_1" component={loginPage_1}/>
+        <stack.Screen name="loginPage_2" component={loginPage_2}/>
+        <stack.Screen name="loginPage_3" component={loginPage_3}/>
+        <stack.Screen name="loginPage_4" component={loginPage_4}/>
+        <stack.Screen name="editInfo" component={editInfo}/>
+        <stack.Screen name="settings" component={settings}/>
+        <stack.Screen name="reportPage_1" component={reportPage_1}/>
+      </stack.Navigator>
+    </NavigationContainer>
   );//return
 }
 
-
-const appstyles = StyleSheet.create({
-  title: {
-    //marginTop: 30,
-    marginLeft: 20,
-    fontSize: 30,
-    fontWeight: 'bold',
-    //textAlign: 'left',
-  },
-  content: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-});
+export default App;

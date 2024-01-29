@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 
-function settings() {
+const settings=({navigation})=> {
   return (
     <View>
       <Button
@@ -11,3 +11,5 @@ function settings() {
     </View>
   );
 }
+
+export default settings

@@ -8,9 +8,8 @@ const HorizonLine = ({ text }) => {
       style={{
         width: "100%",
         textAlign: "center",
-       // borderBottom: "1px solid #aa",
         lineHeight: 1,
-        margin: 20,
+        margin: 10,
       }}
     >
       <Text style={{padding: 10 }}>{text}</Text>

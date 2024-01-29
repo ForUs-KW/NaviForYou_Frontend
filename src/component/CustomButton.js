@@ -9,8 +9,10 @@ export default class CustomButton extends Component{
     static defaultProps = {
         title: 'untitled',
         buttonColor: 'blue',
+        buttonWidth: '15%',
         borderRad: 10,
         titleColor: 'black',
+        titleSize: 30,
         onPress: () => null,
       }
 
@@ -23,12 +25,14 @@ export default class CustomButton extends Component{
       <TouchableOpacity style={[
         styles.button,
         {backgroundColor: this.props.buttonColor},
-        {borderRadius: this.props.borderRad}
+        {width: this.props.buttonWidth},
+        {borderRadius: this.props.borderRad},
       ]}
       onPress={this.props.onPress}>
         <Text style={[
           styles.buttonText,
-          {color: this.props.titleColor}
+          {color: this.props.titleColor},
+          {fontSize: this.props.titleSize}
         ]}>{this.props.title}</Text>
       </TouchableOpacity>
     )
@@ -44,11 +48,12 @@ const styles = StyleSheet.create({
         width: '15%',
         flexBasis:'auto',
         borderRadius: 10,
-        //marginBottom: 10,
+        alignItems: 'center',
+        marginBottom: 10,
       },
-      buttonText: {
-        color: 'black',
-        fontSize: 30,
-        fontWeight: 'bold',
-      },
+    buttonText: {
+      color: 'black',
+      fontSize: 30,
+      fontWeight: 'bold',
+    },
 });
