@@ -1,8 +1,12 @@
+//로그인 화면
+
 import React from "react";
 import { View, Text, TextInput} from "react-native";
 //import {NaverLogin, getProfile} from "@react-native-seoul/naver-login";
 
 import CustomButton from "../../component/CustomButton.js";
+//import BackBtn from "../../component/backBtn.js";
+import VisibleBtn80 from "../../component/VisibleBtn80.js";
 import styles from '../../style/styles.js';
 import HorizonLine from "../../component/HorizontalLine.js";
 
@@ -44,15 +48,18 @@ const loginPage_1=({navigation})=> {
 
   return (
     <View>
-        <CustomButton
-          buttonColor={'skyblue'}
-          title={'<'}
-          titleSize={30}
-          onPress={()=> navigation.navigate('myPage')}/>
+      <CustomButton
+        buttonColor={'(0, 0, 0, 0)'}
+        buttonWidth={'15%'}
+        borderRad={10}
+        titleColor={'black'}
+        title={'<'}
+        onPress={()=> navigation.navigate('myPage')}/>
+          
 
-      <Text style={styles.title}>로그인</Text>
 
       <View  style={styles.centerItems}>
+        <Text style={styles.title}>로그인</Text>
         <CustomButton
           buttonColor={'skyblue'}
           buttonWidth={'50%'}
@@ -91,12 +98,10 @@ const loginPage_1=({navigation})=> {
       </View>
         
       <View style={styles.centerItems}>
-      <CustomButton
-          buttonColor={'skyblue'}
-          buttonWidth={'50%'}
+
+        <VisibleBtn80
           title={'로그인 하기'}
-          titleColor={'black'}
-          titleSize={18}
+          buttonColor={'skyblue'}
           onPress={()=> {alert('로그인 하기');}}/>
 
         <View style={styles.tabview}>

@@ -8,10 +8,12 @@ const loginPage_2=({navigation})=> {
   return (
     <View>
         <CustomButton
-            buttonColor={'skyblue'}
-            titleColor={'black'}
-            title={'<'}
-            onPress={()=> navigation.navigate('loginPage_1')}/>
+                buttonColor={'(0, 0, 0, 0)'}
+                buttonWidth={'15%'}
+                borderRad={10}
+                titleColor={'black'}
+                title={'<'}
+                onPress={()=> navigation.navigate('loginPage_1')}/>
 
         <Text style={styles.title}>회원가입을 시작합니다</Text>
 

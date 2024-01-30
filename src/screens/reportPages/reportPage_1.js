@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TextInput} from "react-native";
 
+//import BackBtn from "../../component/backBtn.js";
 import CustomButton from "../../component/CustomButton.js";
 import styles from '../../style/styles.js';
 
@@ -8,10 +9,12 @@ const reportPage_1=({navigation})=> {
   return (
     <View>
         <CustomButton
-            buttonColor={'skyblue'}
-            titleColor={'black'}
-            title={'<'}
-            onPress={()=> navigation.navigate('myPage')}/>
+                buttonColor={'(0, 0, 0, 0)'}
+                buttonWidth={'15%'}
+                borderRad={10}
+                titleColor={'black'}
+                title={'<'}
+                onPress={()=> navigation.navigate('myPage')}/>
 
         <Text style={styles.title}>제보하기</Text>
         <Text style={styles.content16}>

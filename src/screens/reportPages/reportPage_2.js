@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, Image} from "react-native";
 
+
 import CustomButton from "../../component/CustomButton.js";
 import styles from '../../style/styles.js';
-import symbolicateStackTrace from "react-native/Libraries/Core/Devtools/symbolicateStackTrace";
 import icon from '../../../assets/icon.png';
 
 const reportPage_2=({navigation})=> {

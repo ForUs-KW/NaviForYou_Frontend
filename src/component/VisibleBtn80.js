@@ -1,18 +1,17 @@
-//CustomButton.js
+//visibleBtn80
 
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, StyleSheet,} from 'react-native';
 
 
-export default class CustomButton extends Component{
+export default class VisibleBtn80 extends Component{
 
     static defaultProps = {
         title: 'untitled',
         buttonColor: 'blue',
-        buttonWidth: '15%',
+        buttonWidth: '80%',
         borderRad: 10,
-        titleColor: 'black',
-        titleSize: 30,
+        titleSize: 20,
         onPress: () => null,
       }
 
@@ -25,13 +24,11 @@ export default class CustomButton extends Component{
       <TouchableOpacity style={[
         styles.button,
         {backgroundColor: this.props.buttonColor},
-        {width: this.props.buttonWidth},
         {borderRadius: this.props.borderRad},
       ]}
       onPress={this.props.onPress}>
         <Text style={[
           styles.buttonText,
-          {color: this.props.titleColor},
           {fontSize: this.props.titleSize}
         ]}>{this.props.title}</Text>
       </TouchableOpacity>
@@ -49,7 +46,7 @@ const styles = StyleSheet.create({
         flexBasis:'auto',
         borderRadius: 10,
         alignItems: 'center',
-        marginBottom: 0,
+        marginBottom: 10,
       },
     buttonText: {
       color: 'black',

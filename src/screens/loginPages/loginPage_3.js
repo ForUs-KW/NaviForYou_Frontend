@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TextInput} from "react-native";
 
+//import BackBtn from "../../component/backBtn.js";
 import CustomButton from "../../component/CustomButton.js";
 import styles from '../../style/styles.js';
 
@@ -8,10 +9,12 @@ const loginPage_3 = ({navigation})=> {
   return (
     <View >
         <CustomButton
-            buttonColor={'skyblue'}
-            titleColor={'black'}
-            title={'<'}
-            onPress={()=> navigation.navigate('loginPage_2')}/>
+                buttonColor={'(0, 0, 0, 0)'}
+                buttonWidth={'15%'}
+                borderRad={10}
+                titleColor={'black'}
+                title={'<'}
+                onPress={()=> navigation.navigate('loginPage_2')}/>
 
         <Text style={styles.title}>정보를 입력해주세요</Text>
 
