@@ -1,21 +1,23 @@
 import React from "react";
-import { View, Text, TextInput} from "react-native";
+import { View, Text, Image} from "react-native";
 
 import CustomButton from "../../component/CustomButton.js";
 import styles from '../../style/styles.js';
+import symbolicateStackTrace from "react-native/Libraries/Core/Devtools/symbolicateStackTrace";
+import icon from '../../../assets/icon.png';
 
 const reportPage_2=({navigation})=> {
   return (
-    <View>
+    <View style={styles.centerItems}>
 
-        <Text style={styles.title}>제보가 접수되었습니다 감사합니다</Text>
-
-        
-
+        <Text style={styles.title}>제보가 접수되었습니다. 감사합니다.</Text>
+        <Image source={icon} style={styles.image}/>
         <CustomButton
             buttonColor={'skyblue'}
-            titleColor={'black'}
+            buttonWidth={'85%'}
             title={'확인'}
+            titleColor={'black'}
+            titleSize={20}
             onPress={()=> navigation.navigate('myPage')}/>
     </View>
   );

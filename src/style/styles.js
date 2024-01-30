@@ -25,6 +25,11 @@ const styles = StyleSheet.create({
       fontSize: 18,
       fontWeight: 'bold',
     },
+    content16: {
+      marginHorizontal:20,
+      marginTop:1,
+      fontSize: 16,
+    },
     content6: {
       marginHorizontal:20,
       marginTop:1,

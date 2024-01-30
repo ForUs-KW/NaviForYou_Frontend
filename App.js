@@ -34,6 +34,7 @@ function App() {
         <stack.Screen name="editInfo" component={editInfo}/>
         <stack.Screen name="settings" component={settings}/>
         <stack.Screen name="reportPage_1" component={reportPage_1}/>
+        <stack.Screen name="reportPage_2" component={reportPage_2}/>
       </stack.Navigator>
     </NavigationContainer>
   );//return
