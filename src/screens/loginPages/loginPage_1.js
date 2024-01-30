@@ -56,7 +56,7 @@ const loginPage_1=({navigation})=> {
 
 
       <View  style={viewStyles.centerItems}>
-        <Text style={textStyles.title1}>로그인</Text>
+        <Text style={textStyles.title2}>로그인</Text>
         <CustomButton
           buttonColor={'white'}
           buttonWidth={'85%'}

@@ -16,6 +16,7 @@ export default class CustomButton extends Component{
         borderRad: 5,
         titleColor: 'black',
         titleSize: 18,
+        
         onPress: () => null,
       }
 

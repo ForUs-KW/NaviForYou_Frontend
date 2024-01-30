@@ -25,13 +25,13 @@ const myPage = ({navigation})=>{
             onPress={() => navigation.navigate('loginPage_1')}>&gt;  로그인/회원가입
         </Text>
         <Text style={textStyles.content20}
-            onPress={() => navigation.navigate('editInfo')}>&gt;  회원 정보 수정
+            onPress={() => navigation.navigate('EditInfo')}>&gt;  회원 정보 수정
         </Text>
         <Text  style={textStyles.content20}
-            onPress={() => navigation.navigate('settings')}>&gt;  앱 설정 관리
+            onPress={() => navigation.navigate('Settings')}>&gt;  앱 설정 관리
         </Text>
         <Text  style={textStyles.content20}
-            onPress={() => navigation.navigate('reportPage_1')}>&gt;  제보하기
+            onPress={() => navigation.navigate('ReportPage_1')}>&gt;  제보하기
         </Text>
       </View>
 

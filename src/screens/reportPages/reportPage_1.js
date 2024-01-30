@@ -6,7 +6,7 @@ import CustomButton from "../../component/CustomButton.js";
 import viewStyles from '../../style/viewStyles.js';
 import textStyles from "../../style/textStyles.js";
 
-const reportPage_1=({navigation})=> {
+const ReportPage_1=({navigation})=> {
   return (
     <View>
         <CustomButton
@@ -24,6 +24,7 @@ const reportPage_1=({navigation})=> {
 
         <View>
             <Text style={textStyles.content20}>장소 유형</Text>
+            
         </View>
         
         <View>
@@ -65,4 +66,4 @@ const reportPage_1=({navigation})=> {
   );
 };
 
-export default reportPage_1
+export default ReportPage_1

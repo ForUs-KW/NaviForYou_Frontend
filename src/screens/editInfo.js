@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 
-const editInfo=({navigation})=> {
+const EditInfo=({navigation})=> {
   return (
     <View>
       <Button
@@ -12,4 +12,4 @@ const editInfo=({navigation})=> {
   );
 }
 
-export default editInfo
+export default EditInfo

@@ -11,10 +11,10 @@ import {default as loginPage_1} from "./src/screens/loginPages/loginPage_1.js";
 import {default as loginPage_2} from "./src/screens/loginPages/loginPage_2.js";
 import {default as loginPage_3} from "./src/screens/loginPages/loginPage_3.js";
 import {default as loginPage_4} from "./src/screens/loginPages/loginPage_4.js";
-import {default as editInfo} from "./src/screens/editInfo.js";
-import {default as settings} from "./src/screens/settings.js";
-import {default as reportPage_1} from "./src/screens/reportPages/reportPage_1.js";
-import {default as reportPage_2} from "./src/screens/reportPages/reportPage_2.js";
+import {default as EditInfo} from "./src/screens/EditInfo.js";
+import {default as Settings} from "./src/screens/Settings.js";
+import {default as ReportPage_1} from "./src/screens/reportPages/ReportPage_1.js";
+import {default as ReportPage_2} from "./src/screens/reportPages/ReportPage_2.js";
 
 
 enableScreens();
@@ -30,10 +30,10 @@ function App() {
         <stack.Screen name="loginPage_2" component={loginPage_2}/>
         <stack.Screen name="loginPage_3" component={loginPage_3}/>
         <stack.Screen name="loginPage_4" component={loginPage_4}/>
-        <stack.Screen name="editInfo" component={editInfo}/>
-        <stack.Screen name="settings" component={settings}/>
-        <stack.Screen name="reportPage_1" component={reportPage_1}/>
-        <stack.Screen name="reportPage_2" component={reportPage_2}/>
+        <stack.Screen name="EditInfo" component={EditInfo}/>
+        <stack.Screen name="Settings" component={Settings}/>
+        <stack.Screen name="ReportPage_1" component={ReportPage_1}/>
+        <stack.Screen name="ReportPage_2" component={ReportPage_2}/>
       </stack.Navigator>
     </NavigationContainer>
   );//return
