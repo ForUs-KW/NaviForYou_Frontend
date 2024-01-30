@@ -18,6 +18,10 @@ const textStyles = StyleSheet.create({
       fontWeight: 'bold',
     },
 
+
+
+
+
     centerText: {
       margin: 12,
       fontSize: 20,

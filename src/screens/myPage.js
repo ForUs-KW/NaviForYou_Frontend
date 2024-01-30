@@ -5,7 +5,6 @@ import { View, Text} from 'react-native';
 
 //import BackBtn from '../component/backBtn.js';
 import CustomButton from "../component/CustomButton.js";
-import styles from '../style/styles.js';
 import textStyles from '../style/textStyles.js';
 
 const myPage = ({navigation})=>{
@@ -14,9 +13,8 @@ const myPage = ({navigation})=>{
         <CustomButton
                 buttonColor={'(0, 0, 0, 0)'}
                 buttonWidth={'15%'}
-                borderRad={10}
-                titleColor={'black'}
                 title={'<'}
+                titleSize={30}
                 onPress={()=> {alert('뒤로가기');}}/>
 
         <Text style={textStyles.title1}>마이 페이지</Text>

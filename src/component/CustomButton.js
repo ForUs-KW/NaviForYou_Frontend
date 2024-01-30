@@ -3,16 +3,18 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, StyleSheet,} from 'react-native';
 
+import textStyles from '../style/textStyles';
+
 
 export default class CustomButton extends Component{
 
     static defaultProps = {
         title: 'untitled',
         buttonColor: 'blue',
-        buttonWidth: '15%',
+        buttonWidth: '85%',
         borderRad: 10,
         titleColor: 'black',
-        titleSize: 30,
+        titleSize: 20,
         onPress: () => null,
       }
 
@@ -30,7 +32,6 @@ export default class CustomButton extends Component{
       ]}
       onPress={this.props.onPress}>
         <Text style={[
-          styles.buttonText,
           {color: this.props.titleColor},
           {fontSize: this.props.titleSize}
         ]}>{this.props.title}</Text>
@@ -50,10 +51,5 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
         marginBottom: 0,
-      },
-    buttonText: {
-      color: 'black',
-      fontSize: 30,
-      fontWeight: 'bold',
-    },
+      }
 });

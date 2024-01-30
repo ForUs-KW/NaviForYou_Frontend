@@ -5,9 +5,8 @@ import { View, Text, TextInput} from "react-native";
 //import {NaverLogin, getProfile} from "@react-native-seoul/naver-login";
 
 import CustomButton from "../../component/CustomButton.js";
-//import BackBtn from "../../component/backBtn.js";
-import VisibleBtn80 from "../../component/VisibleBtn80.js";
-import styles from '../../style/styles.js';
+import textStyles from "../../style/textStyles.js";
+import viewStyles from '../../style/viewStyles.js';
 import HorizonLine from "../../component/HorizontalLine.js";
 
 // const androidKeys = {
@@ -51,26 +50,24 @@ const loginPage_1=({navigation})=> {
       <CustomButton
         buttonColor={'(0, 0, 0, 0)'}
         buttonWidth={'15%'}
-        borderRad={10}
-        titleColor={'black'}
         title={'<'}
+        titleSize={30}
         onPress={()=> navigation.navigate('myPage')}/>
           
 
 
-      <View  style={styles.centerItems}>
-        <Text style={styles.title}>로그인</Text>
+      <View  style={viewStyles.centerItems}>
+        <Text style={textStyles.title1}>로그인</Text>
         <CustomButton
-          buttonColor={'skyblue'}
-          buttonWidth={'50%'}
+          buttonColor={'white'}
+          buttonWidth={'85%'}
           title={'카카오로 시작하기'}
           titleColor={'black'}
-          titleSize={18}
           onPress={()=> {alert('카카오로 시작하기');}}/>
 
         <CustomButton
-          buttonColor={'skyblue'}
-          buttonWidth={'50%'}
+          buttonColor={'white'}
+          buttonWidth={'85%'}
           title={'네이버로 시작하기'}
           titleColor={'black'}
           titleSize={18}
@@ -82,29 +79,29 @@ const loginPage_1=({navigation})=> {
         <HorizonLine text={"또는"}/>
 
       <View>
-        <Text style={styles.content}>세바지 계정으로 로그인하기</Text>
+        <Text style={textStyles.content20}>세바지 계정으로 로그인하기</Text>
 
       <View>
       <TextInput
-          style={styles.textInput}
+          style={viewStyles.textInput}
           onChangeText={(text)=>{this.setState({inputText: text})}}
           placeholder="아이디를 입력해주세요."
         />
         <TextInput
-          style={styles.textInput}
+          style={viewStyles.textInput}
           onChangeText={(text)=>{this.setState({inputText: text})}}
           placeholder="비밀번호를 입력해주세요."
         />
       </View>
         
-      <View style={styles.centerItems}>
+      <View style={viewStyles.centerItems}>
 
-        <VisibleBtn80
+        <CustomButton
           title={'로그인 하기'}
           buttonColor={'skyblue'}
           onPress={()=> {alert('로그인 하기');}}/>
 
-        <View style={styles.tabview}>
+        <View style={viewStyles.tabview}>
           <CustomButton
             buttonColor={'skyblue'}
             buttonWidth={'40%'}

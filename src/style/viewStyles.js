@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native';
 
 
 
-const styles = StyleSheet.create({
+const viewStyles = StyleSheet.create({
     title: {
       marginTop: 10,
       marginBottom: 10,
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
     },
   });
 
-  export default styles;
+  export default viewStyles;
