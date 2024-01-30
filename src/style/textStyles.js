@@ -10,6 +10,11 @@ const textStyles = StyleSheet.create({
         fontSize: 36,
         fontWeight: 'bold',
     },
+    title2: {
+        marginBottom:30,
+        marginHorizontal:30,
+        fontSize: 28,
+    },
     content20: {
         marginVertical:15,
         marginHorizontal:30,
