@@ -11,10 +11,11 @@ export default class CustomButton extends Component{
     static defaultProps = {
         title: 'untitled',
         buttonColor: 'blue',
+        lineWidth: 0,
         buttonWidth: '85%',
-        borderRad: 10,
+        borderRad: 5,
         titleColor: 'black',
-        titleSize: 20,
+        titleSize: 18,
         onPress: () => null,
       }
 
@@ -29,6 +30,7 @@ export default class CustomButton extends Component{
         {backgroundColor: this.props.buttonColor},
         {width: this.props.buttonWidth},
         {borderRadius: this.props.borderRad},
+        {borderWidth: this.props.lineWidth},
       ]}
       onPress={this.props.onPress}>
         <Text style={[
@@ -43,13 +45,12 @@ export default class CustomButton extends Component{
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: 'white',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        width: '15%',
-        flexBasis:'auto',
-        borderRadius: 10,
-        alignItems: 'center',
-        marginBottom: 0,
-      }
+      alignItems: 'center',
+      borderColor:'grey',
+      borderWidth: 1,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      marginBottom: 10,
+      marginHorizontal: 5,
+    }
 });

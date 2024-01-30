@@ -7,7 +7,6 @@ import { View, Text, TextInput} from "react-native";
 import CustomButton from "../../component/CustomButton.js";
 import textStyles from "../../style/textStyles.js";
 import viewStyles from '../../style/viewStyles.js';
-import HorizonLine from "../../component/HorizontalLine.js";
 
 // const androidKeys = {
 //   kConsumerKey: "naver client id",
@@ -61,6 +60,7 @@ const loginPage_1=({navigation})=> {
         <CustomButton
           buttonColor={'white'}
           buttonWidth={'85%'}
+          lineWidth={1}
           title={'카카오로 시작하기'}
           titleColor={'black'}
           onPress={()=> {alert('카카오로 시작하기');}}/>
@@ -68,6 +68,7 @@ const loginPage_1=({navigation})=> {
         <CustomButton
           buttonColor={'white'}
           buttonWidth={'85%'}
+          lineWidth={1}
           title={'네이버로 시작하기'}
           titleColor={'black'}
           titleSize={18}
@@ -76,13 +77,21 @@ const loginPage_1=({navigation})=> {
           // {!!naverToken &&(<Button title="회원정보 가져오기" onPress={getUserProfile}/>)}
         />
       </View>
-        <HorizonLine text={"또는"}/>
+      
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{flex: 1, height: 1.5, backgroundColor: 'grey'}} />
+        <View>
+          <Text style={{margin:20, fontSize:24}}>또는</Text>
+        </View>
+        <View style={{flex: 1, height: 1.5, backgroundColor: 'grey'}} />
+      </View>
+
 
       <View>
         <Text style={textStyles.content20}>세바지 계정으로 로그인하기</Text>
 
-      <View>
-      <TextInput
+      <View style={viewStyles.centerItems}>
+        <TextInput
           style={viewStyles.textInput}
           onChangeText={(text)=>{this.setState({inputText: text})}}
           placeholder="아이디를 입력해주세요."
@@ -98,32 +107,28 @@ const loginPage_1=({navigation})=> {
 
         <CustomButton
           title={'로그인 하기'}
-          buttonColor={'skyblue'}
+          titleColor={'white'}
+          buttonColor={'blue'}
           onPress={()=> {alert('로그인 하기');}}/>
 
         <View style={viewStyles.tabview}>
           <CustomButton
-            buttonColor={'skyblue'}
-            buttonWidth={'40%'}
+            buttonColor={'(0, 0, 0, 0)'}
+            buttonWidth={'41%'}
             title={'회원가입'}
-            titleColor={'black'}
             titleSize={12}
             onPress={()=> navigation.navigate('loginPage_2')}/>
           <CustomButton
-            buttonColor={'skyblue'}
-            buttonWidth={'40%'}
+            buttonColor={'(0, 0, 0, 0)'}
+            buttonWidth={'41%'}
             title={'아이디/비밀번호 찾기'}
-            titleColor={'black'}
             titleSize={12}
             onPress={()=> {alert('아이디/비밀번호 찾기');}}/>
         </View>
         
         <CustomButton
-          buttonColor={'skyblue'}
-          buttonWidth={'50%'}
+          buttonColor={'(0, 0, 0, 0)'}
           title={'회원가입 없이 시작'}
-          titleColor={'black'}
-          titleSize={18}
           onPress={()=> {alert('회원가입 없이 시작');}}/>
       </View>
         

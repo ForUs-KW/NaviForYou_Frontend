@@ -3,7 +3,8 @@ import { View, Text, TextInput} from "react-native";
 
 //import BackBtn from "../../component/backBtn.js";
 import CustomButton from "../../component/CustomButton.js";
-import styles from '../../style/styles.js';
+import viewStyles from '../../style/viewStyles.js';
+import textStyles from "../../style/textStyles.js";
 
 const loginPage_3 = ({navigation})=> {
   return (
@@ -11,17 +12,16 @@ const loginPage_3 = ({navigation})=> {
         <CustomButton
                 buttonColor={'(0, 0, 0, 0)'}
                 buttonWidth={'15%'}
-                borderRad={10}
-                titleColor={'black'}
                 title={'<'}
+                titleSize={30}
                 onPress={()=> navigation.navigate('loginPage_2')}/>
 
-        <Text style={styles.title}>정보를 입력해주세요</Text>
+        <Text style={textStyles.title1}>정보를 입력해주세요</Text>
 
-        <Text style={styles.content}>아이디</Text>
-        <View style={styles.tabview}>
+        <Text style={textStyles.content20}>아이디</Text>
+        <View style={viewStyles.tabview}>
             <TextInput
-                style={styles.textInputShort}
+                style={viewStyles.textInputShort}
                 onChangeText={(text)=>{this.setState({inputText: text})}}
                 placeholder="아이디를 입력해주세요."
             />
@@ -30,33 +30,32 @@ const loginPage_3 = ({navigation})=> {
                 buttonColor={'skyblue'}
                 buttonWidth={'25%'}
                 title={'중복확인'}
-                titleColor={'black'}
                 titleSize={14}
                 onPress={()=> {alert('중복확인');}}/>
         </View>
 
         <View>
-            <Text style={styles.content}>비밀번호</Text>
+            <Text style={textStyles.content20}>비밀번호</Text>
             <TextInput
-                style={styles.textInput}
+                style={viewStyles.textInput}
                 onChangeText={(text)=>{this.setState({inputText: text})}}
                 placeholder="비밀번호를 입력해주세요."
             />
-            <Text style={styles.content6}>8~20자 이내로 영분 대소문자, 숫자, 특수문자를 모두 사용하여 구성</Text>
+            <Text style={textStyles.content6}>8~20자 이내로 영분 대소문자, 숫자, 특수문자를 모두 사용하여 구성</Text>
         
-            <Text style={styles.content}>비밀번호 확인</Text>
+            <Text style={viewStyles.content}>비밀번호 확인</Text>
             <TextInput
-                style={styles.textInput}
+                style={viewStyles.textInput}
                 onChangeText={(text)=>{this.setState({inputText: text})}}
                 placeholder="비밀번호를 입력해주세요."
             />
-            <Text style={styles.content6}>비밀번호가 일치하지 않습니다</Text>
+            <Text style={textStyles.content6}>비밀번호가 일치하지 않습니다</Text>
         </View>
         
-        <Text style={styles.content}>닉네임</Text>
-        <View style={styles.tabview}>
+        <Text style={textStyles.content20}>닉네임</Text>
+        <View style={viewStyles.tabview}>
             <TextInput
-                style={styles.textInputShort}
+                style={viewStyles.textInputShort}
                 onChangeText={(text)=>{this.setState({inputText: text})}}
                 placeholder="비밀번호를 입력해주세요."
             />
@@ -64,17 +63,13 @@ const loginPage_3 = ({navigation})=> {
                 buttonColor={'skyblue'}
                 buttonWidth={'25%'}
                 title={'중복확인'}
-                titleColor={'black'}
                 titleSize={14}
                 onPress={()=> {alert('중복확인');}}/>
         </View>
 
         <CustomButton
             buttonColor={'skyblue'}
-            buttonWidth={'80%'}
             title={'회원가입 완료하기'}
-            titleColor={'black'}
-            titleSize={18}
             onPress={()=> navigation.navigate('loginPage_4')}/>
     </View>
   );

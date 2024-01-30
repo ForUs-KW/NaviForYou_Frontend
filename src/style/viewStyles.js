@@ -6,35 +6,6 @@ import { StyleSheet } from 'react-native';
 
 
 const viewStyles = StyleSheet.create({
-    title: {
-      marginTop: 10,
-      marginBottom: 10,
-      marginHorizontal:20,
-      fontSize: 30,
-      fontWeight: 'bold',
-    },
-    centerText: {
-      margin: 12,
-      fontSize: 20,
-      textAlign: 'center',
-    },
-    content: {
-      marginTop:20,
-      marginBottom:5,
-      marginHorizontal:20,
-      fontSize: 18,
-      fontWeight: 'bold',
-    },
-    content16: {
-      marginHorizontal:20,
-      marginTop:1,
-      fontSize: 16,
-    },
-    content6: {
-      marginHorizontal:20,
-      marginTop:1,
-      fontSize: 12,
-    },
     tabview: {
       flexDirection: "row",
     },
@@ -43,13 +14,14 @@ const viewStyles = StyleSheet.create({
       justifyContent: "center",
     },
     textInput:{
-      marginHorizontal:20,
-      marginVertical:5,
-      paddingHorizontal: 10,
-      height: 40,
-      borderRadius: 10,
-      borderColor: 'gray',
-      borderWidth:1,
+      fontSize: 18,
+      borderRadius: 5,
+      width: '85%',
+      borderColor:'grey',
+      borderWidth: 1,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      marginBottom: 10,
     },
     textInputShort:{
       marginHorizontal:20,
