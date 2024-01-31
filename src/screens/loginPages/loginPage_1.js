@@ -15,6 +15,11 @@ import viewStyles from '../../style/viewStyles.js';
 // };
 
 const LoginPage_1=({navigation})=> {
+
+  //input
+  const [id, onChangeID] = React.useState('입력해주세요');
+  const [pw, onChangePW] = React.useState('입력해주세요');
+
 //   const [naverToken, setNaverToken] = React.useState(null);
 
 // const naverLogin = props => {
@@ -93,13 +98,14 @@ const LoginPage_1=({navigation})=> {
       <View style={viewStyles.centerItems}>
         <TextInput
           style={viewStyles.textInput}
-          onChangeText={(text)=>{this.setState({inputText: text})}}
+          onChangeText={this.onChangeID}
           placeholder="아이디를 입력해주세요."
         />
         <TextInput
           style={viewStyles.textInput}
-          onChangeText={(text)=>{this.setState({inputText: text})}}
+          onChangeText={this.onChangePW}
           placeholder="비밀번호를 입력해주세요."
+          secureTextEntry={true}
         />
       </View>
         
