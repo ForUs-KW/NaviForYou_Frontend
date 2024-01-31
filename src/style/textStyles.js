@@ -23,6 +23,7 @@ const textStyles = StyleSheet.create({
     },
     content16: {
         marginHorizontal:25,
+        marginBottom:15,
         marginTop:1,
         fontSize: 16,
     },
@@ -41,6 +42,11 @@ const textStyles = StyleSheet.create({
       fontSize: 20,
       textAlign: 'center',
     },
+    rightText: {
+        marginHorizontal: 25,
+        fontSize: 16,
+        textAlign: 'right',
+    }
   });
 
   export default textStyles;

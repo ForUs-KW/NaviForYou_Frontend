@@ -16,7 +16,6 @@ export default class CustomButton extends Component{
         borderRad: 5,
         titleColor: 'black',
         titleSize: 18,
-        
         onPress: () => null,
       }
 
@@ -52,6 +51,6 @@ const styles = StyleSheet.create({
       paddingVertical: 10,
       paddingHorizontal: 20,
       marginBottom: 10,
-      marginHorizontal: 5,
+      marginHorizontal: 10,
     }
 });

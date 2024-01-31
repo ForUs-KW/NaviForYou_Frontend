@@ -8,6 +8,7 @@ import { StyleSheet } from 'react-native';
 const viewStyles = StyleSheet.create({
     tabview: {
       flexDirection: "row",
+      justifyContent: "center",
     },
     centerItems: {
       alignItems: "center",
@@ -22,6 +23,7 @@ const viewStyles = StyleSheet.create({
       paddingVertical: 10,
       paddingHorizontal: 25,
       marginBottom: 10,
+      marginHorizontal: 25,
     },
     textInputShort:{
       fontSize:18,
@@ -34,7 +36,6 @@ const viewStyles = StyleSheet.create({
       paddingHorizontal: 10,
       marginLeft:25,
       marginRight:5,
-      marginHorizontal:10,
     },
     textInputLarge:{
       fontSize: 18,
@@ -42,10 +43,21 @@ const viewStyles = StyleSheet.create({
       width: '85%',
       borderColor:'grey',
       borderWidth: 1,
-      paddingVertical: 10,
-      paddingHorizontal: 25,
+      paddingHorizontal: 10,
       marginBottom: 10,
+      marginHorizontal:25,
       height:'30%',
+    },
+    dropdown:{
+      width: '40%',
+      height: 50,
+      borderColor: 'gray',
+      borderWidth: 0.5,
+      borderRadius: 8,
+      paddingHorizontal: 15,
+      marginHorizontal:10,
+      marginVertical:10,
+      backgroundColor:'white',
     },
     image:{
       width: '30%',

@@ -9,8 +9,7 @@ import textStyles from "../../style/textStyles.js";
 const LoginPage_3 = ({navigation})=> {
   return (
     <View >
-        <ScrollView>
-            
+        <ScrollView>  
             <CustomButton
                     buttonColor={'(0, 0, 0, 0)'}
                     buttonWidth={'15%'}

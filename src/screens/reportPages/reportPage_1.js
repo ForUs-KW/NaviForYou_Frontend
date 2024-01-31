@@ -1,72 +1,172 @@
-import React from "react";
-import { View, Text, TextInput} from "react-native";
+import React, {useState} from "react";
+import { View, Text, TextInput, ScrollView} from "react-native";
+import {Dropdown} from 'react-native-element-dropdown';
 
 //import BackBtn from "../../component/backBtn.js";
 import CustomButton from "../../component/CustomButton.js";
 import viewStyles from '../../style/viewStyles.js';
 import textStyles from "../../style/textStyles.js";
 
+const placeTypeL = [
+    {label: '도로', value: 'load'},
+    {label: '건물', value: 'building'},
+    {label: '지하철역', value: 'station'},
+    {label: '장소', value: 'place'},
+    {label: '기타', value: 'etc'}
+];
+const placeTypeLoad = [
+    {label: 'Load1', value: 'load1'},
+    {label: 'Load2', value: 'load2'},
+    {label: 'Load3', value: 'load3'},
+];
+const placeTypeBuilding = [
+    {label: '학교', value: 'school'},
+    {label: '병원', value: 'hospital'},
+    {label: '기타', value: 'etc'},
+];
+const placeTypeStation = [
+    {label: '외부', value: 'outside'},
+    {label: '엘리베이터', value: 'elevator'},
+    {label: '장애인 시설', value: 'facility'},
+];
+const placeTypePlace = [
+    {label: 'place1', value: 'place1'},
+    {label: 'place2', value: 'place2'},
+    {label: 'place3', value: 'place3'},
+];
+const reportType = [
+    {label: 'Item1', value: 'report1'},
+    {label: 'Item2', value: 'report2'},
+    {label: 'Item3', value: 'report3'},
+];
+
 const ReportPage_1=({navigation})=> {
+    const [value, setValue] = useState(null);
+    const [isFocus, setIsFocus] = useState(false);
 
-  return (
-    <View>
-        <CustomButton
-                buttonColor={'(0, 0, 0, 0)'}
-                buttonWidth={'15%'}
-                title={'<'}
-                titleSize={30}
-                onPress={()=> navigation.navigate('MyPage')}/>
 
-        <Text style={textStyles.title1}>제보하기</Text>
-        <Text style={textStyles.content16}>
-            잘못되었거나 추가하고 싶은정보를 제보해주세요
-            세바지는 여러분들의 제보와 함께 발전합니다😊
-        </Text>
+    const setPlaceType = (value)=>{
+        switch(value){
+            case 'load':
+                return placeTypeLoad;
+            case 'building':
+                return placeTypeBuilding;
+            case 'station':
+                return placeTypeStation;
+            case 'place':
+                return placeTypePlace;
+        }
+    };
 
+
+    return (
         <View>
-            <Text style={textStyles.content20}>장소 유형</Text>
+
+            <ScrollView>
+                <CustomButton
+                    buttonColor={'(0, 0, 0, 0)'}
+                    buttonWidth={'15%'}
+                    title={'<'}
+                    titleSize={30}
+                    onPress={()=> navigation.navigate('MyPage')}/>
+
+                <Text style={textStyles.title1}>제보하기</Text>
+                <Text style={textStyles.content16}>
+                    잘못되었거나 추가하고 싶은정보를 제보해주세요
+                    세바지는 여러분들의 제보와 함께 발전합니다😊
+                </Text>
+
+                <View>
+                    <Text style={textStyles.content20}>위치</Text>
+                    <View style={viewStyles.tabview}>
+                        <Dropdown
+                            style={[viewStyles.dropdown, isFocus && { borderColor: 'blue' }]}
+                            data={placeTypeL}
+                            maxHeight={300}
+                            labelField="label"
+                            valueField="value"
+                            placeholder={!isFocus ? '위치' : '...'}
+                            value={value}
+                            onFocus={() => setIsFocus(true)}
+                            onBlur={() => setIsFocus(false)}
+                            onChange={item => {
+                                setValue(item.value);
+                                setIsFocus(false);
+                            }}
+                        />
+                        <Dropdown
+                            style={[viewStyles.dropdown, isFocus && { borderColor: 'blue' }]}
+                            data={placeTypeStation}
+                            maxHeight={300}
+                            labelField="label"
+                            valueField="value"
+                            placeholder={!isFocus ? '상세 정보' : '...'}
+                            value={value}
+                            onFocus={() => setIsFocus(true)}
+                            onBlur={() => setIsFocus(false)}
+                            onChange={item => {
+                                setValue(item.value);
+                                setIsFocus(false);
+                            }}
+                        />
+                    </View>
+                </View>
             
+                <View>
+                    <Text style={textStyles.content20}>위치</Text>
+                    <View style={viewStyles.tabview}>
+                        <CustomButton
+                            buttonColor={'skyblue'}
+                            buttonWidth={'40%'}
+                            title={'위치 입력'}
+                            onPress={()=> {alert('위치 입력');}}/>
+                        <CustomButton
+                            buttonColor={'skyblue'}
+                            buttonWidth={'40%'}
+                            title={'지도에서 선택'}
+                            onPress={()=> {alert('지도에서 선택');}}/>
+                    </View>
+
+
+                    <TextInput
+                        style={viewStyles.textInput}
+                        onChangeText={(text)=>{this.setState({inputText: text})}}
+                        placeholder="위치를 입력해주세요"/>
+                </View>
+
+                <View>
+                    <Text style={textStyles.content20}>제보 내용</Text>
+                    <Dropdown
+                                style={[viewStyles.dropdown, isFocus && { borderColor: 'blue' }]}
+                                data={reportType}
+                                maxHeight={300}
+                                labelField="label"
+                                valueField="value"
+                                placeholder={!isFocus ? '제보 종류' : '...'}
+                                value={value}
+                                onFocus={() => setIsFocus(true)}
+                                onBlur={() => setIsFocus(false)}
+                                onChange={item => {
+                                    setValue(item.value);
+                                    setIsFocus(false);
+                                }}
+                            />
+                    <TextInput
+                        style={viewStyles.textInputLarge}
+                        onChangeText={(text)=>{this.setState({inputText: text})}}
+                        placeholder="제보 내용"/>
+                    <Text style={textStyles.rightText}>00/000 Byte</Text>
+                </View>
+
+                <View style={viewStyles.centerItems}>
+                    <CustomButton
+                        buttonColor={'skyblue'}
+                        title={'제출하기'}
+                        onPress={()=> navigation.navigate('ReportPage_2')}/>
+            </View> 
+            </ScrollView>
         </View>
-        
-        <View>
-            <Text style={textStyles.content20}>위치</Text>
-            <View style={viewStyles.tabview}>
-                <CustomButton
-                    buttonColor={'skyblue'}
-                    buttonWidth={'40%'}
-                    title={'직접입력'}
-                    onPress={()=> {alert('직접입력');}}/>
-                <CustomButton
-                    buttonColor={'skyblue'}
-                    buttonWidth={'40%'}
-                    title={'도로명주소'}
-                    onPress={()=> {alert('도로명주소');}}/>
-            </View>
-
-
-            <TextInput
-                style={viewStyles.textInput}
-                onChangeText={(text)=>{this.setState({inputText: text})}}
-                placeholder="위치를 입력해주세요"/>
-        </View>
-        
-
-        <View>
-            <Text style={textStyles.content20}>제보 내용</Text>
-            <TextInput
-                style={viewStyles.textInput}
-                onChangeText={(text)=>{this.setState({inputText: text})}}
-                placeholder="제보 내용"/>
-            <Text style={textStyles.content20}>00/000 Byte</Text>
-        </View>
-
-        <CustomButton
-            buttonColor={'skyblue'}
-            title={'제출하기'}
-            onPress={()=> navigation.navigate('ReportPage_2')}/>
-        
-    </View>
-  );
+    );
 };
 
 export default ReportPage_1
