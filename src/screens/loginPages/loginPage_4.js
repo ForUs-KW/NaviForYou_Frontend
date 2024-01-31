@@ -1,3 +1,5 @@
+//세바지 회원가입 완료
+
 import React from "react";
 import { View, Text, Image} from "react-native";
 

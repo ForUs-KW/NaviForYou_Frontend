@@ -1,3 +1,5 @@
+//완료 알림 페이지
+
 import React from "react";
 import { View, Text, Image} from "react-native";
 

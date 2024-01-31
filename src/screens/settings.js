@@ -1,3 +1,4 @@
+//앱 설정 관리
 import React from "react";
 import { View, Text, Button } from "react-native";
 

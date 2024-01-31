@@ -1,4 +1,4 @@
-//로그인 화면
+//로그인/가입 방법 선택 화면
 
 import React from "react";
 import { View, Text, TextInput} from "react-native";

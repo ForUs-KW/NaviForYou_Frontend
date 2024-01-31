@@ -1,4 +1,4 @@
-//약관동의
+//세바지 가입 약관 동의
 
 import React, {useState, useEffect} from "react";
 import { View, Text} from "react-native";

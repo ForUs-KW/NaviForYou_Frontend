@@ -1,3 +1,5 @@
+// 세바지 회원가입 페이지
+
 import React from "react";
 import { View, Text, TextInput, ScrollView} from "react-native";
 
