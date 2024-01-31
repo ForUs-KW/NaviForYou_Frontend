@@ -1,62 +1,45 @@
-import React, {useState} from "react";
+//제보하기 페이지
+
+import React, {useState, setState} from "react";
 import { View, Text, TextInput, ScrollView} from "react-native";
 import {Dropdown} from 'react-native-element-dropdown';
+//https://github.com/hoaphantn7604/react-native-element-dropdown
 
 //import BackBtn from "../../component/backBtn.js";
 import CustomButton from "../../component/CustomButton.js";
 import viewStyles from '../../style/viewStyles.js';
 import textStyles from "../../style/textStyles.js";
 
-const placeTypeL = [
-    {label: '도로', value: 'load'},
-    {label: '건물', value: 'building'},
-    {label: '지하철역', value: 'station'},
-    {label: '장소', value: 'place'},
-    {label: '기타', value: 'etc'}
-];
-const placeTypeLoad = [
-    {label: 'Load1', value: 'load1'},
-    {label: 'Load2', value: 'load2'},
-    {label: 'Load3', value: 'load3'},
-];
-const placeTypeBuilding = [
-    {label: '학교', value: 'school'},
-    {label: '병원', value: 'hospital'},
-    {label: '기타', value: 'etc'},
-];
-const placeTypeStation = [
-    {label: '외부', value: 'outside'},
-    {label: '엘리베이터', value: 'elevator'},
-    {label: '장애인 시설', value: 'facility'},
-];
-const placeTypePlace = [
-    {label: 'place1', value: 'place1'},
-    {label: 'place2', value: 'place2'},
-    {label: 'place3', value: 'place3'},
-];
-const reportType = [
-    {label: 'Item1', value: 'report1'},
-    {label: 'Item2', value: 'report2'},
-    {label: 'Item3', value: 'report3'},
-];
+const placeTypeL = [{label: '도로', value: 'load'},{label: '건물', value: 'building'},{label: '지하철역', value: 'station'},{label: '장소', value: 'place'},{label: '기타', value: 'etc'}];
+const placeTypeLoad = [{label: 'Load1', value: 'load1'},{label: 'Load2', value: 'load2'},{label: 'Load3', value: 'load3'},];
+const placeTypeBuilding = [{label: '학교', value: 'school'},{label: '병원', value: 'hospital'},{label: '기타', value: 'etc'},];
+const placeTypeStation = [{label: '외부', value: 'outside'},{label: '엘리베이터', value: 'elevator'},{label: '장애인 시설', value: 'facility'},];
+const placeTypePlace = [{label: 'place1', value: 'place1'},{label: 'place2', value: 'place2'},{label: 'place3', value: 'place3'},];
+const reportType = [{label: 'Item1', value: 'report1'},{label: 'Item2', value: 'report2'},{label: 'Item3', value: 'report3'},];
+
+
 
 const ReportPage_1=({navigation})=> {
+    //input
+    const [location, onChangeLocation] = React.useState('입력해주세요');
+    const [content, onChangeContent] = React.useState('입력해주세요');
+
+    //Dropdown
     const [value, setValue] = useState(null);
     const [isFocus, setIsFocus] = useState(false);
 
-
-    const setPlaceType = (value)=>{
-        switch(value){
-            case 'load':
-                return placeTypeLoad;
-            case 'building':
-                return placeTypeBuilding;
-            case 'station':
-                return placeTypeStation;
-            case 'place':
-                return placeTypePlace;
-        }
-    };
+    // const setPlaceType = (value)=>{
+    //     switch(value){
+    //         case 'load':
+    //             return placeTypeLoad;
+    //         case 'building':
+    //             return placeTypeBuilding;
+    //         case 'station':
+    //             return placeTypeStation;
+    //         case 'place':
+    //             return placeTypePlace;
+    //     }
+    // };
 
 
     return (
@@ -130,7 +113,7 @@ const ReportPage_1=({navigation})=> {
 
                     <TextInput
                         style={viewStyles.textInput}
-                        onChangeText={(text)=>{this.setState({inputText: text})}}
+                        onChangeText={onChangeLocation}
                         placeholder="위치를 입력해주세요"/>
                 </View>
 
@@ -153,7 +136,7 @@ const ReportPage_1=({navigation})=> {
                             />
                     <TextInput
                         style={viewStyles.textInputLarge}
-                        onChangeText={(text)=>{this.setState({inputText: text})}}
+                        onChangeText={onChangeContent}
                         placeholder="제보 내용"/>
                     <Text style={textStyles.rightText}>00/000 Byte</Text>
                 </View>
