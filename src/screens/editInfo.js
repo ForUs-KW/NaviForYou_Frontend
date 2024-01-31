@@ -6,7 +6,7 @@ const EditInfo=({navigation})=> {
     <View>
       <Button
         title="회원 정보 수정"
-        onPress={()=> navigation.navigate('myPage')}
+        onPress={()=> navigation.navigate('MyPage')}
         />
     </View>
   );

@@ -6,7 +6,7 @@ import CustomButton from "../../component/CustomButton.js";
 import viewStyles from '../../style/viewStyles.js';
 import textStyles from "../../style/textStyles.js";
 
-const loginPage_3 = ({navigation})=> {
+const LoginPage_3 = ({navigation})=> {
   return (
     <View >
         <ScrollView>
@@ -16,7 +16,7 @@ const loginPage_3 = ({navigation})=> {
                     buttonWidth={'15%'}
                     title={'<'}
                     titleSize={30}
-                    onPress={()=> navigation.navigate('loginPage_2')}/>
+                    onPress={()=> navigation.navigate('LoginPage_2')}/>
 
             <Text style={textStyles.title2}>정보를 입력해주세요</Text>
 
@@ -80,11 +80,11 @@ const loginPage_3 = ({navigation})=> {
                 <CustomButton
                     buttonColor={'lightgrey'}
                     title={'회원가입 완료하기'}
-                    onPress={()=> navigation.navigate('loginPage_4')}/>
+                    onPress={()=> navigation.navigate('LoginPage_4')}/>
             </View>
         </ScrollView>
     </View>
   );
 };
 
-export default loginPage_3
+export default LoginPage_3

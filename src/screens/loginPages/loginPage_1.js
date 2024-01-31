@@ -14,7 +14,7 @@ import viewStyles from '../../style/viewStyles.js';
 //   kServiceAppName: "세바지"
 // };
 
-const loginPage_1=({navigation})=> {
+const LoginPage_1=({navigation})=> {
 //   const [naverToken, setNaverToken] = React.useState(null);
 
 // const naverLogin = props => {
@@ -51,7 +51,7 @@ const loginPage_1=({navigation})=> {
         buttonWidth={'15%'}
         title={'<'}
         titleSize={30}
-        onPress={()=> navigation.navigate('myPage')}/>
+        onPress={()=> navigation.navigate('MyPage')}/>
           
 
 
@@ -117,7 +117,7 @@ const loginPage_1=({navigation})=> {
             buttonWidth={'41%'}
             title={'회원가입'}
             titleSize={12}
-            onPress={()=> navigation.navigate('loginPage_2')}/>
+            onPress={()=> navigation.navigate('LoginPage_2')}/>
           <CustomButton
             buttonColor={'(0, 0, 0, 0)'}
             buttonWidth={'41%'}
@@ -138,4 +138,4 @@ const loginPage_1=({navigation})=> {
   );
 };
 
-export default loginPage_1
+export default LoginPage_1

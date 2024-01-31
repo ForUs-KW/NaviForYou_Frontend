@@ -7,7 +7,7 @@ import { View, Text} from 'react-native';
 import CustomButton from "../component/CustomButton.js";
 import textStyles from '../style/textStyles.js';
 
-const myPage = ({navigation})=>{
+const MyPage = ({navigation})=>{
   return (
     <View>
         <CustomButton
@@ -22,7 +22,7 @@ const myPage = ({navigation})=>{
       
       <View>
         <Text style={textStyles.content20}
-            onPress={() => navigation.navigate('loginPage_1')}>&gt;  로그인/회원가입
+            onPress={() => navigation.navigate('LoginPage_1')}>&gt;  로그인/회원가입
         </Text>
         <Text style={textStyles.content20}
             onPress={() => navigation.navigate('EditInfo')}>&gt;  회원 정보 수정
@@ -40,4 +40,4 @@ const myPage = ({navigation})=>{
   );//return
 };
 
-export default myPage
+export default MyPage

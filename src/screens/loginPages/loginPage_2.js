@@ -9,7 +9,7 @@ import CustomButton from "../../component/CustomButton.js";
 import viewStyles from '../../style/viewStyles.js';
 import textStyles from "../../style/textStyles.js";
 
-const loginPage_2=({navigation})=> {
+const LoginPage_2=({navigation})=> {
     const [allCheck, setAllCheck] = useState(false);
     const [item1, setItem1Check] = useState(false);
     const [item2, setItem2Check] = useState(false);
@@ -45,7 +45,7 @@ const loginPage_2=({navigation})=> {
                 buttonWidth={'15%'}
                 title={'<'}
                 titleSize={30}
-                onPress={()=> navigation.navigate('loginPage_1')}/>
+                onPress={()=> navigation.navigate('LoginPage_1')}/>
 
         <Text style={textStyles.title2}>약관 동의</Text>
 
@@ -77,10 +77,10 @@ const loginPage_2=({navigation})=> {
             <CustomButton
                     buttonColor={'lightgrey'}
                     title={'다음'}
-                    onPress={()=> navigation.navigate('loginPage_3')}/>
+                    onPress={()=> navigation.navigate('LoginPage_3')}/>
         </View>
     </View>
   );
 };
 
-export default loginPage_2
+export default LoginPage_2

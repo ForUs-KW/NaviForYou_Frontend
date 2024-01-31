@@ -17,7 +17,7 @@ const ReportPage_2=({navigation})=> {
         <CustomButton
             buttonColor={'skyblue'}
             title={'돌아가기'}
-            onPress={()=> navigation.navigate('myPage')}/>
+            onPress={()=> navigation.navigate('MyPage')}/>
     </View>
   );
 };

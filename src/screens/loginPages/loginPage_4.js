@@ -6,7 +6,7 @@ import viewStyles from '../../style/viewStyles.js';
 import textStyles from "../../style/textStyles.js";
 import icon from '../../../assets/icon.png';
 
-const loginPage_4=({navigation})=> {
+const LoginPage_4=({navigation})=> {
   return (
     <View style={viewStyles.centerItems}>
         <Text style={textStyles.title2}>세바지에 온 걸 환영해요</Text>
@@ -14,9 +14,9 @@ const loginPage_4=({navigation})=> {
         <CustomButton
             buttonColor={'skyblue'}
             title={'시작하기'}
-            onPress={()=> navigation.navigate('myPage')}/>
+            onPress={()=> navigation.navigate('MyPage')}/>
     </View>
   );
 };
 
-export default loginPage_4
+export default LoginPage_4

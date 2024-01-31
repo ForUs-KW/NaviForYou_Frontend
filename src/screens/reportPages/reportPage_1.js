@@ -7,6 +7,7 @@ import viewStyles from '../../style/viewStyles.js';
 import textStyles from "../../style/textStyles.js";
 
 const ReportPage_1=({navigation})=> {
+
   return (
     <View>
         <CustomButton
@@ -14,7 +15,7 @@ const ReportPage_1=({navigation})=> {
                 buttonWidth={'15%'}
                 title={'<'}
                 titleSize={30}
-                onPress={()=> navigation.navigate('myPage')}/>
+                onPress={()=> navigation.navigate('MyPage')}/>
 
         <Text style={textStyles.title1}>제보하기</Text>
         <Text style={textStyles.content16}>
@@ -41,6 +42,8 @@ const ReportPage_1=({navigation})=> {
                     title={'도로명주소'}
                     onPress={()=> {alert('도로명주소');}}/>
             </View>
+
+
             <TextInput
                 style={viewStyles.textInput}
                 onChangeText={(text)=>{this.setState({inputText: text})}}
@@ -60,7 +63,7 @@ const ReportPage_1=({navigation})=> {
         <CustomButton
             buttonColor={'skyblue'}
             title={'제출하기'}
-            onPress={()=> navigation.navigate('reportPage_2')}/>
+            onPress={()=> navigation.navigate('ReportPage_2')}/>
         
     </View>
   );

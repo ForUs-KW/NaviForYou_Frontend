@@ -6,7 +6,7 @@ const Settings=({navigation})=> {
     <View>
       <Button
         title="앱 설정 관리"
-        onPress={()=> navigation.navigate('myPage')}
+        onPress={()=> navigation.navigate('MyPage')}
         />
     </View>
   );
