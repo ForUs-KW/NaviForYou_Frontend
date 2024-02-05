@@ -2,7 +2,6 @@
 
 import React, {useState, useEffect} from "react";
 import { View, Text} from "react-native";
-//import CheckBox from '@react-native-community/checkbox';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 import CustomButton from "../../component/CustomButton.js";

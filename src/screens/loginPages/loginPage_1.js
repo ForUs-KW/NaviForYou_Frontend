@@ -135,7 +135,7 @@ const LoginPage_1=({navigation})=> {
         <CustomButton
           buttonColor={'(0, 0, 0, 0)'}
           title={'회원가입 없이 시작'}
-          onPress={()=> {alert('회원가입 없이 시작');}}/>
+          onPress={()=> {alert('지도 페이지로 이동');}}/>
       </View>
         
 
