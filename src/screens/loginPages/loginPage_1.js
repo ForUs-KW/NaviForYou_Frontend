@@ -84,6 +84,8 @@ const LoginPage_1=({navigation})=> {
           onChangeText={(text)=>onChangeID(text)}
           placeholder="아이디를 입력해주세요."
           onBlur={() => handleLogin()}
+          autoCapitalize="none" //대문자 방지
+          inputMode="email"
         />
         {idError !== '' && <Text style={textStyles.errorText}>{idError}</Text>}
 
@@ -93,6 +95,7 @@ const LoginPage_1=({navigation})=> {
           placeholder="비밀번호를 입력해주세요."
           secureTextEntry={true}
           onBlur={() => handleLogin()}
+          autoCapitalize="none"
         />
         {pwError !== '' && <Text style={textStyles.errorText}>{pwError}</Text>}
       </View>
