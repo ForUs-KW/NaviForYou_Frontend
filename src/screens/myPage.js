@@ -25,7 +25,7 @@ const MyPage = ({navigation})=>{
             onPress={() => navigation.navigate('LoginPage_1')}>&gt;  로그인/회원가입
         </Text>
         <Text style={textStyles.content20}
-            onPress={() => navigation.navigate('EditInfo')}>&gt;  회원 정보 수정
+            onPress={() => navigation.navigate('EditInfo')}>&gt;  회원 정보
         </Text>
         <Text  style={textStyles.content20}
             onPress={() => navigation.navigate('Settings')}>&gt;  앱 설정 관리

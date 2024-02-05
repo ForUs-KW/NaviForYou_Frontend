@@ -1,63 +1,51 @@
 //로그인/가입 방법 선택 화면
 
 import React from "react";
-import { View, Text, TextInput} from "react-native";
-//import {NaverLogin, getProfile} from "@react-native-seoul/naver-login";
+import { View, Text, TextInput, SafeAreaView} from "react-native";
 
 import CustomButton from "../../component/CustomButton.js";
 import textStyles from "../../style/textStyles.js";
 import viewStyles from '../../style/viewStyles.js';
 
-// const androidKeys = {
-//   kConsumerKey: "naver client id",
-//   kConsumerSecret: "naver secret id",
-//   kServiceAppName: "세바지"
-// };
+const isValidEmail = (email)=>{
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
 
 const LoginPage_1=({navigation})=> {
 
   //input
-  const [id, onChangeID] = React.useState('입력해주세요');
-  const [pw, onChangePW] = React.useState('입력해주세요');
+  const [id, onChangeID] = React.useState('');
+  const [pw, onChangePW] = React.useState('');
+  const [idError, setIdError] = React.useState('');
+  const [pwError, setPwError] = React.useState('');
+  const handleLogin = () => {
+    // Validate ID and Password
+    if (!id) {
+      setIdError('아이디를 입력하세요.');
+    } else if(!isValidEmail(id)){
+      setIdError('올바른 형식이 아닙니다.');
+    }
+    else {
+      setIdError('');
+    }
 
-//   const [naverToken, setNaverToken] = React.useState(null);
+    if (!pw) {
+      setPwError('비밀번호가 올바르지 않습니다');
+    } else {
+      setPwError('');
+    }
 
-// const naverLogin = props => {
-//   return new Promise((resolve, reject)=>{
-//       NaverLogin.login(props, (err, token)=> {
-//         console.log('\n\n Token is fetched :: ${token}\n\n');
-//         setNaverToken(token);
-//         if(err){
-//           reject(err);
-//           return;
-//         }
-//       });
-//     });
-//   };//naver login
-
-  // const naverLogout=()=>{
-  //   NaverLogin.logout();
-  //   setNaverToken("");
-  // };
-
-  // const getUserProfile = async()=>{
-  //   const profileResult = await getProfile(naverToken.accessToken);
-  //   if (profileResult.resultcode === "024"){
-  //     Alert.alert("로그인 실패", profileResult.message);
-  //     return;
-  //   }
-  //   console.log("profileResult", profileResult);
-  // };
+  };
 
   return (
-    <View>
+    <SafeAreaView>
       <CustomButton
         buttonColor={'(0, 0, 0, 0)'}
         buttonWidth={'15%'}
         title={'<'}
         titleSize={30}
         onPress={()=> navigation.navigate('MyPage')}/>
-          
 
 
       <View  style={viewStyles.centerItems}>
@@ -68,7 +56,7 @@ const LoginPage_1=({navigation})=> {
           lineWidth={1}
           title={'카카오로 시작하기'}
           titleColor={'black'}
-          onPress={()=> {alert('카카오로 시작하기');}}/>
+          onPress={()=> {alert('카카오 api 연결');}}/>
 
         <CustomButton
           buttonColor={'white'}
@@ -77,17 +65,12 @@ const LoginPage_1=({navigation})=> {
           title={'네이버로 시작하기'}
           titleColor={'black'}
           titleSize={18}
-          // onPress={()=> naverLogin(initials)}/>
-          // {!!naverToken && <Button title="로그아웃하기" onPress={naverLogout}/>}
-          // {!!naverToken &&(<Button title="회원정보 가져오기" onPress={getUserProfile}/>)}
         />
       </View>
       
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <View style={{flex: 1, height: 1.5, backgroundColor: 'grey'}} />
-        <View>
           <Text style={{margin:20, fontSize:24}}>또는</Text>
-        </View>
         <View style={{flex: 1, height: 1.5, backgroundColor: 'grey'}} />
       </View>
 
@@ -98,15 +81,20 @@ const LoginPage_1=({navigation})=> {
       <View style={viewStyles.centerItems}>
         <TextInput
           style={viewStyles.textInput}
-          onChangeText={this.onChangeID}
+          onChangeText={(text)=>onChangeID(text)}
           placeholder="아이디를 입력해주세요."
+          onBlur={() => handleLogin()}
         />
+        {idError !== '' && <Text style={textStyles.errorText}>{idError}</Text>}
+
         <TextInput
           style={viewStyles.textInput}
           onChangeText={this.onChangePW}
           placeholder="비밀번호를 입력해주세요."
           secureTextEntry={true}
+          onBlur={() => handleLogin()}
         />
+        {pwError !== '' && <Text style={textStyles.errorText}>{pwError}</Text>}
       </View>
         
       <View style={viewStyles.centerItems}>
@@ -140,7 +128,7 @@ const LoginPage_1=({navigation})=> {
         
 
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -76,7 +76,6 @@ const ReportPage_1=({navigation})=> {
                             onChange={item => {
                                 setValue(item.value);
                                 setIsFocus(false);
-                                
                             }}
                         />
                         {/* <Dropdown
@@ -130,20 +129,20 @@ const ReportPage_1=({navigation})=> {
                 <View>
                     <Text style={textStyles.content20}>제보 내용</Text>
                     <Dropdown
-                                style={[viewStyles.dropdown, isFocus && { borderColor: 'blue' }]}
-                                data={reportType}
-                                maxHeight={300}
-                                labelField="label"
-                                valueField="value"
-                                placeholder={'제보 종류'}
-                                value={value}
-                                onFocus={() => setIsFocus(true)}
-                                onBlur={() => setIsFocus(false)}
-                                onChange={item => {
-                                    setValue(item.value);
-                                    setIsFocus(false);
-                                }}
-                            />
+                        style={[viewStyles.dropdown, isFocus && { borderColor: 'blue' }]}
+                        data={reportType}
+                        maxHeight={300}
+                        labelField="label"
+                        valueField="value"
+                        placeholder={'제보 종류'}
+                        value={value}
+                        onFocus={() => setIsFocus(true)}
+                        onBlur={() => setIsFocus(false)}
+                        onChange={item => {
+                            setValue(item.value);
+                            setIsFocus(false);
+                        }}
+                    />
                     <TextInput
                         style={viewStyles.textInputLarge}
                         onChangeText={onChangeContent}
