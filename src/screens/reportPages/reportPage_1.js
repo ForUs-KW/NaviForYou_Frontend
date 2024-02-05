@@ -25,8 +25,8 @@ const ReportPage_1=({navigation})=> {
     const [content, onChangeContent] = React.useState('입력해주세요');
 
     //Dropdown
-    const [value, setValue] = useState(null);
-    const [isFocus, setIsFocus] = useState(false);
+    const [placeTypeValue, setPlaceTypeValue] = React.useState(null);
+    const [reportTypeValue, setReportTypeValue] = React.useState(null);
 
     // const setPlaceType = (value)=>{
     //     switch(value){
@@ -43,7 +43,7 @@ const ReportPage_1=({navigation})=> {
 
 
     return (
-        <ScrollView>
+        <ScrollView style={{flex:1}}>
             <View>
                 <CustomButton
                     buttonColor={'(0, 0, 0, 0)'}
@@ -64,21 +64,21 @@ const ReportPage_1=({navigation})=> {
                     <Text style={textStyles.content20}>장소</Text>
                     <View>
                         <Dropdown
-                            style={[viewStyles.dropdown, isFocus && { borderColor: 'blue' }]}
+                            style={[viewStyles.dropdown, placeTypeValue && { borderColor: 'blue' }]}
                             data={placeTypeL}
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
                             placeholder={'종류'}
-                            value={value}
-                            onFocus={() => setIsFocus(true)}
-                            onBlur={() => setIsFocus(false)}
+                            value={placeTypeValue}
+                            onFocus={() => setReportTypeValue(null)} //Unselect report dropdown
+                            onBlur={() => setPlaceTypeValue(placeTypeValue)}
                             onChange={item => {
-                                setValue(item.value);
-                                setIsFocus(false);
+                                setPlaceTypeValue(item.value);
+                                setReportTypeValue(null);
                             }}
                         />
-                        {/* <Dropdown
+                        {/* <Dropdown 소분류
                             style={[viewStyles.dropdown, isFocus && { borderColor: 'blue' }]}
                             data={placeTypeStation}
                             maxHeight={300}
@@ -129,18 +129,18 @@ const ReportPage_1=({navigation})=> {
                 <View>
                     <Text style={textStyles.content20}>제보 내용</Text>
                     <Dropdown
-                        style={[viewStyles.dropdown, isFocus && { borderColor: 'blue' }]}
+                        style={[viewStyles.dropdown, reportTypeValue && { borderColor: 'blue' }]}
                         data={reportType}
                         maxHeight={300}
                         labelField="label"
                         valueField="value"
                         placeholder={'제보 종류'}
-                        value={value}
-                        onFocus={() => setIsFocus(true)}
-                        onBlur={() => setIsFocus(false)}
+                        value={reportTypeValue}
+                        onFocus={() => setPlaceTypeValue(null)}
+                        onBlur={() => setReportTypeValue(reportTypeValue)}
                         onChange={item => {
-                            setValue(item.value);
-                            setIsFocus(false);
+                            setReportTypeValue(item.value);
+                            setPlaceTypeValue(null);
                         }}
                     />
                     <TextInput

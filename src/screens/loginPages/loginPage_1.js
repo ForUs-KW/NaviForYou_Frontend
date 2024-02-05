@@ -86,6 +86,8 @@ const LoginPage_1=({navigation})=> {
           onBlur={() => handleLogin()}
           autoCapitalize="none" //대문자 방지
           inputMode="email"
+          returnKeyType="next"//애뮬레이터or모바일 확인 필요
+          
         />
         {idError !== '' && <Text style={textStyles.errorText}>{idError}</Text>}
 
@@ -96,6 +98,7 @@ const LoginPage_1=({navigation})=> {
           secureTextEntry={true}
           onBlur={() => handleLogin()}
           autoCapitalize="none"
+          returnKeyType="send"//애뮬레이터or모바일 확인 필요
         />
         {pwError !== '' && <Text style={textStyles.errorText}>{pwError}</Text>}
       </View>
