@@ -5,22 +5,22 @@ import { View, Text, TextInput, ScrollView} from "react-native";
 import {Dropdown} from 'react-native-element-dropdown';
 //https://github.com/hoaphantn7604/react-native-element-dropdown
 
-//import BackBtn from "../../component/backBtn.js";
 import CustomButton from "../../component/CustomButton.js";
 import viewStyles from '../../style/viewStyles.js';
 import textStyles from "../../style/textStyles.js";
 
-const placeTypeL = [{label: '도로', value: 'load'},{label: '건물', value: 'building'},{label: '지하철역', value: 'station'},{label: '장소', value: 'place'},{label: '기타', value: 'etc'}];
-const placeTypeLoad = [{label: 'Load1', value: 'load1'},{label: 'Load2', value: 'load2'},{label: 'Load3', value: 'load3'},];
-const placeTypeBuilding = [{label: '학교', value: 'school'},{label: '병원', value: 'hospital'},{label: '기타', value: 'etc'},];
-const placeTypeStation = [{label: '외부', value: 'outside'},{label: '엘리베이터', value: 'elevator'},{label: '장애인 시설', value: 'facility'},];
-const placeTypePlace = [{label: 'place1', value: 'place1'},{label: 'place2', value: 'place2'},{label: 'place3', value: 'place3'},];
+const placeTypeL = [{label: '도로', value: 'load'},{label: '건물', value: 'building'},{label: '지하철역', value: 'station'},{label: '공원', value: 'park'},{label: '기타', value: 'etc'}];
+// 이렇게까지 세분화시킬 필요가 있을까요
+// const placeTypeLoad = [{label: 'Load1', value: 'load1'},{label: 'Load2', value: 'load2'},{label: 'Load3', value: 'load3'},];
+// const placeTypeBuilding = [{label: '학교', value: 'school'},{label: '병원', value: 'hospital'},{label: '기타', value: 'etc'},];
+// const placeTypeStation = [{label: '외부', value: 'outside'},{label: '엘리베이터', value: 'elevator'},{label: '장애인 시설', value: 'facility'},];
+// const placeTypePlace = [{label: 'place1', value: 'place1'},{label: 'place2', value: 'place2'},{label: 'place3', value: 'place3'},];
 const reportType = [{label: 'Item1', value: 'report1'},{label: 'Item2', value: 'report2'},{label: 'Item3', value: 'report3'},];
 
 
 
 const ReportPage_1=({navigation})=> {
-    //input
+    //Textinput
     const [location, onChangeLocation] = React.useState('입력해주세요');
     const [content, onChangeContent] = React.useState('입력해주세요');
 
@@ -43,9 +43,8 @@ const ReportPage_1=({navigation})=> {
 
 
     return (
-        <View>
-
-            <ScrollView>
+        <ScrollView>
+            <View>
                 <CustomButton
                     buttonColor={'(0, 0, 0, 0)'}
                     buttonWidth={'15%'}
@@ -53,37 +52,40 @@ const ReportPage_1=({navigation})=> {
                     titleSize={30}
                     onPress={()=> navigation.navigate('MyPage')}/>
 
-                <Text style={textStyles.title1}>제보하기</Text>
-                <Text style={textStyles.content16}>
-                    잘못되었거나 추가하고 싶은정보를 제보해주세요
-                    세바지는 여러분들의 제보와 함께 발전합니다😊
-                </Text>
+                <View>
+                    <Text style={textStyles.title1}>제보하기</Text>
+                    <Text style={textStyles.content16}>
+                        잘못되었거나 추가하고 싶은정보를 제보해주세요!</Text>
+                    <Text style={textStyles.content16}> 
+                        세바지는 여러분들의 제보와 함께 발전합니다😊 </Text>
+                </View>
 
                 <View>
-                    <Text style={textStyles.content20}>위치</Text>
-                    <View style={viewStyles.tabview}>
+                    <Text style={textStyles.content20}>장소</Text>
+                    <View>
                         <Dropdown
                             style={[viewStyles.dropdown, isFocus && { borderColor: 'blue' }]}
                             data={placeTypeL}
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
-                            placeholder={!isFocus ? '위치' : '...'}
+                            placeholder={'종류'}
                             value={value}
                             onFocus={() => setIsFocus(true)}
                             onBlur={() => setIsFocus(false)}
                             onChange={item => {
                                 setValue(item.value);
                                 setIsFocus(false);
+                                
                             }}
                         />
-                        <Dropdown
+                        {/* <Dropdown
                             style={[viewStyles.dropdown, isFocus && { borderColor: 'blue' }]}
                             data={placeTypeStation}
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
-                            placeholder={!isFocus ? '상세 정보' : '...'}
+                            placeholder={'상세정보'}
                             value={value}
                             onFocus={() => setIsFocus(true)}
                             onBlur={() => setIsFocus(false)}
@@ -91,13 +93,13 @@ const ReportPage_1=({navigation})=> {
                                 setValue(item.value);
                                 setIsFocus(false);
                             }}
-                        />
+                        /> */}
                     </View>
                 </View>
             
                 <View>
                     <Text style={textStyles.content20}>위치</Text>
-                    <View style={viewStyles.tabview}>
+                    {/* <View style={viewStyles.tabview}>
                         <CustomButton
                             buttonColor={'skyblue'}
                             buttonWidth={'40%'}
@@ -108,13 +110,21 @@ const ReportPage_1=({navigation})=> {
                             buttonWidth={'40%'}
                             title={'지도에서 선택'}
                             onPress={()=> {alert('지도에서 선택');}}/>
+                    </View> */}
+
+                    <View style={viewStyles.tabview}>
+                        <TextInput
+                            style={viewStyles.textInput}
+                            onChangeText={onChangeLocation}
+                            placeholder="위치 검색"/>
+
+                        <CustomButton
+                            buttonColor={'skyblue'}
+                            buttonWidth={'15%'}
+                            title={'지도'}
+                            onPress={()=>{alert('지도 띄우기');}}/>
                     </View>
 
-
-                    <TextInput
-                        style={viewStyles.textInput}
-                        onChangeText={onChangeLocation}
-                        placeholder="위치를 입력해주세요"/>
                 </View>
 
                 <View>
@@ -125,7 +135,7 @@ const ReportPage_1=({navigation})=> {
                                 maxHeight={300}
                                 labelField="label"
                                 valueField="value"
-                                placeholder={!isFocus ? '제보 종류' : '...'}
+                                placeholder={'제보 종류'}
                                 value={value}
                                 onFocus={() => setIsFocus(true)}
                                 onBlur={() => setIsFocus(false)}
@@ -146,9 +156,9 @@ const ReportPage_1=({navigation})=> {
                         buttonColor={'skyblue'}
                         title={'제출하기'}
                         onPress={()=> navigation.navigate('ReportPage_2')}/>
-            </View> 
-            </ScrollView>
-        </View>
+                </View> 
+            </View>
+        </ScrollView>
     );
 };
 

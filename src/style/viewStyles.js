@@ -65,6 +65,9 @@ const viewStyles = StyleSheet.create({
       marginTop: 30,
       marginBottom: 50,
     },
+    pagePadding:{
+      padding: '30',
+    }
   });
 
   export default viewStyles;
