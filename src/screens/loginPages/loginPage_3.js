@@ -1,7 +1,7 @@
 // 세바지 회원가입 페이지
 
 import React , {useState} from "react";
-import { View, Text, TextInput, ScrollView} from "react-native";
+import { View, Text, TextInput, ScrollView, Alert} from "react-native";
 
 //import BackBtn from "../../component/backBtn.js";
 import CustomButton from "../../component/CustomButton.js";
@@ -14,15 +14,18 @@ const LoginPage_3 = ({navigation})=> {
     // const [checkPW, onChangeCheckPW] = React.useState('입력');
     // const [nickName, onChangeNickName] = React.useState('입력');
 
+    //이름, 전화번호, 이메일, 비밀번호, 비밀번호 확인
     const [nickname, setNickname] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [checkPW, setCheckPW] = useState('');
 
+    
+
     const handleSignUp = async () => {
         try {
-          const response = await fetch('/app/member/signUp', // 서버 주소 확인 필요 
+          const response = await fetch('http://3.34.118.226:8080/app/member/signUp', // 서버 주소 확인 필요 
           {
             method: 'POST',
             headers: {
@@ -34,6 +37,7 @@ const LoginPage_3 = ({navigation})=> {
               email,
               password,
             }),
+            mode: 'no-cors' 
           });
     
           if (response.ok) {
@@ -50,6 +54,45 @@ const LoginPage_3 = ({navigation})=> {
         }
     };
 
+    const emailDoubleCheck = async () => {
+        try {
+            // 사용자가 입력한 이메일 주소 가져오기
+            const userEmail = email;
+    
+            // 서버에 이메일 중복 확인을 위한 요청 보내기
+            const response = await fetch(`http://3.34.118.226:8080/app/member/emailDuplicate?email={email}`, {
+                method: 'POST', // 이메일 중복 확인을 위한 HTTP 메서드 설정
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: userEmail,
+                }),
+            });
+    
+            // 서버 응답 확인
+            if (response.ok) {
+                const data = await response.json();
+                // 이메일 중복 여부에 따라 메시지 표시
+                if (data.isEmailUnique) {
+                    // 이메일이 중복되지 않음
+                    alert('사용 가능한 이메일입니다.');
+                } else {
+                    // 이메일이 이미 사용 중
+                    alert('이미 사용 중인 이메일입니다.');
+                }
+            } else {
+                // 서버 응답이 실패한 경우
+                console.error('이메일 중복 확인 요청 실패:', response.statusText);
+                alert('이메일 중복 확인에 실패했습니다.');
+            }
+        } catch (error) {
+            // 네트워크 오류 또는 기타 예외 처리
+            console.error('이메일 중복 확인 중 에러:', error);
+            alert('이메일 중복 확인에 실패했습니다.');
+        }
+    };
+
 
     return (
         <View >
@@ -63,13 +106,15 @@ const LoginPage_3 = ({navigation})=> {
 
                 <Text style={textStyles.title2}>정보를 입력해주세요</Text>
 
-                <Text style={textStyles.content20}>아이디</Text>
+                <Text style={textStyles.content20}>이메일</Text>
                 <View style={viewStyles.tabview}>
                     <TextInput
                         style={viewStyles.textInputShort}
-                        value={nickname}
-                        onChangeText={setNickname}
-                        placeholder="아이디를 입력해주세요."
+                        value={email}
+                        onChangeText={setEmail}
+                        placeholder="아이디(이메일)를 입력해주세요."
+                        
+
                     />
 
                     <CustomButton
@@ -77,7 +122,7 @@ const LoginPage_3 = ({navigation})=> {
                         buttonWidth={'25%'}
                         title={'중복확인'}
                         titleSize={14}
-                        onPress={()=> {alert('중복확인');}}/>
+                        onPress={()=> emailDoubleCheck() }/>
                 </View>
 
                 
@@ -90,6 +135,10 @@ const LoginPage_3 = ({navigation})=> {
                         onChangeText={setPassword}
                         placeholder="비밀번호를 입력해주세요."
                         secureTextEntry={true}
+                        rules={{
+                            required: true,
+                            pattern: /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/
+                        }}
                     />
                     </View>
                     <Text style={textStyles.content6}>8~20자 이내로 영분 대소문자, 숫자, 특수문자를 모두 사용하여 구성</Text>
