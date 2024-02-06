@@ -1,6 +1,6 @@
 // 세바지 회원가입 페이지
 
-import React from "react";
+import React , {useState} from "react";
 import { View, Text, TextInput, ScrollView} from "react-native";
 
 //import BackBtn from "../../component/backBtn.js";
@@ -9,10 +9,47 @@ import viewStyles from '../../style/viewStyles.js';
 import textStyles from "../../style/textStyles.js";
 
 const LoginPage_3 = ({navigation})=> {
-    const [ID, onChangeID] = React.useState('입력');
-    const [PW, onChangePW] = React.useState('입력');
-    const [checkPW, onChangeCheckPW] = React.useState('입력');
-    const [nickName, onChangeNickName] = React.useState('입력');
+    // const [ID, onChangeID] = React.useState('입력');
+    // const [PW, onChangePW] = React.useState('입력');
+    // const [checkPW, onChangeCheckPW] = React.useState('입력');
+    // const [nickName, onChangeNickName] = React.useState('입력');
+
+    const [nickname, setNickname] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [checkPW, setCheckPW] = useState('');
+
+    const handleSignUp = async () => {
+        try {
+          const response = await fetch('/app/member/signUp', // 서버 주소 확인 필요 
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              nickname,
+              phone,
+              email,
+              password,
+            }),
+          });
+    
+          if (response.ok) {
+            const data = await response.json();
+            // 회원가입 성공 메시지 출력
+            Alert.alert('회원가입 성공', data.message);
+          } else {
+            // 회원가입 실패 메시지 출력
+            Alert.alert('회원가입 실패', '서버 오류로 회원가입에 실패했습니다.');
+          }
+        } catch (error) {
+          console.error('회원가입 중 에러:', error);
+          Alert.alert('회원가입 실패', '네트워크 오류로 회원가입에 실패했습니다.');
+        }
+    };
+
 
     return (
         <View >
@@ -30,7 +67,8 @@ const LoginPage_3 = ({navigation})=> {
                 <View style={viewStyles.tabview}>
                     <TextInput
                         style={viewStyles.textInputShort}
-                        onChangeText={this.onChangeID}
+                        value={nickname}
+                        onChangeText={setNickname}
                         placeholder="아이디를 입력해주세요."
                     />
 
@@ -48,7 +86,8 @@ const LoginPage_3 = ({navigation})=> {
                     <View style={viewStyles.centerItems}>
                     <TextInput
                         style={viewStyles.textInput}
-                        onChangeText={this.onChangePW}
+                        value={password}
+                        onChangeText={setPassword}
                         placeholder="비밀번호를 입력해주세요."
                         secureTextEntry={true}
                     />
@@ -60,7 +99,8 @@ const LoginPage_3 = ({navigation})=> {
                     <View style={viewStyles.centerItems}>
                         <TextInput
                             style={viewStyles.textInput}
-                            onChangeText={this.onChangeCheckPW}
+                            value={checkPW}
+                            onChangeText={setCheckPW}
                             placeholder="비밀번호를 입력해주세요."
                             secureTextEntry={true}
                         />
@@ -73,7 +113,8 @@ const LoginPage_3 = ({navigation})=> {
                 <View style={viewStyles.tabview}>
                     <TextInput
                         style={viewStyles.textInputShort}
-                        onChangeText={this.onChangeNickName}
+                        value={nickname}
+                        onChangeText={setNickname}
                         placeholder="닉네임을 입력해주세요."
                     />
                     <CustomButton
@@ -88,7 +129,11 @@ const LoginPage_3 = ({navigation})=> {
                     <CustomButton
                         buttonColor={'lightgrey'}
                         title={'회원가입 완료하기'}
-                        onPress={()=> navigation.navigate('LoginPage_4')}/>
+                        onPress={()=> {
+                            handleSignUp();
+                            navigation.navigate('LoginPage_4');
+                        }
+                    }/>
                 </View>
             </ScrollView>
         </View>
