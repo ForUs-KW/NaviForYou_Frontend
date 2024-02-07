@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState }from "react";
 import { View, Text, TextInput, Alert, Button } from "react-native";
 import * as KakaoLogins from "@react-native-seoul/kakao-login";
 import CustomButton from "../../component/CustomButton.js";
@@ -19,6 +19,56 @@ const INJECTED_JAVASCRIPT = `window.ReactNativeWebView.postMessage('message from
 const LoginPage_1 = ({ navigation }) => {
   const [id, onChangeID] = React.useState("입력해주세요");
   const [pw, onChangePW] = React.useState("입력해주세요");
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async() => {
+    try {
+      // request Login
+      const response = await fetch ("http://3.34.118.226:8080/app/member/login",{
+        method : "POST",
+        headers : {
+          "Content-Type" : "application/json",
+        },
+        body : JSON.stringify({email, password}),
+
+      },
+      );
+
+      //wait for the response 
+      const data = await response.json();
+
+      // access token
+      const accessToken = data.accessToken;
+
+      //message based on results
+      if (response.ok) {
+        if (data.result === 1000) {
+          Alert.alert("요청에 성공하였습니다.");
+        } else {
+          // handle different error codes
+          switch (data.result) {
+            case 3001:
+              Alert.alert("해당 이메일이 존재하지 않습니다.");
+              break;
+            case 3002:
+              Alert.alert("비밀번호가 틀렸습니다.");
+              break;
+            default:
+              Alert.alert("알 수 없는 오류가 발생했습니다.");
+              break;
+          }
+        }
+      } else {
+        // handle server error
+        Alert.alert("서버 오류", "로그인 요청에 실패했습니다.");
+      }
+    } catch (error) {
+      console.error("로그인 에러", error);
+      Alert.alert("에러", "서버에 연결할 수 없습니다.");
+    }
+  };
 
   
   
@@ -112,12 +162,12 @@ const LoginPage_1 = ({ navigation }) => {
         <View style={viewStyles.centerItems}>
           <TextInput
             style={viewStyles.textInput}
-            onChangeText={(text) => onChangeID(text)}
+            onChangeText={(text) => setEmail(text)}
             placeholder="아이디를 입력해주세요."
           />
           <TextInput
             style={viewStyles.textInput}
-            onChangeText={(text) => onChangePW(text)}
+            onChangeText={(text) => setPassword(text)}
             placeholder="비밀번호를 입력해주세요."
             secureTextEntry={true}
           />
@@ -128,9 +178,7 @@ const LoginPage_1 = ({ navigation }) => {
             title="로그인 하기"
             titleColor="white"
             buttonColor="blue"
-            onPress={() => {
-              alert("로그인 하기");
-            }}
+            onPress = {() => handleLogin()}
           />
 
           <View style={viewStyles.tabview}>
