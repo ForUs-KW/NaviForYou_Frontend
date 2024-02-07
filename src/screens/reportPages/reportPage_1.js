@@ -9,12 +9,26 @@ import CustomButton from "../../component/CustomButton.js";
 import viewStyles from '../../style/viewStyles.js';
 import textStyles from "../../style/textStyles.js";
 
-const placeTypeL = [{label: '도로', value: 'load'},{label: '건물', value: 'building'},{label: '지하철역', value: 'station'},{label: '공원', value: 'park'},{label: '기타', value: 'etc'}];
-// 이렇게까지 세분화시킬 필요가 있을까요
+const placeType = [
+    {label: '건물', value: 'building'},
+    {label: '도로', value: 'load'},
+    {label: '지하철역', value: 'station'},
+    {label: '기타1', value: 'idk1'},
+    {label: '기타', value: 'etc'}];
+
+const placeSubcategories = {
+    building: [{label: '학교', value: 'school'},{label:'병원', value:'hospital'}],
+    load:[{label:'횡단보도',value:'crosswalk'},{label:'인도',value:'sidewalk'},{label:'차도', value: 'driveway'}],
+    station:[{label:'뭐하지1', value:'idk1'},{label:'뭐하지2', value:'idk2'},{label:'뭐하지3', value:'idk3'},],
+    idk1:[{label:'뭐하지1', value:'idk1'},{label:'뭐하지2', value:'idk2'},{label:'뭐하지3', value:'idk3'},],
+    etc:[{label:'뭐하지1', value:'idk1'},{label:'뭐하지2', value:'idk2'},{label:'뭐하지3', value:'idk3'},],
+};
+
 // const placeTypeLoad = [{label: 'Load1', value: 'load1'},{label: 'Load2', value: 'load2'},{label: 'Load3', value: 'load3'},];
 // const placeTypeBuilding = [{label: '학교', value: 'school'},{label: '병원', value: 'hospital'},{label: '기타', value: 'etc'},];
 // const placeTypeStation = [{label: '외부', value: 'outside'},{label: '엘리베이터', value: 'elevator'},{label: '장애인 시설', value: 'facility'},];
 // const placeTypePlace = [{label: 'place1', value: 'place1'},{label: 'place2', value: 'place2'},{label: 'place3', value: 'place3'},];
+
 const reportType = [{label: 'Item1', value: 'report1'},{label: 'Item2', value: 'report2'},{label: 'Item3', value: 'report3'},];
 
 
@@ -26,21 +40,8 @@ const ReportPage_1=({navigation})=> {
 
     //Dropdown
     const [placeTypeValue, setPlaceTypeValue] = React.useState(null);
+    const [subCategoryValue, setSubCategoryValue]=React.useState(null);
     const [reportTypeValue, setReportTypeValue] = React.useState(null);
-
-    // const setPlaceType = (value)=>{
-    //     switch(value){
-    //         case 'load':
-    //             return placeTypeLoad;
-    //         case 'building':
-    //             return placeTypeBuilding;
-    //         case 'station':
-    //             return placeTypeStation;
-    //         case 'place':
-    //             return placeTypePlace;
-    //     }
-    // };
-
 
     return (
         <ScrollView style={{flex:1}}>
@@ -62,37 +63,37 @@ const ReportPage_1=({navigation})=> {
 
                 <View>
                     <Text style={textStyles.content20}>장소</Text>
-                    <View>
+                    <View style={viewStyles.tabview}>
                         <Dropdown
                             style={[viewStyles.dropdown, placeTypeValue && { borderColor: 'blue' }]}
-                            data={placeTypeL}
+                            data={placeType}
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
-                            placeholder={'종류'}
+                            placeholder={'대분류'}
                             value={placeTypeValue}
                             onFocus={() => setReportTypeValue(null)} //Unselect report dropdown
-                            onBlur={() => setPlaceTypeValue(placeTypeValue)}
+                            onBlur={() => {
+                                setSubCategoryValue(null);
+                                setReportTypeValue(null);
+                            }}
                             onChange={item => {
                                 setPlaceTypeValue(item.value);
+                                setSubCategoryValue(null);
                                 setReportTypeValue(null);
                             }}
                         />
-                        {/* <Dropdown 소분류
-                            style={[viewStyles.dropdown, isFocus && { borderColor: 'blue' }]}
-                            data={placeTypeStation}
+                    
+                        <Dropdown
+                            style={[viewStyles.dropdown, placeSubcategories && { borderColor:'blue' }]}
+                            data={placeSubcategories[placeTypeValue]}
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
-                            placeholder={'상세정보'}
-                            value={value}
-                            onFocus={() => setIsFocus(true)}
-                            onBlur={() => setIsFocus(false)}
-                            onChange={item => {
-                                setValue(item.value);
-                                setIsFocus(false);
-                            }}
-                        /> */}
+                            placeholder="소분류"
+                            value={subCategoryValue}
+                            onChange={item=>setSubCategoryValue(item.value)}
+                        />
                     </View>
                 </View>
             
