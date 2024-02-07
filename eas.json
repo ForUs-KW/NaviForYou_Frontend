@@ -1,9 +1,14 @@
 {
   "build": {
+    "release" : {
+      "distribution" : "store"
+    },
     "preview": {
       "android": {
         "buildType": "apk"
       }
+      
+    
     },
     "preview2": {
       "android": {
@@ -15,7 +20,8 @@
     },
     "preview4": {
       "distribution": "internal"
-    },
-    "production": {}
+    }
+  
+  
   }
 }
