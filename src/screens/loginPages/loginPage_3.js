@@ -60,36 +60,31 @@ const LoginPage_3 = ({navigation})=> {
             const userEmail = email;
     
             // 서버에 이메일 중복 확인을 위한 요청 보내기
-            const response = await fetch(`http://3.34.118.226:8080/app/member/emailDuplicate?email={email}`, {
+            const response = await fetch('http://3.34.118.226:8080/app/member/emailDuplicate?email={email}', {
                 method: 'POST', // 이메일 중복 확인을 위한 HTTP 메서드 설정
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    email: userEmail,
+                    email: email,
                 }),
             });
     
             // 서버 응답 확인
-            if (response.ok) {
+            if (response.status === 200) {
                 const data = await response.json();
-                // 이메일 중복 여부에 따라 메시지 표시
-                if (data.isEmailUnique) {
-                    // 이메일이 중복되지 않음
-                    alert('사용 가능한 이메일입니다.');
+                if (data.result) {
+                    Alert.alert('사용 가능한 이메일입니다.');
                 } else {
-                    // 이메일이 이미 사용 중
-                    alert('이미 사용 중인 이메일입니다.');
+                    Alert.alert('이미 사용 중인 이메일입니다.');
                 }
             } else {
-                // 서버 응답이 실패한 경우
                 console.error('이메일 중복 확인 요청 실패:', response.statusText);
-                alert('이메일 중복 확인에 실패했습니다.');
+                Alert.alert('이메일 중복 확인에 실패했습니다.');
             }
         } catch (error) {
-            // 네트워크 오류 또는 기타 예외 처리
             console.error('이메일 중복 확인 중 에러:', error);
-            alert('이메일 중복 확인에 실패했습니다.');
+            Alert.alert('이메일 중복 확인에 실패했습니다.');
         }
     };
 
