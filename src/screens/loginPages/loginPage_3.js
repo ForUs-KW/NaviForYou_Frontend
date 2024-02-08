@@ -94,7 +94,7 @@ const LoginPage_3 = ({navigation})=> {
             const userNickname = nickname;
     
             // 서버에 닉네임 중복 확인을 위한 요청 보내기
-            const response = await fetch(`http://3.34.118.226:8080//app/member/nicknameDuplicate?nickname=${nickname}`, {
+            const response = await fetch(`http://3.34.118.226:8080/app/member/nicknameDuplicate?nickname=${nickname}`, {
                 method: 'GET', // 닉네임 중복 확인을 위한 HTTP 메서드 설정
                 headers: {
                     'Content-Type': 'application/json',
@@ -117,6 +117,32 @@ const LoginPage_3 = ({navigation})=> {
         } catch (error) {
             console.error('닉네임 중복 확인 중 에러:', error);
             Alert.alert('닉네임 중복 확인에 실패했습니다.');
+        }
+    };
+
+    const sendCodeEmail = async () => {
+        try {
+            // 사용자가 입력한 이메일 가져오기
+            const userEmail = email;
+    
+            // 서버에 사용자가 입력한 이메일 주소로 코드 보내달라고 요청 
+            const response = await fetch(`http://3.34.118.226:8080/app/member/sendEmailCode/?email=${email}`, {
+                method: 'GET', // HTTP 메서드 
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+
+            });
+    
+            // 서버 응답 확인
+            if (response.ok) {
+                Alert.alert('이메일 코드 전송 성공', '이메일 코드를 성공적으로 전송했습니다.');
+            } else {
+                Alert.alert('이메일 코드 전송 실패', '서버 오류로 인해 이메일 코드 전송에 실패했습니다. ');
+            }
+        } catch (error) {
+            console.error('이메일 코드 전송 중 에러:', error);
+            Alert.alert('이메일 코드 전송에 실패했습니다.');
         }
     };
 
@@ -149,6 +175,13 @@ const LoginPage_3 = ({navigation})=> {
                         title={'중복확인'}
                         titleSize={14}
                         onPress={()=> emailDoubleCheck() }/>
+                    
+                    <CustomButton
+                        buttonColor={'lightgrey'}
+                        buttonWidth={'25%'}
+                        title={'인증번호 발송'}
+                        titleSize={14}
+                        onPress={()=> sendCodeEmail() }/>
                 </View>
 
                 <Text style={textStyles.content20}>폰번호</Text>
