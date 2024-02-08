@@ -33,8 +33,10 @@ const textStyles = StyleSheet.create({
         fontSize: 12,
     },
 
-
-
+    errorText:{
+        fontSize: 16,
+        color:'red',
+    },
 
 
     centerText: {

@@ -1,12 +1,14 @@
+
 // 세바지 회원가입 페이지
 
 import React , {useState} from "react";
 import { View, Text, TextInput, ScrollView, Alert} from "react-native";
 
-//import BackBtn from "../../component/backBtn.js";
-import CustomButton from "../../component/CustomButton.js";
-import viewStyles from '../../style/viewStyles.js';
-import textStyles from "../../style/textStyles.js";
+
+import CustomButton from "../../component/CustomButton";
+import viewStyles from "../../style/viewStyles";
+import textStyles from "../../style/textStyles";
+
 
 const LoginPage_3 = ({navigation})=> {
     // const [ID, onChangeID] = React.useState('입력');
@@ -146,9 +148,10 @@ const LoginPage_3 = ({navigation})=> {
         }
     };
 
-    return (
-        <View >
-            <ScrollView>  
+
+    return(
+        <ScrollView>
+            <View>
                 <CustomButton
                         buttonColor={'(0, 0, 0, 0)'}
                         buttonWidth={'15%'}
@@ -168,7 +171,6 @@ const LoginPage_3 = ({navigation})=> {
                         
 
                     />
-
                     <CustomButton
                         buttonColor={'lightgrey'}
                         buttonWidth={'25%'}
@@ -216,8 +218,10 @@ const LoginPage_3 = ({navigation})=> {
                             pattern: /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/
                         }}
                     />
+
+
                     </View>
-                    <Text style={textStyles.content6}>8~20자 이내로 영분 대소문자, 숫자, 특수문자를 모두 사용하여 구성</Text>
+                    <Text style={textStyles.content6}>8~20자 이내로 영문 대소문자, 숫자 조합</Text>
                 
 
                     <Text style={textStyles.content20}>비밀번호 확인</Text>
@@ -231,9 +235,9 @@ const LoginPage_3 = ({navigation})=> {
                         />
 
                     </View>
-                    
                 </View>
-                
+
+
                 <Text style={textStyles.content20}>닉네임</Text>
                 <View style={viewStyles.tabview}>
                     <TextInput
@@ -260,9 +264,9 @@ const LoginPage_3 = ({navigation})=> {
                         }
                     }/>
                 </View>
-            </ScrollView>
-        </View>
+            </View>
+        </ScrollView>
     );
 };
 
-export default LoginPage_3
+export default LoginPage_3;
