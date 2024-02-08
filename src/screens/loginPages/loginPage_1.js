@@ -27,52 +27,52 @@ const LoginPage_1 = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const handleLogin = async() => {
-  //   try {
-  //     // request Login
-  //     const response = await fetch ("http://3.34.118.226:8080/app/member/login",{
-  //       method : "POST",
-  //       headers : {
-  //         "Content-Type" : "application/json",
-  //       },
-  //       body : JSON.stringify({email, password}),
+  const handleLogin = async() => {
+    try {
+      // request Login
+      const response = await fetch ("http://3.34.118.226:8080/app/member/login",{
+        method : "POST",
+        headers : {
+          "Content-Type" : "application/json",
+        },
+        body : JSON.stringify({email, password}),
 
-  //     },
-  //     );
+      },
+      );
 
-  //     //wait for the response 
-  //     const data = await response.json();
+      //wait for the response 
+      const data = await response.json();
 
-  //     // access token
-  //     const accessToken = data.accessToken;
+      // access token
+      const accessToken = data.accessToken;
 
-  //     //message based on results
-  //     if (response.ok) {
-  //       if (data.result === 1000) {
-  //         Alert.alert("요청에 성공하였습니다.");
-  //       } else {
-  //         // handle different error codes
-  //         switch (data.result) {
-  //           case 3001:
-  //             Alert.alert("해당 이메일이 존재하지 않습니다.");
-  //             break;
-  //           case 3002:
-  //             Alert.alert("비밀번호가 틀렸습니다.");
-  //             break;
-  //           default:
-  //             Alert.alert("알 수 없는 오류가 발생했습니다.");
-  //             break;
-  //         }
-  //       }
-  //     } else {
-  //       // handle server error
-  //       Alert.alert("서버 오류", "로그인 요청에 실패했습니다.");
-  //     }
-  //   } catch (error) {
-  //     console.error("로그인 에러", error);
-  //     Alert.alert("에러", "서버에 연결할 수 없습니다.");
-  //   }
-  // };
+      //message based on results
+      if (response.ok) {
+        if (data.result === 1000) {
+          Alert.alert("요청에 성공하였습니다.");
+        } else {
+          // handle different error codes
+          switch (data.result) {
+            case 3001:
+              Alert.alert("해당 이메일이 존재하지 않습니다.");
+              break;
+            case 3002:
+              Alert.alert("비밀번호가 틀렸습니다.");
+              break;
+            default:
+              Alert.alert("알 수 없는 오류가 발생했습니다.");
+              break;
+          }
+        }
+      } else {
+        // handle server error
+        Alert.alert("서버 오류", "로그인 요청에 실패했습니다.");
+      }
+    } catch (error) {
+      console.error("로그인 에러", error);
+      Alert.alert("에러", "서버에 연결할 수 없습니다.");
+    }
+  };
 
   
   
@@ -206,7 +206,7 @@ const LoginPage_1 = ({ navigation }) => {
             onChangeText={(text) => setPassword(text)}
             placeholder="비밀번호를 입력해주세요."
             secureTextEntry={true}
-            onBlur={() => validateLogin()}
+            //onBlur={() => validateLogin()}
             autoCapitalize="none"
              returnKeyType="send"//애뮬레이터or모바일 확인 필요
           />
