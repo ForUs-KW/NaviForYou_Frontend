@@ -1,11 +1,15 @@
 import React, { useState }from "react";
-import { View, Text, TextInput, Alert, Button } from "react-native";
+import { View, Text, TextInput, Alert, Button, SafeAreaView } from "react-native";
 import * as KakaoLogins from "@react-native-seoul/kakao-login";
 import CustomButton from "../../component/CustomButton.js";
 import textStyles from "../../style/textStyles.js";
 import viewStyles from "../../style/viewStyles.js";
 
 import {Webview} from 'react-native-webview';
+const isValidEmail = (email)=>{
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
 
 // KAKAO LOGIN
 const REST_API_KEY = '7cc503f8f35ee5bebc80458ff8f84cea'
@@ -18,57 +22,57 @@ const INJECTED_JAVASCRIPT = `window.ReactNativeWebView.postMessage('message from
 
 const LoginPage_1 = ({ navigation }) => {
   const [id, onChangeID] = React.useState("입력해주세요");
-  const [pw, onChangePW] = React.useState("입력해주세요");
+  // const [pw, onChangePW] = React.useState("입력해주세요");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async() => {
-    try {
-      // request Login
-      const response = await fetch ("http://3.34.118.226:8080/app/member/login",{
-        method : "POST",
-        headers : {
-          "Content-Type" : "application/json",
-        },
-        body : JSON.stringify({email, password}),
+  // const handleLogin = async() => {
+  //   try {
+  //     // request Login
+  //     const response = await fetch ("http://3.34.118.226:8080/app/member/login",{
+  //       method : "POST",
+  //       headers : {
+  //         "Content-Type" : "application/json",
+  //       },
+  //       body : JSON.stringify({email, password}),
 
-      },
-      );
+  //     },
+  //     );
 
-      //wait for the response 
-      const data = await response.json();
+  //     //wait for the response 
+  //     const data = await response.json();
 
-      // access token
-      const accessToken = data.accessToken;
+  //     // access token
+  //     const accessToken = data.accessToken;
 
-      //message based on results
-      if (response.ok) {
-        if (data.result === 1000) {
-          Alert.alert("요청에 성공하였습니다.");
-        } else {
-          // handle different error codes
-          switch (data.result) {
-            case 3001:
-              Alert.alert("해당 이메일이 존재하지 않습니다.");
-              break;
-            case 3002:
-              Alert.alert("비밀번호가 틀렸습니다.");
-              break;
-            default:
-              Alert.alert("알 수 없는 오류가 발생했습니다.");
-              break;
-          }
-        }
-      } else {
-        // handle server error
-        Alert.alert("서버 오류", "로그인 요청에 실패했습니다.");
-      }
-    } catch (error) {
-      console.error("로그인 에러", error);
-      Alert.alert("에러", "서버에 연결할 수 없습니다.");
-    }
-  };
+  //     //message based on results
+  //     if (response.ok) {
+  //       if (data.result === 1000) {
+  //         Alert.alert("요청에 성공하였습니다.");
+  //       } else {
+  //         // handle different error codes
+  //         switch (data.result) {
+  //           case 3001:
+  //             Alert.alert("해당 이메일이 존재하지 않습니다.");
+  //             break;
+  //           case 3002:
+  //             Alert.alert("비밀번호가 틀렸습니다.");
+  //             break;
+  //           default:
+  //             Alert.alert("알 수 없는 오류가 발생했습니다.");
+  //             break;
+  //         }
+  //       }
+  //     } else {
+  //       // handle server error
+  //       Alert.alert("서버 오류", "로그인 요청에 실패했습니다.");
+  //     }
+  //   } catch (error) {
+  //     console.error("로그인 에러", error);
+  //     Alert.alert("에러", "서버에 연결할 수 없습니다.");
+  //   }
+  // };
 
   
   
@@ -98,9 +102,33 @@ const LoginPage_1 = ({ navigation }) => {
   };
 
   
+  //input
+
+  // const validateLogin = () => {
+  //   // Validate ID and Password
+  //   if (!email) {
+  //     //setIdError('아이디를 입력하세요.');
+  //   } else if(!isValidEmail(email)){
+  //     //setIdError('올바른 형식이 아닙니다.');
+  //   }
+  //   else {
+  //     //setIdError('');
+  //   }
+
+  //   if (!password) {
+  //     setPwError('비밀번호가 올바르지 않습니다');
+  //   } else {
+  //     setPwError('');
+  //   }
+
+  // };
 
   return (
-    <View>
+    
+
+      
+    
+    <SafeAreaView>
       <CustomButton
         buttonColor="(0, 0, 0, 0)"
         buttonWidth="15%"
@@ -109,9 +137,11 @@ const LoginPage_1 = ({ navigation }) => {
         onPress={() => navigation.navigate("MyPage")}
       />
 
+
       <View style={viewStyles.centerItems}>
         
         <Text style={textStyles.title2}>로그인</Text>
+    
         <CustomButton
           buttonColor="white"
           buttonWidth="85%"
@@ -156,6 +186,7 @@ const LoginPage_1 = ({ navigation }) => {
         <View style={{ flex: 1, height: 1.5, backgroundColor: "grey" }} />
       </View>
 
+
       <View>
         <Text style={textStyles.content20}>세바지 계정으로 로그인하기</Text>
 
@@ -164,13 +195,23 @@ const LoginPage_1 = ({ navigation }) => {
             style={viewStyles.textInput}
             onChangeText={(text) => setEmail(text)}
             placeholder="아이디를 입력해주세요."
+            autoCapitalize="none" //대문자 방지
+            inputMode="email"
+            returnKeyType="next"//애뮬레이터or모바일 확인 필요
           />
+          {/* {idError !== '' && <Text style={textStyles.errorText}>{idError}</Text>} */}
+
           <TextInput
             style={viewStyles.textInput}
             onChangeText={(text) => setPassword(text)}
             placeholder="비밀번호를 입력해주세요."
             secureTextEntry={true}
+            onBlur={() => validateLogin()}
+            autoCapitalize="none"
+             returnKeyType="send"//애뮬레이터or모바일 확인 필요
           />
+          {/* {pwError !== '' && <Text style={textStyles.errorText}>{pwError}</Text>} */}
+
         </View>
 
         <View style={viewStyles.centerItems}>
@@ -209,7 +250,7 @@ const LoginPage_1 = ({ navigation }) => {
           />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
