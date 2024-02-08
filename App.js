@@ -35,6 +35,7 @@ function App() {
         <stack.Screen name="ReportPage_1" component={ReportPage_1}/>
         <stack.Screen name="ReportPage_2" component={ReportPage_2}/>
       </stack.Navigator>
+
     </NavigationContainer>
   );//return
 }
