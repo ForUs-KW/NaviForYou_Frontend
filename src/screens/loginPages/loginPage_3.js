@@ -123,6 +123,7 @@ const LoginPage_3 = ({navigation})=> {
         }
     };
 
+    // [이메일 인증 코드 발송 API]
     const sendCodeEmail = async () => {
         try {
             // 사용자가 입력한 이메일 가져오기
