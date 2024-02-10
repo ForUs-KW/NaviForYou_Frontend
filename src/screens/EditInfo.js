@@ -4,7 +4,7 @@
 
 import React from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
-import viewStyles from "../style/viewStyles";
+import viewStyles from "../style/viewStyles.js";
 import textStyles from '../style/textStyles.js';
 
 
