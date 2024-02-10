@@ -34,8 +34,8 @@ const MyPage = ({navigation})=>{
             onPress={() => navigation.navigate('ReportPage_1')}>&gt;  제보하기
         </Text>
         <Text  style={textStyles.content20}
-            onPress={() => navigation.navigate('FindAccount')}>&gt;  계정 찾기
-        </Text>
+             onPress={() => navigation.navigate('FindAccount')}>&gt;  계정 찾기
+        </Text> 
       </View>
 
 
