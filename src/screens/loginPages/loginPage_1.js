@@ -27,6 +27,7 @@ const LoginPage_1 = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // [로그인 API]
   const handleLogin = async() => {
     try {
       // request Login
