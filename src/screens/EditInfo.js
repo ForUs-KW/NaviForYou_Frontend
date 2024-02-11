@@ -9,7 +9,7 @@ import textStyles from '../style/textStyles.js';
 
 
 
-const editInfo=({navigation})=> {
+const EditInfo=({navigation})=> {
 
   return (
     <View style = {styles.container}>
@@ -104,4 +104,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default editInfo
+export default EditInfo
