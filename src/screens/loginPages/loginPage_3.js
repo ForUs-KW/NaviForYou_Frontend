@@ -1,90 +1,169 @@
-import React from "react";
-import { View, Text, TextInput, ScrollView} from "react-native";
+import React, { useState } from "react";
+import { View, Text, TextInput, ScrollView } from "react-native";
 
 import CustomButton from "../../component/CustomButton";
 import viewStyles from "../../style/viewStyles";
 import textStyles from "../../style/textStyles";
 
-
-const LoginPage_3=({navigation})=>{
-    return(
-        <ScrollView>
-            <View>
-                <CustomButton
-                        buttonColor={'(0, 0, 0, 0)'}
-                        buttonWidth={'15%'}
-                        title={'<'}
-                        titleSize={30}
-                        onPress={()=> navigation.navigate('LoginPage_2')}/>
-                <Text style={textStyles.title2}>정보 입력</Text>
-            
-                <View style={viewStyles.tabview}>
-                    <TextInput
-                        style={viewStyles.textInputShort}
-                        onChangeText={this.onChangeID}
-                        placeholder="이메일 주소를 입력해주세요."
-                    />
-                    <CustomButton
-                        buttonColor={'lightgrey'}
-                        buttonWidth={'25%'}
-                        title={'중복확인'}
-                        titleSize={14}
-                        onPress={()=> {alert('가입 가능한 메일 주소입니다');}}/>
-                </View>
-            
-            
-                <View>
-                    <Text style={textStyles.content20}>비밀번호</Text>
-                    <View style={viewStyles.centerItems}>
-                    <TextInput
-                        style={viewStyles.textInput}
-                        placeholder="비밀번호를 입력해주세요."
-                        secureTextEntry={true}
-                        onChangeText={this.onChangePW}
-                    />
+const LoginPage_3 = ({ navigation }) => {
+    // 이메일
+    const [email, setEmail] = React.useState('');
+    const [emailError, setEmailError] = React.useState('');
+    // 비밀번호
+    const [password, setPassword] = React.useState('');
+    const [passwordError, setPasswordError] = React.useState('');
+    // 닉네임
+    const [nickName, setNickName] = React.useState('');
+    // 비밀번호 확인
+    const [confirmPassword, setConfirmPassword] = React.useState('');
+    const [confirmPasswordTouched, setConfirmPasswordTouched] = React.useState(false);
+    const [confirmPasswordError, setConfirmPasswordError] = React.useState('');
 
 
-                    </View>
-                    <Text style={textStyles.content6}>8~20자 이내로 영문 대소문자, 숫자 조합</Text>
-                
+    // 이메일 형식 확인을 위한 함수
+    const handleCheckEmail=()=>{
+        const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-                    <Text style={textStyles.content20}>비밀번호 확인</Text>
-                    <View style={viewStyles.centerItems}>
-                        <TextInput
-                            style={viewStyles.textInput}
-                            onChangeText={this.onChangeCheckPW}
-                            placeholder="비밀번호를 입력해주세요."
-                            secureTextEntry={true}
-                        />
+        if(!emailCheck.test(email)){
+            setEmailError('올바른 이메일 형식이 아닙니다.');
+        }else{
+            setEmailError('');
+        }
+    };
 
-                    </View>
-                </View>
+    // 비밀번호 조건 확인을 위한 함수
+    const handleCheckPassword=()=>{
+        const specialCharacters = /[~!@#$%^&*]/;
+        const containsConsecutiveCharacters = (password, id, consecutiveCount) => {
+            for (let i = 0; i <= password.length - consecutiveCount; i++) {
+              const consecutiveSubstring = password.substring(i, i + consecutiveCount);
+              if (consecutiveSubstring === id) {
+                return true;
+              }
+            }
+            return false;
+        };//이메일과 겹치는 지 확인
 
+        if (password.length < 8 || password.length > 16) {
+            setPasswordError('비밀번호 길이는 8자 이상 16자 이하로 해주세요.');
+            return;
+          } else if (!specialCharacters.test(password)) {
+            setPasswordError('특수문자(~!@#$%^&*)를 한 개 이상 포함해주세요.');
+            return;
+          } else if (password === email || containsConsecutiveCharacters(password, email, 4)) {
+            setPasswordError('비밀번호는 이메일과 4글자 이상 같을 수 없어요.');
+            return;
+          } else {
+            setPasswordError('');
+          }
+    };
 
-                <Text style={textStyles.content20}>닉네임</Text>
-                <View style={viewStyles.tabview}>
-                    <TextInput
-                        style={viewStyles.textInputShort}
-                        onChangeText={this.onChangeNickName}
-                        placeholder="닉네임을 입력해주세요."
-                    />
-                    <CustomButton
-                        buttonColor={'lightgrey'}
-                        buttonWidth={'25%'}
-                        title={'중복확인'}
-                        titleSize={14}
-                        onPress={()=> {alert('중복확인');}}/>
-                </View>
+    const handlecheckDuplicationPassword = () => {
+        // Validate Password Confirmation
+        if (password !== confirmPassword) {
+            setConfirmPasswordError('비밀번호가 일치하지 않습니다.');
+            return;
+        } else {
+            setConfirmPasswordError('');
+        }
+    };
 
-                <View style={viewStyles.centerItems}>
-                    <CustomButton
-                        buttonColor={'lightgrey'}
-                        title={'회원가입 완료하기'}
-                        onPress={()=> navigation.navigate('LoginPage_4')}/>
-                </View>
+  
+
+  return (
+    <ScrollView>
+      <View>
+        <CustomButton
+          buttonColor={'(0, 0, 0, 0)'}
+          buttonWidth={'15%'}
+          title={'<'}
+          titleSize={30}
+          onPress={() => navigation.navigate('LoginPage_2')}
+        />
+        <Text style={textStyles.title2}>정보 입력</Text>
+
+        <View style={viewStyles.tabview}>
+          <TextInput
+            style={viewStyles.textInputShort}
+            placeholder="이메일 주소를 입력해주세요."
+            onChangeText={(text) => {
+                setEmail(text);
+                handleCheckEmail();
+            }}
+          />
+          <CustomButton
+            buttonColor={'lightgrey'}
+            buttonWidth={'25%'}
+            title={'중복확인'}
+            titleSize={14}
+            //onPress={}
+          />
+        </View>
+        {emailError ?(<Text style={textStyles.errorText}>{emailError}</Text>):null}
+
+        <View>
+            <Text style={textStyles.content20}>비밀번호</Text>
+            <View style={viewStyles.centerItems}>
+                <TextInput
+                style={viewStyles.textInput}
+                placeholder="비밀번호를 입력해주세요."
+                secureTextEntry={true}
+                onChangeText={(text) => {
+                    setPassword(text);
+                    handleCheckPassword();
+                }}
+                />
             </View>
-        </ScrollView>
-    );
+            <Text style={textStyles.content6}>8~20자 이내로 영문 대소문자, 숫자 조합</Text>
+            {passwordError ? (<Text style={textStyles.errorText}>{passwordError}</Text>) : null}
+
+            <Text style={textStyles.content20}>비밀번호 확인</Text>
+            <View style={viewStyles.centerItems}>
+                <TextInput
+                style={viewStyles.textInput}
+                placeholder="비밀번호를 다시 한 번 입력해주세요."
+                secureTextEntry={true}
+                onFocus={()=>setConfirmPasswordTouched(true)}
+                onChangeText={(text) => {
+                    setConfirmPassword(text);
+                    handlecheckDuplicationPassword();
+                }}
+                />
+            </View>
+            {confirmPasswordTouched && confirmPassword !== password ? (
+                <Text style={textStyles.errorText}>
+                    {confirmPasswordError}
+                </Text>
+            ) : null}
+        </View>
+
+        <Text style={textStyles.content20}>닉네임</Text>
+        <View style={viewStyles.tabview}>
+          <TextInput
+            style={viewStyles.textInputShort}
+            onChangeText={(text) => setNickName(text)}
+            placeholder="닉네임을 입력해주세요."
+          />
+          <CustomButton
+            buttonColor={'lightgrey'}
+            buttonWidth={'25%'}
+            title={'중복확인'}
+            titleSize={14}
+            onPress={() => { alert('중복확인'); }}
+          />
+        </View>
+
+        <View style={viewStyles.centerItems}>
+          <CustomButton
+            buttonColor={'lightgrey'}
+            title={'회원가입 완료하기'}
+            onPress={()=> navigation.navigate('LoginPage_4')}
+
+          />
+        </View>
+      </View>
+    </ScrollView>
+  );
 };
 
-export default LoginPage_3
+export default LoginPage_3;

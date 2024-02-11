@@ -35,7 +35,6 @@ const LoginPage_1=({navigation})=> {
     } else {
       setPwError('');
     }
-
   };
 
   return (
