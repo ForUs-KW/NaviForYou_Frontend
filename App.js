@@ -15,7 +15,9 @@ import {default as EditInfo} from "./src/screens/EditInfo.js";
 import {default as Settings} from "./src/screens/Settings.js";
 import {default as ReportPage_1} from "./src/screens/reportPages/ReportPage_1.js";
 import {default as ReportPage_2} from "./src/screens/reportPages/ReportPage_2.js";
-
+import {default as FindAccount} from "./src/screens/FindAccounts/FindAccount.js";
+import {default as FindEmail} from "./src/screens/FindAccounts/FindEmail.js";
+import {default as FindPassword} from "./src/screens/FindAccounts/FindPassword.js";
 
 enableScreens();
 const stack = createStackNavigator();
@@ -34,6 +36,12 @@ function App() {
         <stack.Screen name="Settings" component={Settings}/>
         <stack.Screen name="ReportPage_1" component={ReportPage_1}/>
         <stack.Screen name="ReportPage_2" component={ReportPage_2}/>
+        <stack.Screen name="FindAccount" component={FindAccount}/>
+        <stack.Screen name = "FindEmail" component={FindEmail}/>
+        <stack.Screen name = "FindPassword" component={FindPassword}/>
+      
+
+
       </stack.Navigator>
 
     </NavigationContainer>

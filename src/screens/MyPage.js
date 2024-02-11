@@ -8,16 +8,17 @@ import CustomButton from "../component/CustomButton.js";
 import textStyles from '../style/textStyles.js';
 
 const MyPage = ({navigation})=>{
+
   return (
     <View>
-        <CustomButton
-                buttonColor={'(0, 0, 0, 0)'}
-                buttonWidth={'15%'}
-                title={'<'}
-                titleSize={30}
-                onPress={()=> {alert('뒤로가기');}}/>
+      <CustomButton
+              buttonColor={'(0, 0, 0, 0)'}
+              buttonWidth={'15%'}
+              title={'<'}
+              titleSize={30}
+              onPress={()=> {alert('뒤로가기');}}/>
 
-        <Text style={textStyles.title1}>마이 페이지</Text>
+      <Text style={textStyles.title1}>마이 페이지</Text>
 
       
       <View>
@@ -33,11 +34,12 @@ const MyPage = ({navigation})=>{
         <Text  style={textStyles.content20}
             onPress={() => navigation.navigate('ReportPage_1')}>&gt;  제보하기
         </Text>
+        <Text  style={textStyles.content20}
+             onPress={() => navigation.navigate('FindAccount')}>&gt; 계정찾기
+        </Text> 
       </View>
-
-
     </View> //container
-  );//return
+  );
 };
 
 export default MyPage

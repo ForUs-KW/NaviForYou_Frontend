@@ -24,7 +24,7 @@ const LoginPage_3 = ({navigation})=> {
     const [checkPW, setCheckPW] = useState('');
 
     
-
+    // [회원가입 API]
     const handleSignUp = async () => {
         try {
           const response = await fetch('http://3.34.118.226:8080/app/member/signUp', // 서버 주소 확인 필요 
@@ -57,6 +57,7 @@ const LoginPage_3 = ({navigation})=> {
         }
     };
 
+    // [이메일 중복확인 API]
     const emailDoubleCheck = async () => {
         try {
             // 사용자가 입력한 이메일 주소 가져오기
@@ -89,7 +90,7 @@ const LoginPage_3 = ({navigation})=> {
         }
     };
 
-
+    // [닉네임 중복확인 API]
     const nicknameDoubleCheck = async () => {
         try {
             // 사용자가 입력한 닉네임 가져오기
@@ -122,6 +123,7 @@ const LoginPage_3 = ({navigation})=> {
         }
     };
 
+    // [이메일 인증 코드 발송 API]
     const sendCodeEmail = async () => {
         try {
             // 사용자가 입력한 이메일 가져오기
@@ -137,10 +139,16 @@ const LoginPage_3 = ({navigation})=> {
             });
     
             // 서버 응답 확인
-            if (response.ok) {
-                Alert.alert('이메일 코드 전송 성공', '이메일 코드를 성공적으로 전송했습니다.');
+            if (response.status === 200) {
+                const data = await response.json();
+                if (data.result) {
+                    Alert.alert('이메일 코드 전송 완료');
+                } else {
+                    Alert.alert('이메일 코드 전송 실패');
+                }
             } else {
-                Alert.alert('이메일 코드 전송 실패', '서버 오류로 인해 이메일 코드 전송에 실패했습니다. ');
+                console.error('이메일 코드 전송 중 실패', response.statusText);
+                Alert.alert('이메일 코드 전송에 실패했습니다.');
             }
         } catch (error) {
             console.error('이메일 코드 전송 중 에러:', error);
