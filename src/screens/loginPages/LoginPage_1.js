@@ -5,17 +5,15 @@ import CustomButton from "../../component/CustomButton.js";
 import textStyles from "../../style/textStyles.js";
 import viewStyles from "../../style/viewStyles.js";
 
+import { EXPO_PUBLIC_KAKAO_API_URI, EXPO_PUBLIC_KAKAO_API_KEY } from '@env';
+
+
 import {Webview} from 'react-native-webview';
 const isValidEmail = (email)=>{
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
 
-// KAKAO LOGIN
-const REST_API_KEY = '7cc503f8f35ee5bebc80458ff8f84cea'
-const REDIRECT_URI = 'http://localhost:8080/app/member/kakao'
-
-const INJECTED_JAVASCRIPT = `window.ReactNativeWebView.postMessage('message from webView')`;
 
 
 
@@ -75,32 +73,25 @@ const LoginPage_1 = ({ navigation }) => {
     }
   };
 
+  // [카카오 로그인 API]
+
+
+   const loginWithKakao = async() => {
+
+    const apiKey = process.env.EXPO_PUBLIC_KAKAO_API_KEY;
+    const apiUri = EXPO_PUBLIC_KAKAO_API_URI;
   
+    //const KAKAO_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${apiKey}&redirect_uri=${apiUri}`;
   
+    Linking.openURL(KAKAO_URL);
+  }
 
-  const naverLogin = async () => {
-    try {
-      // Implement Naver login logic here
-      // For example:
-      // const token = await NaverLogin.login(androidKeys);
-      // console.log("Token is fetched:", token);
-    } catch (error) {
-      console.error("Naver login error:", error);
-    }
-  };
+  
+  // [네이버 로그인 API ] 
+  
+  const loginWithNaver = async() => {
 
-  const naverLogout = () => {
-    // Implement Naver logout logic here
-    // For example:
-    // NaverLogin.logout();
-  };
-
-  const getUserProfile = async () => {
-    // Implement getting user profile logic here
-    // For example:
-    // const profileResult = await getProfile(naverToken.accessToken);
-    // console.log("Profile Result", profileResult);
-  };
+  }
 
   
   //input
@@ -149,10 +140,10 @@ const LoginPage_1 = ({ navigation }) => {
           lineWidth={1}
           title="카카오로 시작하기"
           titleColor="black"
-          onPress={() => 
+          onPress={() =>  
             {
               alert("카카오로 로그인하기 ");
-              //KakaoLogin();
+              loginWithKakao();
               alert("함수 호출");
             }
           }// 로그 추가}
@@ -165,7 +156,7 @@ const LoginPage_1 = ({ navigation }) => {
           title="네이버로 시작하기"
           titleColor="black"
           titleSize={18}
-          onPress={naverLogin}
+          //onPress={naverLogin}
         />
 
         <CustomButton

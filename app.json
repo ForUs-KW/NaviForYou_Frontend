@@ -31,15 +31,6 @@
       "eas": {
         "projectId": "c0630881-bdf8-40fe-9f75-f0a65614cbc9"
       }
-    },
-    "plugins" : [
-      [
-        "@react-native-seoul/kakao-login", 
-        {
-          "kakaoAppKey": "7cc503f8f35ee5bebc80458ff8f84cea", 
-          "kotlinVersion": "1.5.10"
-        }
-      ]
-    ]
+    }
   }
 }
