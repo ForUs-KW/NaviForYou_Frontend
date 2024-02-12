@@ -12,8 +12,6 @@ const isValidEmail = (email)=>{
 }
 
 // KAKAO LOGIN
-const REST_API_KEY = '7cc503f8f35ee5bebc80458ff8f84cea'
-const REDIRECT_URI = 'http://localhost:8080/app/member/kakao'
 
 const INJECTED_JAVASCRIPT = `window.ReactNativeWebView.postMessage('message from webView')`;
 
