@@ -14,24 +14,26 @@ const isValidEmail = (email)=>{
 
 const LoginPage_1=({navigation})=> {
 
-  //input
-  const [id, onChangeID] = React.useState('');
+  //email
+  const [email, onChangeEmail] = React.useState('');
+  const [emailError, setEmailError] = React.useState('');
+  // password
   const [pw, onChangePW] = React.useState('');
-  const [idError, setIdError] = React.useState('');
   const [pwError, setPwError] = React.useState('');
-  const handleLogin = () => {
-    // Validate ID and Password
-    if (!id) {
-      setIdError('아이디를 입력하세요.');
-    } else if(!isValidEmail(id)){
-      setIdError('올바른 형식이 아닙니다.');
-    }
-    else {
-      setIdError('');
-    }
 
+  const handleCheckEmail=()=>{
+    const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!emailCheck.test(email)){
+        setEmailError('올바른 이메일 형식이 아닙니다.');
+    }else if(!email){
+        setEmailError('가입되지 않은 이메일입니다.');
+    }
+  };
+
+  const handleCheckPassword=()=>{
     if (!pw) {
-      setPwError('비밀번호가 올바르지 않습니다');
+      setPwError('비밀번호가 올바르지 않습니다.');
     } else {
       setPwError('');
     }
@@ -80,26 +82,26 @@ const LoginPage_1=({navigation})=> {
       <View style={viewStyles.centerItems}>
         <TextInput
           style={viewStyles.textInput}
-          onChangeText={(text)=>onChangeID(text)}
-          placeholder="아이디를 입력해주세요."
-          onBlur={() => handleLogin()}
+          onChangeText={(text)=>onChangeEmail(text)}
+          placeholder="이메일을 입력해주세요."
+          onBlur={() => handleCheckEmail()}
           autoCapitalize="none" //대문자 방지
           inputMode="email"
           returnKeyType="next"//애뮬레이터or모바일 확인 필요
           
         />
-        {idError !== '' && <Text style={textStyles.errorText}>{idError}</Text>}
+        {emailError ?(<Text style={textStyles.errorText}>{emailError}</Text>):null}
 
         <TextInput
           style={viewStyles.textInput}
           onChangeText={this.onChangePW}
           placeholder="비밀번호를 입력해주세요."
           secureTextEntry={true}
-          onBlur={() => handleLogin()}
+          onBlur={() => handleCheckPassword()}
           autoCapitalize="none"
           returnKeyType="send"//애뮬레이터or모바일 확인 필요
         />
-        {pwError !== '' && <Text style={textStyles.errorText}>{pwError}</Text>}
+        {pwError ?(<Text style={textStyles.errorText}>{pwError}</Text>):null}
       </View>
         
       <View style={viewStyles.centerItems}>
