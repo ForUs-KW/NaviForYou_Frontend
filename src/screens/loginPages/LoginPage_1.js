@@ -56,16 +56,21 @@ const LoginPage_1=({navigation})=> {
           buttonWidth={'85%'}
           lineWidth={1}
           title={'카카오로 시작하기'}
-          titleColor={'black'}
-          onPress={()=> {alert('카카오 api 연결');}}/>
+          //titleColor={'#3A3A3A'}
+          imageSource={require('../../img/kkoLogo.png')}
+          imageStyle={{ width: 33, height: 33 }}
+          onPress={() => { alert('카카오 api 연결'); }}
+        />
 
         <CustomButton
           buttonColor={'white'}
           buttonWidth={'85%'}
           lineWidth={1}
           title={'네이버로 시작하기'}
-          titleColor={'black'}
+          //titleColor={'#3A3A3A'}
           titleSize={18}
+          imageSource={require('../../img/naverLogo.png')}
+          imageStyle={{ width: 33, height: 33 }}
         />
       </View>
       
@@ -109,7 +114,7 @@ const LoginPage_1=({navigation})=> {
         <CustomButton
           title={'로그인 하기'}
           titleColor={'white'}
-          buttonColor={'blue'}
+          //buttonColor={'blue'}
           onPress={()=> {alert('로그인 하기');}}/>
 
         <View style={viewStyles.tabview}>
