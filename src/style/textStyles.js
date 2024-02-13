@@ -34,6 +34,7 @@ const textStyles = StyleSheet.create({
     },
 
     errorText:{
+        marginHorizontal:25,
         fontSize: 16,
         color:'red',
     },
