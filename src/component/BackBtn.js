@@ -1,24 +1,35 @@
-//뒤로가기 버튼
-
+// CustomButton.js
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, StyleSheet,} from 'react-native';
+import { TouchableOpacity, Image, StyleSheet } from 'react-native';
+import btnImg from '../img/rightArrow.png';
 
-
-export default class BackBtn extends Component{
+export default class CustomButton extends Component {
   static defaultProps = {
-    title: '<',
+    imageSource: btnImg,
     onPress: () => null,
+  };
+
+  constructor(props) {
+    super(props);
   }
 
-  constructor(props){ super(props); }
-
-  render(){
+  render() {
     return (
-      <TouchableOpacity onPress={this.props.onPress}>
-        <Text>{this.props.title}</Text>
+      <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
+        <Image source={require('../img/rightArrow.png')} style={styles.image} />
       </TouchableOpacity>
-    )
+    );
   }
 }
 
-
+const styles = StyleSheet.create({
+  button: {
+    marginBottom: 10,
+    marginHorizontal: 10,
+  },
+  image: {
+    marginRight: 10,
+    width: 30,
+    height: 30,
+  },
+});

@@ -82,86 +82,89 @@ const LoginPage_3 = ({ navigation }) => {
         />
         <Text style={textStyles.title2}>정보 입력</Text>
 
-        <View style={viewStyles.tabview}>
-          <TextInput
-            style={viewStyles.textInputShort}
-            placeholder="이메일 주소를 입력해주세요."
-            onChangeText={(text) => {
-                setEmail(text);
-                handleCheckEmail();
-            }}
-          />
-          <CustomButton
-            buttonColor={'lightgrey'}
-            buttonWidth={'25%'}
-            title={'중복확인'}
-            titleSize={14}
-            //onPress={}
-          />
+        <View style={viewStyles.centerItems}>
+          <Text style={textStyles.content20}>이메일</Text>
         </View>
-        {emailError ?(<Text style={textStyles.errorText}>{emailError}</Text>):null}
+          <View style={viewStyles.tabview}>
+            <TextInput
+              style={viewStyles.textInputShort}
+              placeholder="이메일 주소를 입력해주세요."
+              onChangeText={(text) => {
+                  setEmail(text);
+                  handleCheckEmail();
+              }}
+            />
+            <CustomButton
+              buttonColor={'lightgrey'}
+              buttonWidth={'25%'}
+              title={'중복확인'}
+              titleSize={14}
+              //onPress={}
+            />
+          </View>
+          {emailError ?(<Text style={textStyles.errorText}>{emailError}</Text>):null}
 
-        <View>
+          <View style={viewStyles.centerItems}>
             <Text style={textStyles.content20}>비밀번호</Text>
-            <View style={viewStyles.centerItems}>
-                <TextInput
-                style={viewStyles.textInput}
-                placeholder="비밀번호를 입력해주세요."
-                secureTextEntry={true}
-                onChangeText={(text) => {
-                    setPassword(text);
-                    handleCheckPassword();
-                }}
-                />
-            </View>
+            <TextInput
+            style={viewStyles.textInput}
+            placeholder="비밀번호를 입력해주세요."
+            secureTextEntry={true}
+            onChangeText={(text) => {
+                setPassword(text);
+                handleCheckPassword();
+            }}
+            />
             <Text style={textStyles.content6}>8~20자 이내로 영문 대소문자, 숫자 조합</Text>
             {passwordError ? (<Text style={textStyles.errorText}>{passwordError}</Text>) : null}
 
+
+
             <Text style={textStyles.content20}>비밀번호 확인</Text>
-            <View style={viewStyles.centerItems}>
-                <TextInput
-                style={viewStyles.textInput}
-                placeholder="비밀번호를 다시 한 번 입력해주세요."
-                secureTextEntry={true}
-                onFocus={()=>setConfirmPasswordTouched(true)}
-                onChangeText={(text) => {
-                    setConfirmPassword(text);
-                    handlecheckDuplicationPassword();
-                }}
-                />
-            </View>
+
+            <TextInput
+            style={viewStyles.textInput}
+            placeholder="비밀번호를 다시 한 번 입력해주세요."
+            secureTextEntry={true}
+            onFocus={()=>setConfirmPasswordTouched(true)}
+            onChangeText={(text) => {
+                setConfirmPassword(text);
+                handlecheckDuplicationPassword();
+            }}
+            />
             {confirmPasswordTouched && confirmPassword !== password ? (
                 <Text style={textStyles.errorText}>
                     {confirmPasswordError}
                 </Text>
             ) : null}
-        </View>
+          </View>
 
-        <Text style={textStyles.content20}>닉네임</Text>
-        <View style={viewStyles.tabview}>
-          <TextInput
-            style={viewStyles.textInputShort}
-            onChangeText={(text) => setNickName(text)}
-            placeholder="닉네임을 입력해주세요."
-          />
-          <CustomButton
-            buttonColor={'lightgrey'}
-            buttonWidth={'25%'}
-            title={'중복확인'}
-            titleSize={14}
-            onPress={() => { alert('중복확인'); }}
-          />
-        </View>
+          <View style={viewStyles.centerItems}>
+            <Text style={textStyles.content20}>닉네임</Text>
+          </View>
+          <View style={viewStyles.tabview}>
+            <TextInput
+              style={viewStyles.textInputShort}
+              onChangeText={(text) => setNickName(text)}
+              placeholder="닉네임을 입력해주세요."
+            />
+            <CustomButton
+              buttonColor={'lightgrey'}
+              buttonWidth={'25%'}
+              title={'중복확인'}
+              titleSize={14}
+              onPress={() => { alert('중복확인'); }}
+            />
+          </View>
 
-        <View style={viewStyles.centerItems}>
-          <CustomButton
-            buttonColor={'lightgrey'}
-            title={'회원가입 완료하기'}
-            onPress={()=> navigation.navigate('LoginPage_4')}
-
-          />
+          <View style={viewStyles.centerItems}>
+            <CustomButton
+              buttonColor={'lightgrey'}
+              title={'회원가입 완료하기'}
+              onPress={()=> navigation.navigate('LoginPage_4')}
+            />
+          </View>
         </View>
-      </View>
     </ScrollView>
   );
 };

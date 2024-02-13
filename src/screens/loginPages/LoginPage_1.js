@@ -7,11 +7,6 @@ import CustomButton from "../../component/CustomButton.js";
 import textStyles from "../../style/textStyles.js";
 import viewStyles from '../../style/viewStyles.js';
 
-const isValidEmail = (email)=>{
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
 const LoginPage_1=({navigation})=> {
 
   //email
@@ -43,7 +38,8 @@ const LoginPage_1=({navigation})=> {
     <SafeAreaView>
       <CustomButton
         buttonColor={'(0, 0, 0, 0)'}
-        buttonWidth={'15%'}
+        buttonWidth={40}
+        lineWidth={0}
         title={'<'}
         titleSize={30}
         onPress={()=> navigation.navigate('MyPage')}/>
@@ -53,10 +49,8 @@ const LoginPage_1=({navigation})=> {
         <Text style={textStyles.title2}>로그인</Text>
         <CustomButton
           buttonColor={'white'}
-          buttonWidth={'85%'}
-          lineWidth={1}
           title={'카카오로 시작하기'}
-          //titleColor={'#3A3A3A'}
+          lineWidth={1}
           imageSource={require('../../img/kkoLogo.png')}
           imageStyle={{ width: 33, height: 33 }}
           onPress={() => { alert('카카오 api 연결'); }}
@@ -64,10 +58,8 @@ const LoginPage_1=({navigation})=> {
 
         <CustomButton
           buttonColor={'white'}
-          buttonWidth={'85%'}
-          lineWidth={1}
           title={'네이버로 시작하기'}
-          //titleColor={'#3A3A3A'}
+          lineWidth={1}
           titleSize={18}
           imageSource={require('../../img/naverLogo.png')}
           imageStyle={{ width: 33, height: 33 }}
@@ -76,15 +68,14 @@ const LoginPage_1=({navigation})=> {
       
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <View style={{flex: 1, height: 1.5, backgroundColor: 'grey'}} />
-          <Text style={{margin:20, fontSize:24}}>또는</Text>
+          <Text style={{margin:20, fontSize:20}}>또는</Text>
         <View style={{flex: 1, height: 1.5, backgroundColor: 'grey'}} />
       </View>
 
 
-      <View>
+      <View style={viewStyles.centerItems}>
         <Text style={textStyles.content20}>세바지 계정으로 로그인하기</Text>
 
-      <View style={viewStyles.centerItems}>
         <TextInput
           style={viewStyles.textInput}
           onChangeText={(text)=>onChangeEmail(text)}
@@ -114,19 +105,19 @@ const LoginPage_1=({navigation})=> {
         <CustomButton
           title={'로그인 하기'}
           titleColor={'white'}
-          //buttonColor={'blue'}
-          onPress={()=> {alert('로그인 하기');}}/>
+          onPress={()=> {alert('로그인 하기');}}
+        />
 
         <View style={viewStyles.tabview}>
           <CustomButton
             buttonColor={'(0, 0, 0, 0)'}
-            buttonWidth={'41%'}
+            buttonWidth={'40%'}
             title={'회원가입'}
             titleSize={12}
             onPress={()=> navigation.navigate('LoginPage_2')}/>
           <CustomButton
             buttonColor={'(0, 0, 0, 0)'}
-            buttonWidth={'41%'}
+            buttonWidth={'40%'}
             title={'아이디/비밀번호 찾기'}
             titleSize={12}
             onPress={()=> {alert('아이디/비밀번호 찾기');}}/>
@@ -136,9 +127,6 @@ const LoginPage_1=({navigation})=> {
           buttonColor={'(0, 0, 0, 0)'}
           title={'회원가입 없이 시작'}
           onPress={()=> {alert('지도 페이지로 이동');}}/>
-      </View>
-        
-
       </View>
     </SafeAreaView>
   );
