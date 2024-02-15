@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {enableScreens} from 'react-native-screens';
 
+import {default as MapView} from "./src/screens/Map/MapView.js";
 import {default as MyPage} from "./src/screens/MyPage.js";
 import {default as LoginPage_1} from "./src/screens/loginPages/LoginPage_1.js";
 import {default as LoginPage_2} from "./src/screens/loginPages/LoginPage_2.js";
@@ -26,7 +27,8 @@ const stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName = "MyPage">
+      <stack.Navigator initialRouteName = "MapView">
+        <stack.Screen name="MapView" component={MapView}/>
         <stack.Screen name="MyPage" component={MyPage}/>
         <stack.Screen name="LoginPage_1" component={LoginPage_1}/>
         <stack.Screen name="LoginPage_2" component={LoginPage_2}/>
