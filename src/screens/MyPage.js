@@ -37,6 +37,10 @@ const MyPage = ({navigation})=>{
         <Text  style={textStyles.content20}
              onPress={() => navigation.navigate('FindAccount')}>&gt; 계정찾기
         </Text> 
+        <Text  style={textStyles.content20}
+             onPress={() => navigation.navigate('LoginSucceed')}>&gt; 로그인 정보 확인
+        </Text> 
+        
       </View>
     </View> //container
   );
