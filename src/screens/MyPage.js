@@ -5,7 +5,7 @@ import { View, Text} from 'react-native';
 
 //import BackBtn from '../component/backBtn.js';
 import CustomButton from "../component/CustomButton.js";
-import textStyles from '../style/textStyles.js';
+import textStyles from "../Style/TextStyles.js";
 
 const MyPage = ({navigation})=>{
 

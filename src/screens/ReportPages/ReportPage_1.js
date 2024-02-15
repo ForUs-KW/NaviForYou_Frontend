@@ -6,8 +6,8 @@ import {Dropdown} from 'react-native-element-dropdown';
 //https://github.com/hoaphantn7604/react-native-element-dropdown
 
 import CustomButton from "../../component/CustomButton.js";
-import viewStyles from '../../style/viewStyles.js';
-import textStyles from "../../style/textStyles.js";
+import viewStyles from "../../Style/ViewStyles.js";
+import textStyles from '../../Style/TextStyles.js';
 
 const placeType = [
     {label: '건물', value: 'building'},

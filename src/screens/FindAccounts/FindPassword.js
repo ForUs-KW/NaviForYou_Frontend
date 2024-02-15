@@ -6,8 +6,8 @@ import React, {useState} from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 
 import CustomButton from "../../component/CustomButton";
-import viewStyles from "../../style/viewStyles.js";
-import textStyles from '../../style/textStyles.js';
+import viewStyles from "../../Style/ViewStyles.js";
+import textStyles from '../../Style/TextStyles.js';
 
 
 

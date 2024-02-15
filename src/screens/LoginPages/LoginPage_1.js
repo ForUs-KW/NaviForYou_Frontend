@@ -2,8 +2,8 @@ import React, { useState }from "react";
 import { View, Text, TextInput, Alert, Button, SafeAreaView } from "react-native";
 import * as KakaoLogins from "@react-native-seoul/kakao-login";
 import CustomButton from "../../component/CustomButton.js";
-import textStyles from "../../style/textStyles.js";
-import viewStyles from "../../style/viewStyles.js";
+import textStyles from "../../Style/TextStyles.js";
+import viewStyles from "../../Style/ViewStyles.js";
 
 import {Webview} from 'react-native-webview';
 const isValidEmail = (email)=>{

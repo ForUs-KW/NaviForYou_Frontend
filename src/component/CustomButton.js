@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, StyleSheet,} from 'react-native';
 
-import textStyles from '../style/textStyles';
+import textStyles from '../Style/TextStyles';
 
 
 export default class CustomButton extends Component{

@@ -5,8 +5,8 @@ import { View, Text, TextInput, ScrollView} from "react-native";
 
 //import BackBtn from "../../component/backBtn.js";
 import CustomButton from "../../component/CustomButton.js";
-import viewStyles from '../../style/viewStyles.js';
-import textStyles from "../../style/textStyles.js";
+import viewStyles from '../../Style/ViewStyles.js';
+import textStyles from "../../Style/TextStyles.js";
 import validationRules from "../../utils/validationRules.js";
 
 const LoginPage_3 = ({navigation})=> {

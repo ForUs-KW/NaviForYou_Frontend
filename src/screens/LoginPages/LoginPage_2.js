@@ -3,8 +3,8 @@ import { View, Text } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 import CustomButton from "../../component/CustomButton.js";
-import viewStyles from '../../style/viewStyles.js';
-import textStyles from "../../style/textStyles.js";
+import viewStyles from '../../Style/ViewStyles.js';
+import textStyles from "../../Style/TextStyles.js";
 
 const LoginPage_2 = ({ navigation }) => {
     const [checkboxState, setCheckboxState] = useState({
