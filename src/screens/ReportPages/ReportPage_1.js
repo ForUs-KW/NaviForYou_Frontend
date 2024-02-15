@@ -46,6 +46,7 @@ const ReportPage_1=({navigation})=> {
     return (
         <ScrollView style={{flex:1}}>
             <View>
+               
                 <CustomButton
                     buttonColor={'(0, 0, 0, 0)'}
                     buttonWidth={'15%'}
@@ -86,7 +87,7 @@ const ReportPage_1=({navigation})=> {
                     
                         <Dropdown
                             style={[viewStyles.dropdown, placeSubcategories && { borderColor:'blue' }]}
-                            data={placeSubcategories[placeTypeValue]}
+                            data={placeTypeValue ? placeSubcategories[placeTypeValue] : []}
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
@@ -96,10 +97,10 @@ const ReportPage_1=({navigation})=> {
                         />
                     </View>
                 </View>
-            
+              
                 <View>
                     <Text style={textStyles.content20}>위치</Text>
-                    {/* <View style={viewStyles.tabview}>
+                    <View style={viewStyles.tabview}>
                         <CustomButton
                             buttonColor={'skyblue'}
                             buttonWidth={'40%'}
@@ -110,7 +111,7 @@ const ReportPage_1=({navigation})=> {
                             buttonWidth={'40%'}
                             title={'지도에서 선택'}
                             onPress={()=> {alert('지도에서 선택');}}/>
-                    </View> */}
+                    </View> 
 
                     <View style={viewStyles.tabview}>
                         <TextInput
@@ -157,7 +158,9 @@ const ReportPage_1=({navigation})=> {
                         title={'제출하기'}
                         onPress={()=> navigation.navigate('ReportPage_2')}/>
                 </View> 
+
             </View>
+            
         </ScrollView>
     );
 };
