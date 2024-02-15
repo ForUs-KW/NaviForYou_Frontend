@@ -7,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {enableScreens} from 'react-native-screens';
 
 import {default as MapView} from "./src/screens/Map/MapView.js";
+import {default as SearchView} from "./src/screens/Map/SearchView.js";
 import {default as MyPage} from "./src/screens/MyPage.js";
 import {default as LoginPage_1} from "./src/screens/loginPages/LoginPage_1.js";
 import {default as LoginPage_2} from "./src/screens/loginPages/LoginPage_2.js";
@@ -29,6 +30,7 @@ function App() {
     <NavigationContainer>
       <stack.Navigator initialRouteName = "MapView">
         <stack.Screen name="MapView" component={MapView}/>
+        <stack.Screen name="SearchView" component={SearchView}/>
         <stack.Screen name="MyPage" component={MyPage}/>
         <stack.Screen name="LoginPage_1" component={LoginPage_1}/>
         <stack.Screen name="LoginPage_2" component={LoginPage_2}/>

@@ -49,8 +49,8 @@ const MapView = ({ navigation }) => {
             </View>
             <View style = {styles.searchBar} pointerEvents="auto">
                 <MapButton title = "장소를 입력하세요"
-                    //onPress={() => navigation.navigate('SearchView')}
-                    //navigation={navigation}
+                    onPress={() => navigation.navigate('SearchView')}
+                    navigation={navigation}
                 />
             </View>
             <View style = {styles.routeFind} pointerEvents="auto">
