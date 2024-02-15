@@ -21,8 +21,18 @@ const getUserData = async () => {
   }
 };
 
+const removeUserData = async () => {
+    try {
+      await AsyncStorage.removeItem('userData');
+      console.log('User data removed successfully.');
+    } catch (error) {
+      console.error('Error removing user data:', error);
+    }
+  };
+  
+
 const test = async(token, userID) =>{
     console.log('test');
 }
 
-export { storeUserData, getUserData };
+export { storeUserData, getUserData, removeUserData };
