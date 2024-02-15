@@ -55,8 +55,8 @@ const MapView = ({ navigation }) => {
             </View>
             <View style = {styles.routeFind} pointerEvents="auto">
                 <MapButton title = "->"
-                    // onPress={() => navigation.navigate('RouteFind')}
-                    // navigation={navigation}
+                    onPress={() => navigation.navigate('RouteFind')}
+                    navigation={navigation}
                 />
             </View>
         </View>

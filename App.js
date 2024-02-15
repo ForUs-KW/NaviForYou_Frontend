@@ -32,7 +32,7 @@ function App() {
       <stack.Navigator initialRouteName = "MapView">
         <stack.Screen name="MapView" component={MapView}/>
         <stack.Screen name="SearchView" component={SearchView}/>
-        <stack.Screen name="SearchView" component={RouteFind}/>
+        <stack.Screen name="RouteFind" component={RouteFind}/>
         <stack.Screen name="MyPage" component={MyPage}/>
         <stack.Screen name="LoginPage_1" component={LoginPage_1}/>
         <stack.Screen name="LoginPage_2" component={LoginPage_2}/>
