@@ -46,86 +46,70 @@ const ReportPage_1=({navigation})=> {
     const [reportTypeValue, setReportTypeValue] = React.useState(null);
 
     return (
-        <ScrollView style={{flex:1}}>
+        <ScrollView style={{flex:1}} keyboardShouldPersistTaps="handled" contentContainerStyle={{flexGrow:1}}>
             <View>
                 <BackBtn onPress={()=> navigation.navigate('MyPage')}/>
 
                 <View>
                     <Text style={textStyles.h1}>제보하기</Text>
                     <Text style={textStyles.b16}>
-                        잘못되었거나 추가하고 싶은정보를 제보해주세요!</Text>
-                    <Text style={textStyles.b16}> 
-                        세바지는 여러분들의 제보와 함께 발전합니다😊 </Text>
+                        잘못되었거나 추가하고 싶은정보를 제보해주세요!{'\n'}세바지는 여러분들의 제보와 함께 발전합니다😊</Text>
                 </View>
-
-                <View>
+                <View style={viewStyles.centerAlign}>
                     <Text style={textStyles.b18}>장소</Text>
-                    <View style={viewStyles.horizontalAlign}>
-                        <Dropdown
-                            style={[viewStyles.dropdown, placeTypeValue && { borderColor: 'blue' }]}
-                            data={placeType}
-                            maxHeight={300}
-                            labelField="label"
-                            valueField="value"
-                            placeholder={'대분류'}
-                            value={placeTypeValue}
-                            onFocus={() => setReportTypeValue(null)} //Unselect report dropdown
-                            onBlur={() => {
-                                setSubCategoryValue(null);
-                                setReportTypeValue(null);
-                            }}
-                            onChange={item => {
-                                setPlaceTypeValue(item.value);
-                                setSubCategoryValue(null);
-                                setReportTypeValue(null);
-                            }}
-                        />
-                    
-                        <Dropdown
-                            style={[viewStyles.dropdown, placeSubcategories && { borderColor:'blue' }]}
-                            data={placeSubcategories[placeTypeValue]}
-                            maxHeight={300}
-                            labelField="label"
-                            valueField="value"
-                            placeholder="소분류"
-                            value={subCategoryValue}
-                            onChange={item=>setSubCategoryValue(item.value)}
-                        />
-                    </View>
+                </View>
+                <View style={viewStyles.horizontalAlign}>
+                    <Dropdown
+                        style={[viewStyles.dropdown, placeTypeValue]}
+                        data={placeType}
+                        maxHeight={300}
+                        labelField="label"
+                        valueField="value"
+                        placeholder={'대분류'}
+                        value={placeTypeValue}
+                        onFocus={() => setReportTypeValue(null)} //Unselect report dropdown
+                        onBlur={() => {
+                            setSubCategoryValue(null);
+                            setReportTypeValue(null);
+                        }}
+                        onChange={item => {
+                            setPlaceTypeValue(item.value);
+                            setSubCategoryValue(null);
+                            setReportTypeValue(null);
+                        }}/>
+                
+                    <Dropdown
+                        style={[viewStyles.dropdown, placeSubcategories]}
+                        data={placeSubcategories[placeTypeValue]}
+                        maxHeight={300}
+                        labelField="label"
+                        valueField="value"
+                        placeholder="소분류"
+                        value={subCategoryValue}
+                        onChange={item=>setSubCategoryValue(item.value)}
+                    />
                 </View>
             
-                <View>
+                <View style={viewStyles.centerAlign}>
                     <Text style={textStyles.b18}>위치</Text>
-                    {/* <View style={viewStyles.tabview}>
-                        <CustomButton
-                            buttonColor={'skyblue'}
-                            buttonWidth={'40%'}
-                            title={'위치 입력'}
-                            onPress={()=> {alert('위치 입력');}}/>
-                        <CustomButton
-                            buttonColor={'skyblue'}
-                            buttonWidth={'40%'}
-                            title={'지도에서 선택'}
-                            onPress={()=> {alert('지도에서 선택');}}/>
-                    </View> */}
-
-                    <View style={viewStyles.horizontalAlign}>
-                        <TextInput
-                            style={viewStyles.textInput}
-                            onChangeText={onChangeLocation}
-                            placeholder="위치 검색"/>
-
-                        <SideBtn
-                            title={'지도'}
-                            buttonColor={'skyblue'}
-                            buttonWidth={'20%'}
-                            onPress={()=>{alert('지도 띄우기');}}/>
-                    </View>
-
+                </View>
+                <View style={viewStyles.horizontalAlign}>
+                    <TextInput
+                    style={viewStyles.textInputShort}
+                    onChangeText={onChangeLocation}
+                    placeholder="위치 검색"/>
+                    <SideBtn
+                        title={'지도'}
+                        buttonColor={'lightgrey'}
+                        buttonWidth={'25%'}
+                        onPress={() => { alert('지도 띄우기'); }}
+                    />
                 </View>
 
-                <View>
+                <View style={viewStyles.centerAlign}>
                     <Text style={textStyles.b18}>제보 내용</Text>
+                </View>
+                <View style={{paddingLeft:25}}>
                     <Dropdown
                         style={[viewStyles.dropdown, reportTypeValue && { borderColor: 'blue' }]}
                         data={reportType}
@@ -141,12 +125,16 @@ const ReportPage_1=({navigation})=> {
                             setPlaceTypeValue(null);
                         }}
                     />
+                </View>
+                <View style={viewStyles.centerAlign}>
                     <TextInput
                         style={viewStyles.textInputLarge}
                         onChangeText={onChangeContent}
                         placeholder="제보 내용"/>
-                    <Text style={textStyles.rightAlign}>00/000 Byte</Text>
                 </View>
+                <Text style={textStyles.rightAlign}>00/000 Byte</Text>
+
+
 
                 <View style={viewStyles.centerAlign}>
                     <CustomButton

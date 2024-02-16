@@ -98,6 +98,8 @@ const LoginPage_3 = ({ navigation }) => {
           </View>
           {emailError ?(<Text style={textStyles.error}>{emailError}</Text>):null}
 
+
+          
           <View style={viewStyles.centerAlign}>
             <Text style={textStyles.b18}>비밀번호</Text>
             <TextInput

@@ -8,7 +8,7 @@ const viewStyles = StyleSheet.create({
 // Components align
     horizontalAlign: {
       flexDirection: "row",
-      alignItems:"center",  //얘 왜 다른 방향으로 정렬이 안되는지 모르겠음
+      alignItems:"center",
       justifyContent: "center",
       //borderWidth:3,
     },
@@ -27,22 +27,19 @@ const viewStyles = StyleSheet.create({
       borderWidth: 1,
       
       width: '85%',
-      paddingVertical: 10,
-      paddingHorizontal: 10,
-      //marginTop: 10,
+      padding:10,
+      marginTop: 10,
     },
-
     textInputShort:{
       fontSize:18,
       color:'gray',
+
       borderRadius: 5,
-      width: '55%',
-      height: 40,
       borderColor: 'gray',
       borderWidth:1,
-      paddingVertical: 10,
-      paddingHorizontal: 10,
-      marginLeft:25,
+
+      width: '55%',
+      padding:10,
       marginRight:5,
     },
     textInputLarge:{
@@ -55,14 +52,16 @@ const viewStyles = StyleSheet.create({
       paddingHorizontal: 10,
       marginBottom: 10,
       marginHorizontal:25,
-      height:'30%',
+      height:60,
     },
+
+
     dropdown:{
       width: '40%',
       height: 50,
       borderColor: 'gray',
-      borderWidth: 0.5,
-      borderRadius: 8,
+      borderWidth: 1,
+      borderRadius: 5,
       paddingHorizontal: 15,
       marginHorizontal:10,
       marginVertical:10,

@@ -28,7 +28,7 @@ const textStyles = StyleSheet.create({
         fontSize: 18,
         color: color_gray,
         paddingVertical: 10,
-        marginBottom: 10,
+        marginTop: 10,
         marginHorizontal:25,
         width:'85%',
     },
