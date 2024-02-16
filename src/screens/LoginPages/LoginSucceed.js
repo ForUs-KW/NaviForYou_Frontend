@@ -103,6 +103,13 @@ const LoginSucceed=({navigation})=> {
             title={'회원탈퇴'}
             //onPress={()=> deleteAccount()}
         />
+
+        <CustomButton
+                    style={viewStyles.textInput}
+                    buttonColor={'skyblue'}
+                    title={'마이페이지(로그인 된 상태)'}
+                    onPress={()=> navigation.navigate('ConfirmMypage')}
+        />
     </View>
   );
 };

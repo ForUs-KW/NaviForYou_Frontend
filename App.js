@@ -22,6 +22,7 @@ import {default as ReportPage_2} from "./src/screens/ReportPages/ReportPage_2.js
 import {default as FindAccount} from "./src/screens/FindAccounts/FindAccount.js";
 import {default as FindEmail} from "./src/screens/FindAccounts/FindEmail.js";
 import {default as FindPassword} from "./src/screens/FindAccounts/FindPassword.js";
+import ConfirmMypage from './src/screens/ConfirmMypage.js';
 
 enableScreens();
 const stack = createStackNavigator();
@@ -47,6 +48,7 @@ function App() {
         <stack.Screen name="FindAccount" component={FindAccount}/>
         <stack.Screen name = "FindEmail" component={FindEmail}/>
         <stack.Screen name = "FindPassword" component={FindPassword}/>
+        <stack.Screen name = "ConfirmMypage" component={ConfirmMypage}/>
       
 
 
