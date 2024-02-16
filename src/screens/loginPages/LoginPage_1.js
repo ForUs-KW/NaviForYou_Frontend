@@ -34,6 +34,15 @@ const LoginPage_1=({navigation})=> {
     }
   };
 
+  const handleLogin = ()=>{
+    handleCheckEmail();
+    handleCheckPassword();
+
+    if(email && pw){
+      //Perform login
+    }
+  };
+
   return (
     <SafeAreaView>
       <CustomButton
@@ -105,7 +114,7 @@ const LoginPage_1=({navigation})=> {
         <CustomButton
           title={'로그인 하기'}
           titleColor={'white'}
-          onPress={()=> {alert('로그인 하기');}}
+          onPress={handleLogin}
         />
 
         <View style={viewStyles.tabview}>

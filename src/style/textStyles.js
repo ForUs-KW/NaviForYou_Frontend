@@ -37,9 +37,11 @@ const textStyles = StyleSheet.create({
     },
 
     errorText:{
-        marginHorizontal:25,
-        fontSize: 16,
+        fontSize: 14,
         color:'red',
+
+        marginHorizontal:25,
+        marginBottom:5,
     },
 
 
