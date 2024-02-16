@@ -75,10 +75,10 @@ const LoginPage_3 = ({ navigation }) => {
     <ScrollView>
       <View>
         <BackBtn onPress={() => navigation.navigate('LoginPage_2')}/>
-        <Text style={textStyles.title2}>정보 입력</Text>
+        <Text style={textStyles.h2}>정보 입력</Text>
 
         <View style={viewStyles.centerItems}>
-          <Text style={textStyles.content20}>이메일</Text>
+          <Text style={textStyles.b18}>이메일</Text>
         </View>
           <View style={viewStyles.tabview}>
             <TextInput
@@ -97,10 +97,10 @@ const LoginPage_3 = ({ navigation }) => {
               //onPress={}
             />
           </View>
-          {emailError ?(<Text style={textStyles.errorText}>{emailError}</Text>):null}
+          {emailError ?(<Text style={textStyles.error}>{emailError}</Text>):null}
 
           <View style={viewStyles.centerItems}>
-            <Text style={textStyles.content20}>비밀번호</Text>
+            <Text style={textStyles.b18}>비밀번호</Text>
             <TextInput
             style={viewStyles.textInput}
             placeholder="비밀번호를 입력해주세요."
@@ -110,12 +110,12 @@ const LoginPage_3 = ({ navigation }) => {
                 handleCheckPassword();
             }}
             />
-            <Text style={textStyles.content6}>8~20자 이내로 영문 대소문자, 숫자 조합</Text>
-            {passwordError ? (<Text style={textStyles.errorText}>{passwordError}</Text>) : null}
+            <Text style={textStyles.b12}>8~20자 이내로 영문 대소문자, 숫자 조합</Text>
+            {passwordError ? (<Text style={textStyles.error}>{passwordError}</Text>) : null}
 
 
 
-            <Text style={textStyles.content20}>비밀번호 확인</Text>
+            <Text style={textStyles.b18}>비밀번호 확인</Text>
 
             <TextInput
             style={viewStyles.textInput}
@@ -128,14 +128,11 @@ const LoginPage_3 = ({ navigation }) => {
             }}
             />
             {confirmPasswordTouched && confirmPassword !== password ? (
-                <Text style={textStyles.errorText}>
-                    {confirmPasswordError}
-                </Text>
-            ) : null}
+                <Text style={textStyles.error}> {confirmPasswordError}</Text>) : null}
           </View>
 
           <View style={viewStyles.centerItems}>
-            <Text style={textStyles.content20}>닉네임</Text>
+            <Text style={textStyles.b18}>닉네임</Text>
           </View>
           <View style={viewStyles.tabview}>
             <TextInput

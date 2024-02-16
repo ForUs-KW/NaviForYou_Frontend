@@ -11,7 +11,7 @@ import icon from '../../../assets/icon.png';
 const LoginPage_4=({navigation})=> {
   return (
     <View style={viewStyles.centerItems}>
-        <Text style={textStyles.title2}>세바지에 온 걸 환영해요</Text>
+        <Text style={textStyles.h2}>세바지에 온 걸 환영해요</Text>
         <Image source={icon} style={viewStyles.image}/>
         <CustomButton
             buttonColor={'skyblue'}

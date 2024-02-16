@@ -14,22 +14,22 @@ const MyPage = ({navigation})=>{
     <View>
         <BackBtn onPress={()=> {alert('뒤로가기');}}/>
 
-        <Text style={textStyles.title1}>마이 페이지</Text>
+        <Text style={textStyles.h1}>마이 페이지</Text>
 
       
       <View>
         <View>
-          <Text style={textStyles.content20}
+          <Text style={textStyles.b18}
               onPress={() => navigation.navigate('LoginPage_1')}>     &gt;  로그인/회원가입
           </Text>
         </View>
-        <Text style={textStyles.content20}
+        <Text style={textStyles.b18}
             onPress={() => navigation.navigate('EditInfo')}>     &gt;  회원 정보
         </Text>
-        <Text  style={textStyles.content20}
+        <Text  style={textStyles.b18}
             onPress={() => navigation.navigate('Settings')}>     &gt;  앱 설정 관리
         </Text>
-        <Text  style={textStyles.content20}
+        <Text  style={textStyles.b18}
             onPress={() => navigation.navigate('ReportPage_1')}>     &gt;  제보하기
         </Text>
       </View>

@@ -13,8 +13,8 @@ const ReportPage_2=({navigation})=> {
   return (
     <View style={viewStyles.centerItems}>
 
-        <Text style={textStyles.title1}>제보가 접수되었어요</Text>
-        <Text style={textStyles.title1}>감사합니다</Text>
+        <Text style={textStyles.h1}>제보가 접수되었어요</Text>
+        <Text style={textStyles.h2}>감사합니다</Text>
         <Image source={icon} style={viewStyles.image}/>
         <CustomButton
             buttonColor={'skyblue'}

@@ -50,15 +50,15 @@ const ReportPage_1=({navigation})=> {
                 <BackBtn onPress={()=> navigation.navigate('MyPage')}/>
 
                 <View>
-                    <Text style={textStyles.title1}>제보하기</Text>
-                    <Text style={textStyles.content16}>
+                    <Text style={textStyles.h1}>제보하기</Text>
+                    <Text style={textStyles.b16}>
                         잘못되었거나 추가하고 싶은정보를 제보해주세요!</Text>
-                    <Text style={textStyles.content16}> 
+                    <Text style={textStyles.b16}> 
                         세바지는 여러분들의 제보와 함께 발전합니다😊 </Text>
                 </View>
 
                 <View>
-                    <Text style={textStyles.content20}>장소</Text>
+                    <Text style={textStyles.b18}>장소</Text>
                     <View style={viewStyles.tabview}>
                         <Dropdown
                             style={[viewStyles.dropdown, placeTypeValue && { borderColor: 'blue' }]}
@@ -94,7 +94,7 @@ const ReportPage_1=({navigation})=> {
                 </View>
             
                 <View>
-                    <Text style={textStyles.content20}>위치</Text>
+                    <Text style={textStyles.b18}>위치</Text>
                     {/* <View style={viewStyles.tabview}>
                         <CustomButton
                             buttonColor={'skyblue'}
@@ -124,7 +124,7 @@ const ReportPage_1=({navigation})=> {
                 </View>
 
                 <View>
-                    <Text style={textStyles.content20}>제보 내용</Text>
+                    <Text style={textStyles.b18}>제보 내용</Text>
                     <Dropdown
                         style={[viewStyles.dropdown, reportTypeValue && { borderColor: 'blue' }]}
                         data={reportType}
@@ -144,7 +144,7 @@ const ReportPage_1=({navigation})=> {
                         style={viewStyles.textInputLarge}
                         onChangeText={onChangeContent}
                         placeholder="제보 내용"/>
-                    <Text style={textStyles.rightText}>00/000 Byte</Text>
+                    <Text style={textStyles.rightAlign}>00/000 Byte</Text>
                 </View>
 
                 <View style={viewStyles.centerItems}>

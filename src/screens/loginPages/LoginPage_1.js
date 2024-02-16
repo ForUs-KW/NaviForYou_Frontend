@@ -4,6 +4,7 @@ import React from "react";
 import { View, Text, TextInput, SafeAreaView} from "react-native";
 
 import BackBtn from "../../component/BackBtn.js";
+import Contour from "../../component/Contour.js";
 import CustomButton from "../../component/CustomButton.js";
 import textStyles from "../../style/textStyles.js";
 import viewStyles from '../../style/viewStyles.js';
@@ -41,7 +42,7 @@ const LoginPage_1=({navigation})=> {
 
 
       <View  style={viewStyles.centerItems}>
-        <Text style={textStyles.title2}>로그인</Text>
+        <Text style={textStyles.h1}>로그인</Text>
         <CustomButton
           buttonColor={'white'}
           title={'카카오로 시작하기'}
@@ -61,15 +62,11 @@ const LoginPage_1=({navigation})=> {
         />
       </View>
       
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{flex: 1, height: 1.5, backgroundColor: 'grey'}} />
-          <Text style={{margin:20, fontSize:20}}>또는</Text>
-        <View style={{flex: 1, height: 1.5, backgroundColor: 'grey'}} />
-      </View>
+      <View><Contour/></View> 
 
 
       <View style={viewStyles.centerItems}>
-        <Text style={textStyles.content20}>세바지 계정으로 로그인하기</Text>
+        <Text style={textStyles.b18}>세바지 계정으로 로그인하기</Text>
 
         <TextInput
           style={viewStyles.textInput}
@@ -81,7 +78,7 @@ const LoginPage_1=({navigation})=> {
           returnKeyType="next"//애뮬레이터or모바일 확인 필요
           
         />
-        {emailError ?(<Text style={textStyles.errorText}>{emailError}</Text>):null}
+        {emailError ?(<Text style={textStyles.error}>{emailError}</Text>):null}
 
         <TextInput
           style={viewStyles.textInput}
@@ -92,7 +89,7 @@ const LoginPage_1=({navigation})=> {
           autoCapitalize="none"
           returnKeyType="send"//애뮬레이터or모바일 확인 필요
         />
-        {pwError ?(<Text style={textStyles.errorText}>{pwError}</Text>):null}
+        {pwError ?(<Text style={textStyles.error}>{pwError}</Text>):null}
       </View>
         
       <View style={viewStyles.centerItems}>

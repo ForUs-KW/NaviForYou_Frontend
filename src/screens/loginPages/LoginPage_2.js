@@ -38,7 +38,7 @@ const LoginPage_2 = ({ navigation }) => {
         <View>
             <BackBtn onPress={() => navigation.navigate('LoginPage_1')}/>
 
-            <Text style={textStyles.title2}>약관 동의</Text>
+            <Text style={textStyles.h2}>약관 동의</Text>
 
             <BouncyCheckbox
                 style={{ marginLeft: 30, marginBottom: 20 }}
