@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, ScrollView } from "react-native";
 
+import BackBtn from "../../component/BackBtn";
 import CustomButton from "../../component/CustomButton";
 import viewStyles from "../../style/viewStyles";
 import textStyles from "../../style/textStyles";
@@ -73,13 +74,7 @@ const LoginPage_3 = ({ navigation }) => {
   return (
     <ScrollView>
       <View>
-        <CustomButton
-          buttonColor={'(0, 0, 0, 0)'}
-          buttonWidth={'15%'}
-          title={'<'}
-          titleSize={30}
-          onPress={() => navigation.navigate('LoginPage_2')}
-        />
+        <BackBtn onPress={() => navigation.navigate('LoginPage_2')}/>
         <Text style={textStyles.title2}>정보 입력</Text>
 
         <View style={viewStyles.centerItems}>

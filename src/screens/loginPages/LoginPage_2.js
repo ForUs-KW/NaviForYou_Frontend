@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
+import BackBtn from "../../component/BackBtn.js";
 import CustomButton from "../../component/CustomButton.js";
 import viewStyles from '../../style/viewStyles.js';
 import textStyles from "../../style/textStyles.js";
@@ -35,13 +36,7 @@ const LoginPage_2 = ({ navigation }) => {
 
     return (
         <View>
-            <CustomButton
-                buttonColor={'(0, 0, 0, 0)'}
-                buttonWidth={'15%'}
-                title={'<'}
-                titleSize={30}
-                onPress={() => navigation.navigate('LoginPage_1')}
-            />
+            <BackBtn onPress={() => navigation.navigate('LoginPage_1')}/>
 
             <Text style={textStyles.title2}>약관 동의</Text>
 

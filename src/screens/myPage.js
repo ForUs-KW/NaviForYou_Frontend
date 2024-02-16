@@ -3,7 +3,7 @@
 import React from 'react';
 import { View, Text, Image} from 'react-native';
 
-//import BackBtn from '../component/backBtn.js';
+import BackBtn from "../component/BackBtn.js";
 import CustomButton from "../component/CustomButton.js";
 import textStyles from '../style/textStyles.js';
 
@@ -12,13 +12,7 @@ import rightArrow from "../img/rightArrow.png";
 const MyPage = ({navigation})=>{
   return (
     <View>
-        <CustomButton
-                buttonColor={'(0, 0, 0, 0)'}
-                buttonWidth={40}
-                lineWidth={0}
-                title={'<'}
-                titleSize={30}
-                onPress={()=> {alert('뒤로가기');}}/>
+        <BackBtn onPress={()=> {alert('뒤로가기');}}/>
 
         <Text style={textStyles.title1}>마이 페이지</Text>
 

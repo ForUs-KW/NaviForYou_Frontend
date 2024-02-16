@@ -3,6 +3,7 @@
 import React from "react";
 import { View, Text, TextInput, SafeAreaView} from "react-native";
 
+import BackBtn from "../../component/BackBtn.js";
 import CustomButton from "../../component/CustomButton.js";
 import textStyles from "../../style/textStyles.js";
 import viewStyles from '../../style/viewStyles.js';
@@ -36,13 +37,7 @@ const LoginPage_1=({navigation})=> {
 
   return (
     <SafeAreaView>
-      <CustomButton
-        buttonColor={'(0, 0, 0, 0)'}
-        buttonWidth={40}
-        lineWidth={0}
-        title={'<'}
-        titleSize={30}
-        onPress={()=> navigation.navigate('MyPage')}/>
+      <BackBtn onPress={()=> navigation.navigate('MyPage')}/>
 
 
       <View  style={viewStyles.centerItems}>
