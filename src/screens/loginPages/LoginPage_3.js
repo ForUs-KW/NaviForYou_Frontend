@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, ScrollView } from "react-native";
 
 import BackBtn from "../../component/BackBtn";
+import SideBtn from "../../component/SideBtn";
 import CustomButton from "../../component/CustomButton";
 import viewStyles from "../../style/viewStyles";
 import textStyles from "../../style/textStyles";
@@ -77,29 +78,27 @@ const LoginPage_3 = ({ navigation }) => {
         <BackBtn onPress={() => navigation.navigate('LoginPage_2')}/>
         <Text style={textStyles.h2}>정보 입력</Text>
 
-        <View style={viewStyles.centerItems}>
+        <View style={viewStyles.centerAlign}>
           <Text style={textStyles.b18}>이메일</Text>
         </View>
-          <View style={viewStyles.tabview}>
+          <View style={viewStyles.horizontalAlign}>
             <TextInput
               style={viewStyles.textInputShort}
               placeholder="이메일 주소를 입력해주세요."
               onChangeText={(text) => {
                   setEmail(text);
                   handleCheckEmail();
-              }}
-            />
-            <CustomButton
+              }} />
+            <SideBtn
               buttonColor={'lightgrey'}
               buttonWidth={'25%'}
               title={'중복확인'}
-              titleSize={14}
               //onPress={}
             />
           </View>
           {emailError ?(<Text style={textStyles.error}>{emailError}</Text>):null}
 
-          <View style={viewStyles.centerItems}>
+          <View style={viewStyles.centerAlign}>
             <Text style={textStyles.b18}>비밀번호</Text>
             <TextInput
             style={viewStyles.textInput}
@@ -131,25 +130,24 @@ const LoginPage_3 = ({ navigation }) => {
                 <Text style={textStyles.error}> {confirmPasswordError}</Text>) : null}
           </View>
 
-          <View style={viewStyles.centerItems}>
+          <View style={viewStyles.centerAlign}>
             <Text style={textStyles.b18}>닉네임</Text>
           </View>
-          <View style={viewStyles.tabview}>
+          <View style={viewStyles.horizontalAlign}>
             <TextInput
               style={viewStyles.textInputShort}
               onChangeText={(text) => setNickName(text)}
               placeholder="닉네임을 입력해주세요."
             />
-            <CustomButton
+            <SideBtn
               buttonColor={'lightgrey'}
               buttonWidth={'25%'}
               title={'중복확인'}
-              titleSize={14}
               onPress={() => { alert('중복확인'); }}
             />
           </View>
 
-          <View style={viewStyles.centerItems}>
+          <View style={viewStyles.centerAlign}>
             <CustomButton
               buttonColor={'lightgrey'}
               title={'회원가입 완료하기'}

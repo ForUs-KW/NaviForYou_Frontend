@@ -6,6 +6,7 @@ import {Dropdown} from 'react-native-element-dropdown';
 //https://github.com/hoaphantn7604/react-native-element-dropdown
 
 import BackBtn from "../../component/BackBtn";
+import SideBtn from "../../component/SideBtn.js";
 import CustomButton from "../../component/CustomButton.js";
 import viewStyles from '../../style/viewStyles.js';
 import textStyles from "../../style/textStyles.js";
@@ -59,7 +60,7 @@ const ReportPage_1=({navigation})=> {
 
                 <View>
                     <Text style={textStyles.b18}>장소</Text>
-                    <View style={viewStyles.tabview}>
+                    <View style={viewStyles.horizontalAlign}>
                         <Dropdown
                             style={[viewStyles.dropdown, placeTypeValue && { borderColor: 'blue' }]}
                             data={placeType}
@@ -108,16 +109,16 @@ const ReportPage_1=({navigation})=> {
                             onPress={()=> {alert('지도에서 선택');}}/>
                     </View> */}
 
-                    <View style={viewStyles.tabview}>
+                    <View style={viewStyles.horizontalAlign}>
                         <TextInput
                             style={viewStyles.textInput}
                             onChangeText={onChangeLocation}
                             placeholder="위치 검색"/>
 
-                        <CustomButton
-                            buttonColor={'skyblue'}
-                            buttonWidth={'15%'}
+                        <SideBtn
                             title={'지도'}
+                            buttonColor={'skyblue'}
+                            buttonWidth={'20%'}
                             onPress={()=>{alert('지도 띄우기');}}/>
                     </View>
 
@@ -147,7 +148,7 @@ const ReportPage_1=({navigation})=> {
                     <Text style={textStyles.rightAlign}>00/000 Byte</Text>
                 </View>
 
-                <View style={viewStyles.centerItems}>
+                <View style={viewStyles.centerAlign}>
                     <CustomButton
                         buttonColor={'skyblue'}
                         title={'제출하기'}

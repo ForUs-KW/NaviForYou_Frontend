@@ -4,28 +4,34 @@ import React, {Component} from 'react';
 import { StyleSheet } from 'react-native';
 
 
-
 const viewStyles = StyleSheet.create({
-    tabview: {
+// Components align
+    horizontalAlign: {
       flexDirection: "row",
+      alignItems:"center",  //얘 왜 다른 방향으로 정렬이 안되는지 모르겠음
       justifyContent: "center",
+      //borderWidth:3,
     },
-    centerItems: {
+    centerAlign: {
       alignItems: "center",
       justifyContent: "center",
+
+// Input Box
     },
     textInput:{
       fontSize: 18,
       color:'gray',
+
       borderRadius: 5,
-      width: '85%',
       borderColor:'gray',
       borderWidth: 1,
+      
+      width: '85%',
       paddingVertical: 10,
-      paddingHorizontal: 25,
-      marginBottom: 10,
-      marginHorizontal: 25,
+      paddingHorizontal: 10,
+      //marginTop: 10,
     },
+
     textInputShort:{
       fontSize:18,
       color:'gray',

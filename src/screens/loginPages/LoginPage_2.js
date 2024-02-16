@@ -59,7 +59,7 @@ const LoginPage_2 = ({ navigation }) => {
                     />
                 ))}
 
-            <View style={viewStyles.centerItems}>
+            <View style={viewStyles.centerAlign}>
                 <CustomButton
                     buttonColor={'lightgrey'}
                     title={'다음'}

@@ -10,7 +10,7 @@ import icon from '../../../assets/icon.png';
 
 const LoginPage_4=({navigation})=> {
   return (
-    <View style={viewStyles.centerItems}>
+    <View style={viewStyles.centerAlign}>
         <Text style={textStyles.h2}>세바지에 온 걸 환영해요</Text>
         <Image source={icon} style={viewStyles.image}/>
         <CustomButton

@@ -4,18 +4,20 @@
 import React, {Component} from 'react';
 import { StyleSheet } from 'react-native';
 
+const color_gray='#3A3A3A';
+
 const textStyles = StyleSheet.create({
 //head text
     h1: {
         fontSize: 36,
         fontWeight: 'bold',
-        color:'#3A3A3A',
+        color: color_gray,
         marginBottom:30,
         marginHorizontal:25,
     },
     h2: {
         fontSize: 28,
-        color:'#3A3A3A',
+        color: color_gray,
         marginBottom:30,
         marginHorizontal:25,
     },
@@ -24,7 +26,7 @@ const textStyles = StyleSheet.create({
 // b18이 기본
     b18: {
         fontSize: 18,
-        color:'#3A3A3A',
+        color: color_gray,
         paddingVertical: 10,
         marginBottom: 10,
         marginHorizontal:25,

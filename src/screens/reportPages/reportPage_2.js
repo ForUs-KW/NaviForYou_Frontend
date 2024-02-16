@@ -11,7 +11,7 @@ import icon from '../../../assets/icon.png';
 
 const ReportPage_2=({navigation})=> {
   return (
-    <View style={viewStyles.centerItems}>
+    <View style={viewStyles.centerAlign}>
 
         <Text style={textStyles.h1}>제보가 접수되었어요</Text>
         <Text style={textStyles.h2}>감사합니다</Text>

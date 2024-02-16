@@ -1,4 +1,7 @@
-//CustomButton.js
+//SideBtn.js
+//내용: component 옆에 horizontal로 정렬되는 작은 버튼.
+//      margin이 붙으면 자꾸 이상하게 정렬이 안돼서 따로 만들었다
+//      CustomButton과 비교하면 marginTop이 없는 버전.
 
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, Image, StyleSheet,} from 'react-native';
@@ -9,15 +12,10 @@ import textStyles from '../style/textStyles';
 export default class CustomButton extends Component{
 
     static defaultProps = {
-        imageSource: null,
-        imageStyle: {},
         title: 'untitled',
-        titleSize: 18,
         titleColor: '#3A3A3A',
         buttonColor: '#5796F5',
-        lineWidth: 0,
-        buttonWidth: '85%',
-        borderRad: 5,
+        buttonWidth: '25%',
         onPress: () => null,
       };
 
@@ -31,17 +29,9 @@ export default class CustomButton extends Component{
         styles.button,
         {backgroundColor: this.props.buttonColor},
         {width: this.props.buttonWidth},
-        {borderRadius: this.props.borderRad},
-        {borderWidth: this.props.lineWidth},
       ]}
       onPress={this.props.onPress}>
-        <Image
-          source={this.props.imageSource}
-          style={[styles.image, this.props.imageStyle]}/>
-        <Text style={[
-          {color: this.props.titleColor},
-          {fontSize: this.props.titleSize}
-        ]}>{this.props.title}</Text>
+        <Text style={{color: this.props.titleColor}}>{this.props.title}</Text>
       </TouchableOpacity>
     )
   }
@@ -55,10 +45,12 @@ const styles = StyleSheet.create({
       justifyContent:'center',
       borderColor:'gray',
       borderWidth: 0,
+      borderRadius: 5,
 
-      paddingVertical: 10,
+      fontSize:18,
+
+      paddingVertical: 12,
       paddingHorizontal: 20,
-      marginTop: 10,
       marginHorizontal: 10,
     },
     image: {

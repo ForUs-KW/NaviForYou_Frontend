@@ -41,7 +41,7 @@ const LoginPage_1=({navigation})=> {
       <BackBtn onPress={()=> navigation.navigate('MyPage')}/>
 
 
-      <View  style={viewStyles.centerItems}>
+      <View  style={viewStyles.centerAlign}>
         <Text style={textStyles.h1}>로그인</Text>
         <CustomButton
           buttonColor={'white'}
@@ -65,7 +65,7 @@ const LoginPage_1=({navigation})=> {
       <View><Contour/></View> 
 
 
-      <View style={viewStyles.centerItems}>
+      <View style={viewStyles.centerAlign}>
         <Text style={textStyles.b18}>세바지 계정으로 로그인하기</Text>
 
         <TextInput
@@ -92,7 +92,7 @@ const LoginPage_1=({navigation})=> {
         {pwError ?(<Text style={textStyles.error}>{pwError}</Text>):null}
       </View>
         
-      <View style={viewStyles.centerItems}>
+      <View style={viewStyles.centerAlign}>
 
         <CustomButton
           title={'로그인 하기'}
@@ -100,7 +100,7 @@ const LoginPage_1=({navigation})=> {
           onPress={()=> {alert('로그인 하기');}}
         />
 
-        <View style={viewStyles.tabview}>
+        <View style={viewStyles.horizontalAlign}>
           <CustomButton
             buttonColor={'(0, 0, 0, 0)'}
             buttonWidth={'40%'}
