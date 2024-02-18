@@ -16,9 +16,10 @@ const viewStyles = StyleSheet.create({
     },
     textInput:{
       fontSize: 18,
+      color:'gray',
       borderRadius: 5,
       width: '85%',
-      borderColor:'grey',
+      borderColor:'gray',
       borderWidth: 1,
       paddingVertical: 10,
       paddingHorizontal: 25,
@@ -27,6 +28,7 @@ const viewStyles = StyleSheet.create({
     },
     textInputShort:{
       fontSize:18,
+      color:'gray',
       borderRadius: 5,
       width: '55%',
       height: 40,
@@ -39,6 +41,7 @@ const viewStyles = StyleSheet.create({
     },
     textInputLarge:{
       fontSize: 18,
+      color:'gray',
       borderRadius: 5,
       width: '85%',
       borderColor:'grey',
