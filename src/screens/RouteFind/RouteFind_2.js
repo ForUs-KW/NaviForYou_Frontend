@@ -15,7 +15,11 @@ import {
   View,
   Button,
 } from 'react-native';
+import { Dimensions } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+
+const screenHeight = Dimensions.get('window').height;
+const screenWidth = Dimensions.get('window').width;
 
 const RouteFind_2 = ({ navigation }) => {
   const [keyword, setKeyword] = useState('');
@@ -25,7 +29,7 @@ const RouteFind_2 = ({ navigation }) => {
             <View style={styles.searchTextInput}>
                 <TouchableOpacity
                     style={styles.backButton}
-                    onPress={() => {}}>
+                    onPress={() => navigation.goBack()}>
                     <Text>{"<"}</Text>
                 </TouchableOpacity>
                 <TextInput
@@ -45,7 +49,7 @@ const RouteFind_2 = ({ navigation }) => {
                     onPress={() => setKeyword('')}>
                     <Text>{keyword ? 'x' : 'v'}</Text>
                 </TouchableOpacity>
-                </View>
+            </View>
             <View style={styles.searchInMapView}>
                 <TouchableOpacity
                     style={styles.myGPS}
@@ -100,7 +104,7 @@ const styles = StyleSheet.create({
     topView: {
         flexDirection: 'column',
         width: '100%',
-        height: '11%',
+        height: screenHeight * 0.15,
     },
     searchTextInput: {
         borderWidth: 1,
@@ -108,7 +112,7 @@ const styles = StyleSheet.create({
 
         justifyContent: 'center',
         //flex:1,
-        height: '60%',
+        height: '55%',
         lineHeight: 40,
         paddingHorizontal: 5,
         backgroundColor: '#f0f0f0',
@@ -149,7 +153,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         width: '100%',
-        height: '40%',
+        height: '45%',
     },
     myGPS:{
         justifyContent: 'center',
@@ -167,8 +171,8 @@ const styles = StyleSheet.create({
         backgroundColor:'white',
     },
     bottomView:{
-        flex: 0.3,
-        paddingTop: 22
+        height: screenHeight * 0.75,
+        //paddingTop: 15,
     },
     item:{
         padding: 10,

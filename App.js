@@ -34,7 +34,7 @@ const stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName = "RouteFind_4">
+      <stack.Navigator initialRouteName = "MapView">
         <stack.Screen name="MapView" component={MapView}/>
         <stack.Screen name="SearchView" component={SearchView}/>
         <stack.Screen name="RouteFind" component={RouteFind}/>

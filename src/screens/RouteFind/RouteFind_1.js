@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createMaterialTopTabNavigator();
 
-const RouteFind_1 = () => {
+const RouteFind_1 = ({ navigation }) => {
     const htmlContent = `
     <html>
       <head>
@@ -40,30 +40,41 @@ const RouteFind_1 = () => {
     return (
         <View style={styles.container}>
             <View style={styles.topView}>
-                <View>
+                
+                <View style={{
+                    justifyContent: 'center',
+                    alignItems:'flex-end',
+                    height:'100%',
+                    width: '10%',}}>
                     <TouchableOpacity
                         style={styles.backButton}
                         onPress={() => navigation.goBack()}>
                         <Text>{"<"}</Text>
                     </TouchableOpacity>
                 </View>
-
+                
                 <View style={styles.searchTextInput}>
-                    <TouchableOpacity style={styles.searchStart}>
+                    <TouchableOpacity style={styles.searchStart}
+                        onPress={() => navigation.navigate('RouteFind_2')}
+                        navigation={navigation}>
                         <Text>{"출발지 입력"}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.searchArrive}>
+                    <TouchableOpacity style={styles.searchArrive}
+                        onPress={() => navigation.navigate('RouteFind_2')}
+                        navigation={navigation}>
                         <Text>{"도착지 입력"}</Text>
                     </TouchableOpacity>
-
                 </View>
-                    
 
-                <View>
+                <View style={{
+                    justifyContent: 'center',
+                    alignItems:'flex-start',
+                    height:'100%',
+                    width: '10%',}}>
                     <TouchableOpacity
                         style={styles.switchButton}
                         onPress={() => {}}>
-                        <Text>{"ll"}</Text>
+                        <Text>{"l"}</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -82,6 +93,8 @@ const RouteFind_1 = () => {
   const styles = StyleSheet.create({
     container: {
         flex: 1,
+        width: '100%',
+        height: '100%',
     },
     topView:{
         //position: 'absolute',
@@ -95,9 +108,10 @@ const RouteFind_1 = () => {
         //position: 'absolute',
         //left: 0,
         justifyContent: 'center',
-        width: '10%',
-        height: '100%',
-        paddingHorizontal: 10,
+        alignItems:'center',
+        width: '50%',
+        height: '30%',
+        //paddingHorizontal: 10,
         backgroundColor: 'red',
       },
     searchTextInput:{
@@ -121,10 +135,11 @@ const RouteFind_1 = () => {
     },
     switchButton: {
         //left: 0,
-        width: '10%',
-        height: '100%',
         justifyContent: 'center',
-        paddingHorizontal: 10,
+        alignItems:'center',
+        //paddingHorizontal: 10,
+        width: '50%',
+        height: '30%',
         backgroundColor: 'blue',
     },
 });
