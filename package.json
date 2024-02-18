@@ -32,6 +32,7 @@
     "react-dom": "18.2.0",
     "react-native": "0.73.2",
     "react-native-bouncy-checkbox": "^3.0.7",
+    "react-native-date-picker": "^4.3.6",
     "react-native-element-dropdown": "^2.10.1",
     "react-native-gesture-handler": "^2.14.1",
     "react-native-pager-view": "6.2.3",
@@ -45,7 +46,17 @@
     "react-navigation": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "assert": "^2.1.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.3"
   },
   "private": true
 }

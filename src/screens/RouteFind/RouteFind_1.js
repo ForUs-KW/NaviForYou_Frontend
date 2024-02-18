@@ -1,12 +1,42 @@
+//RouteFind_start_arrive_position_setting
+
 import React from 'react';
+import { WebView } from 'react-native-webview';
 import {View, Text, TextInput, TouchableOpacity, StyleSheet} from "react-native";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createMaterialTopTabNavigator();
 
-const RouteFind = () => {
-
+const RouteFind_1 = () => {
+    const htmlContent = `
+    <html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>simpleMap</title>
+        <script src="https://apis.openapi.sk.com/tmap/vectorjs?version=1&appKey=JZXNstlRPo3l7jWiYptqM8mxiJVjEgdc9EXI4hc9"></script>
+        <script type="text/javascript">
+          function initTmap(){
+            var map = new Tmapv3.Map("map_div",  
+            {
+              center: new Tmapv3.LatLng(37.566481622437934,126.98502302169841), // 지도 초기 좌표
+              width: "100%", 
+              height: "100%",
+              zoom: 18
+            });
+            var marker = new Tmapv3.Marker({
+                position: new Tmapv3.LatLng(37.566481622437934,126.98502302169841),
+                map: map
+            });
+          } 
+        </script>
+      </head>
+      <body onload="initTmap()">
+        <div id="map_div" style="width:100% height:100%;">
+        </div>        
+      </body>
+    </html>
+  `;
     return (
         <View style={styles.container}>
             <View style={styles.topView}>
@@ -18,9 +48,7 @@ const RouteFind = () => {
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.searchTextInput}
-                    //터치로 바꿀 예정
-                >
+                <View style={styles.searchTextInput}>
                     <TouchableOpacity style={styles.searchStart}>
                         <Text>{"출발지 입력"}</Text>
                     </TouchableOpacity>
@@ -42,55 +70,14 @@ const RouteFind = () => {
             </View>
             
             <View style={styles.bottomView}>
-                <Tab.Navigator
-                    initialRouteName="Walk"
-                    screenOptions={{
-                        tabBarIndicatorStyle: {backgroundColor: '#009688'},
-                        tabBarActiveTintColor: '#009688',
-                }}>
-                    <Tab.Screen
-                        name="Walk"
-                        component={WalkScreen}
-                        options={{
-                        tabBarLabel: '도보',
-                        tabBarIcon: () => (
-                        <Icon name="home" color='#009688' size={24}/>
-                        ),
-                    }}/>
-                    <Tab.Screen
-                        name="Public"
-                        component={PublicScreen}
-                        options={{
-                        tabBarLabel: '대중교통',
-                        tabBarIcon: ({}) => (
-                        <Icon name="notifications" color='#009688' size={24} />
-                        ),
-                    }}/>
-                    <Tab.Screen
-                        name="Car"
-                        component={CarScreen}
-                        options={{
-                        tabBarLabel: '차도',
-                        tabBarIcon: ({}) => (
-                        <Icon name="search" color='#009688' size={24} />
-                        ),
-                    }}/>
-
-                </Tab.Navigator>
+                <WebView style={styles.baseView}
+                    originWhitelist={['*']}
+                    source={{ html: htmlContent }}
+                />
             </View>
         </View>
     );
   };
-
-  function WalkScreen(){
-    return <Text>Walk</Text>;
-  }
-  function PublicScreen(){
-    return <Text>Public</Text>;
-  }
-  function CarScreen(){
-    return <Text>Car</Text>;
-  }
   
   const styles = StyleSheet.create({
     container: {
@@ -142,4 +129,4 @@ const RouteFind = () => {
     },
 });
 
-  export default RouteFind;
+  export default RouteFind_1;
