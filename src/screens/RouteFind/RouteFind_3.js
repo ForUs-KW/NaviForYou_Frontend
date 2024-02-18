@@ -8,7 +8,7 @@ import { WebView } from 'react-native-webview';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Dimensions } from 'react-native';
-import DatePicker from 'react-native-date-picker'
+//import DatePicker from 'react-native-date-picker'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const screenHeight = Dimensions.get('window').height;
@@ -129,8 +129,8 @@ const RouteFind_3 = ({ navigation }) => {
         </body>
         </html>
     `;
-        const [date, setDate] = useState(new Date())
-        const [open, setOpen] = useState(flase)
+        // const [date, setDate] = useState(new Date())
+        // const [open, setOpen] = useState(flase)
 
         return (
             <View style = {{flex: 1,
@@ -141,7 +141,7 @@ const RouteFind_3 = ({ navigation }) => {
                     width : '100%',
                     backgroundColor: 'yellow'
                     }}>
-                    <Button title = "Open" 
+                    {/* <Button title = "Open" 
                         onPress={() => setOpen(true)} />
                     <DatePicker
                         modal
@@ -154,7 +154,7 @@ const RouteFind_3 = ({ navigation }) => {
                         onCancel={()=>{
                             setOpen(false)
                         }}
-                    />
+                    /> */}
 
                 </View>
                 <View>
