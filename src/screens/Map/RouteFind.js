@@ -21,19 +21,19 @@ const RouteFind = () => {
                 <View style={styles.searchTextInput}
                     //터치로 바꿀 예정
                 >
-                    <View>
+                    <TouchableOpacity style={styles.searchStart}>
                         <Text>{"출발지 입력"}</Text>
-                    </View>
-                    <View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.searchArrive}>
                         <Text>{"도착지 입력"}</Text>
-                    </View>
+                    </TouchableOpacity>
 
                 </View>
                     
 
                 <View>
                     <TouchableOpacity
-                        style={styles.backButton}
+                        style={styles.switchButton}
                         onPress={() => {}}>
                         <Text>{"ll"}</Text>
                     </TouchableOpacity>
@@ -97,21 +97,48 @@ const RouteFind = () => {
         flex: 1,
     },
     topView:{
-        position: 'absolute',
+        //position: 'absolute',
+        position: 'relative',
         width: '100%',
-        height: '20%',
+        height: '15%',
         flexDirection: 'row'
 
     },
     backButton: {
-        position: 'absolute',
-        left: 0,
+        //position: 'absolute',
+        //left: 0,
         justifyContent: 'center',
+        width: '10%',
+        height: '100%',
         paddingHorizontal: 10,
+        backgroundColor: 'red',
       },
     searchTextInput:{
-        position: 'absolute',
+        //position: 'absolute',
+        width: '80%',
+        height: '100%',
         flexDirection: 'column',
+        backgroundColor: 'green',
+    },
+    searchStart: {
+        justifyContent: 'center',
+        width: '100%',
+        height: '50%',
+        backgroundColor: 'yellow',
+    },
+    searchArrive: {
+        justifyContent: 'center',
+        width: '100%',
+        height: '50%',
+        backgroundColor: 'white',
+    },
+    switchButton: {
+        //left: 0,
+        width: '10%',
+        height: '100%',
+        justifyContent: 'center',
+        paddingHorizontal: 10,
+        backgroundColor: 'blue',
     },
 });
 

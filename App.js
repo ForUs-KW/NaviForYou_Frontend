@@ -9,6 +9,11 @@ import {enableScreens} from 'react-native-screens';
 import {default as MapView} from "./src/screens/Map/MapView.js";
 import {default as SearchView} from "./src/screens/Map/SearchView.js";
 import {default as RouteFind} from "./src/screens/Map/RouteFind.js";
+import {default as RouteFind_1} from "./src/screens/RouteFind/RouteFind_1.js";
+import {default as RouteFind_2} from "./src/screens/RouteFind/RouteFind_2.js";
+import {default as RouteFind_3} from "./src/screens/RouteFind/RouteFind_3.js";
+import {default as RouteFind_4} from "./src/screens/RouteFind/RouteFind_4.js";
+
 import {default as MyPage} from "./src/screens/MyPage.js";
 import {default as LoginPage_1} from "./src/screens/LoginPages/LoginPage_1.js";
 import {default as LoginPage_2} from "./src/screens/LoginPages/LoginPage_2.js";
@@ -33,6 +38,12 @@ function App() {
         <stack.Screen name="MapView" component={MapView}/>
         <stack.Screen name="SearchView" component={SearchView}/>
         <stack.Screen name="RouteFind" component={RouteFind}/>
+        <stack.Screen name="RouteFind_1" component={RouteFind_1}/>
+        <stack.Screen name="RouteFind_2" component={RouteFind_2}/>
+        <stack.Screen name="RouteFind_3" component={RouteFind_3}/>
+        <stack.Screen name="RouteFind_4" component={RouteFind_4}/>
+
+
         <stack.Screen name="MyPage" component={MyPage}/>
         <stack.Screen name="LoginPage_1" component={LoginPage_1}/>
         <stack.Screen name="LoginPage_2" component={LoginPage_2}/>
