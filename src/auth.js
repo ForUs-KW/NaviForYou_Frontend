@@ -1,4 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
+//import * as Update from 'expo-updates';
+
+//const restart = () => Update.reloadAsync();
+
+//export default restart;
 
 const storeUserData = async (token, userId) => {
   try {
@@ -24,11 +30,13 @@ const getUserData = async () => {
 const removeUserData = async () => {
     try {
       await AsyncStorage.removeItem('userData');
+      //restart();
+      navigation.navigate('Mypage');
       console.log('User data removed successfully.');
     } catch (error) {
       console.error('Error removing user data:', error);
     }
-  };
+};
   
 
 const test = async(token, userID) =>{

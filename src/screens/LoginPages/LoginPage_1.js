@@ -44,6 +44,8 @@ const LoginPage_1 = ({ navigation }) => {
       //wait for the response 
       const data = await response.json();
 
+
+
       // access token
       const accessToken = data.accessToken;
 

@@ -15,19 +15,7 @@ const ConfirmMypage=({navigation})=> {
     
 
     const [userData, setUserData] = useState(null);
-    const [password, setPassword] = useState("");
-
-    // useEffect(() => {
-    //     const fetchUserData = async () => {
-    //         try {
-    //             const data = await getUserData();
-    //             setUserData(data);
-    //         } catch (error) {
-    //             console.error("Error fetching user data:", error);
-    //         }
-    //     };
-    //     fetchUserData();
-    // }, []);
+    const [pwd, setPassword] = useState("");
 
      //비밀번호 확인
     const checkPassword = async() => {
@@ -45,7 +33,7 @@ const ConfirmMypage=({navigation})=> {
                     headers : {
                     "Content-Type" : "application/json",
                     },
-                    body : JSON.stringify({password}),
+                    body : JSON.stringify({pwd}),
 
                 },  
             );
@@ -76,7 +64,7 @@ const ConfirmMypage=({navigation})=> {
         <Text style={textStyles.content20}>비밀번호 입력(아래에 눌러보면 있음)</Text>
 
         <TextInput
-            value={password}
+            value={pwd}
             onChangeText={(text) => setPassword(text)}
             inputStyle={viewStyles.textInput} // inputStyle prop을 사용하여 스타일을 지정합니다
         /> 

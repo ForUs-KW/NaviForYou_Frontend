@@ -15,7 +15,7 @@ const LoginSucceed=({navigation})=> {
     
 
     const [userData, setUserData] = useState(null);
-    const [password, setPassword] = useState("");
+    const [pwd, setPassword] = useState("");
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -43,7 +43,7 @@ const LoginSucceed=({navigation})=> {
             
 
             console.log({token});
-            console.log({password});
+            console.log({pwd});
 
             const response = await fetch ("http://3.34.118.226:8080/app/myPage/delete",
                 {
@@ -52,8 +52,9 @@ const LoginSucceed=({navigation})=> {
                     credentials : "include",
                     headers : {
                     "Content-Type" : "application/json",
+                    "Authorization" : `Bearer ${token}`,
                     },
-                    body : JSON.stringify({password, token}),
+                    body : JSON.stringify({pwd}),
 
                 },  
             );
@@ -90,7 +91,7 @@ const LoginSucceed=({navigation})=> {
             onPress={()=> removeUserData()}/>
 
         <TextInput
-            value={password}
+            value={pwd}
             onChangeText={(text) => setPassword(text)}
             //inputStyle={viewStyles.textInput} // inputStyle prop을 사용하여 스타일을 지정합니다
         /> 
@@ -101,7 +102,7 @@ const LoginSucceed=({navigation})=> {
             style={viewStyles.textInput}
             buttonColor={'skyblue'}
             title={'회원탈퇴'}
-            //onPress={()=> deleteAccount()}
+            onPress={()=> deleteAccount()}
         />
 
         <CustomButton

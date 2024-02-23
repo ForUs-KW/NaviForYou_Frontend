@@ -24,6 +24,7 @@
     "expo-auth-session": "~5.4.0",
     "expo-crypto": "~12.8.0",
     "expo-status-bar": "~1.11.1",
+    "expo-updates": "~0.24.11",
     "expo-web-browser": "~12.8.2",
     "http-proxy-middleware": "^2.0.6",
     "native": "^0.3.3",
