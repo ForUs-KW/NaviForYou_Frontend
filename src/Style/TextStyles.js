@@ -16,10 +16,13 @@ const textStyles = StyleSheet.create({
         fontSize: 28,
     },
     content20: {
-        marginVertical:15,
-        marginHorizontal:25,
+        //borderColor:'grey',
+        //borderWidth:1,
+        paddingVertical: 10,
+        //paddingHorizontal: 20,
+        marginBottom: 10,
         fontSize: 18,
-        textAlign:'left',
+        width:'85%',
     },
     content16: {
         marginHorizontal:25,
@@ -34,6 +37,7 @@ const textStyles = StyleSheet.create({
     },
 
     errorText:{
+        marginHorizontal:25,
         fontSize: 16,
         color:'red',
     },
