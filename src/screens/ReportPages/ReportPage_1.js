@@ -1,6 +1,6 @@
 //제보하기 페이지
 
-import React, {useState, setState} from "react";
+import React, {useState, setState, useEffect} from "react";
 import { View, Text, TextInput, ScrollView} from "react-native";
 import {Dropdown} from 'react-native-element-dropdown';
 //https://github.com/hoaphantn7604/react-native-element-dropdown
@@ -39,6 +39,7 @@ const ReportPage_1=({navigation})=> {
     const [location, onChangeLocation] = React.useState('입력해주세요');
     const [content, onChangeContent] = React.useState('입력해주세요');
 
+
     //Dropdown
     const [placeTypeValue, setPlaceTypeValue] = React.useState(null);
     const [subCategoryValue, setSubCategoryValue]=React.useState(null);
@@ -50,7 +51,7 @@ const ReportPage_1=({navigation})=> {
                 <BackBtn onPress={()=> navigation.navigate('MyPage')}/>
 
                 <View>
-                    <Text style={textStyles.title1}>제보하기</Text>
+                    <Text style={textStyles.title1}>제보하기</Text>     
                     <Text style={textStyles.content16}>
                         잘못되었거나 추가하고 싶은정보를 제보해주세요!</Text>
                     <Text style={textStyles.content16}> 
@@ -59,7 +60,9 @@ const ReportPage_1=({navigation})=> {
 
                 <View>
                     <Text style={textStyles.content20}>장소</Text>
+                    
                     <View style={viewStyles.tabview}>
+                         
                         <Dropdown
                             style={[viewStyles.dropdown, placeTypeValue && { borderColor: 'blue' }]}
                             data={placeType}
@@ -79,23 +82,29 @@ const ReportPage_1=({navigation})=> {
                                 setReportTypeValue(null);
                             }}
                         />
-                    
-                        <Dropdown
+                       
+                        {/* <Dropdown
                             style={[viewStyles.dropdown, placeSubcategories && { borderColor:'blue' }]}
-                            data={placeTypeValue ? placeSubcategories[placeTypeValue] : []}
+                            //data={placeSubcategories[placeTypeValue]}
+                            //data={placeSubcategories}
+                            //data={placeTypeValue ? placeSubcategories[placeTypeValue] : []}
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
                             placeholder="소분류"
                             value={subCategoryValue}
                             onChange={item=>setSubCategoryValue(item.value)}
-                        />
+                        /> */}
+                        
+                    
                     </View>
+                        
                 </View>
-              
+                     
                 <View>
                     <Text style={textStyles.content20}>위치</Text>
-                    <View style={viewStyles.tabview}>
+                     <View style={viewStyles.tabview}>
+
                         <CustomButton
                             buttonColor={'skyblue'}
                             buttonWidth={'40%'}
@@ -111,7 +120,7 @@ const ReportPage_1=({navigation})=> {
                     <View style={viewStyles.tabview}>
                         <TextInput
                             style={viewStyles.textInput}
-                            onChangeText={onChangeLocation}
+                            onChangeText={(text) => onChangeLocation(text)}
                             placeholder="위치 검색"/>
 
                         <CustomButton
@@ -142,10 +151,12 @@ const ReportPage_1=({navigation})=> {
                     />
                     <TextInput
                         style={viewStyles.textInputLarge}
-                        onChangeText={onChangeContent}
+                        onChangeText={(text) => onChangeContent(text)}
                         placeholder="제보 내용"/>
+
                     <Text style={textStyles.rightText}>00/000 Byte</Text>
                 </View>
+               
 
                 <View style={viewStyles.centerItems}>
                     <CustomButton
