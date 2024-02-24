@@ -1,8 +1,6 @@
 import React, { useState }from "react";
 import { View, Text, TextInput, Alert, Button, SafeAreaView } from "react-native";
 import * as KakaoLogins from "@react-native-seoul/kakao-login";
-import { storeUserData } from "../../auth.js";
-
 import CustomButton from "../../component/CustomButton.js";
 import textStyles from "../../Style/TextStyles.js";
 import viewStyles from "../../Style/ViewStyles.js";
@@ -44,24 +42,34 @@ const LoginPage_1 = ({ navigation }) => {
       //wait for the response 
       const data = await response.json();
 
-
-
       // access token
       const accessToken = data.accessToken;
 
-      //console.log(data.code+ " || " + data.message);
-      //console.log(data.message);
       //message based on results
-      if (accessToken) {
-          console.log("로그인 성공했습니다.");
-          await storeUserData(accessToken, email);
-          // handle different error codes    
+      if (response.ok) {
+        if (data.result === 1000) {
+          Alert.alert("요청에 성공하였습니다.");
+        } else {
+          // handle different error codes
+          switch (data.result) {
+            case 3001:
+              Alert.alert("해당 이메일이 존재하지 않습니다.");
+              break;
+            case 3002:
+              Alert.alert("비밀번호가 틀렸습니다.");
+              break;
+            default:
+              Alert.alert("알 수 없는 오류가 발생했습니다.");
+              break;
+          }
+        }
       } else {
-        console.log(data.code+ " || " + data.message);
         // handle server error
+        Alert.alert("서버 오류", "로그인 요청에 실패했습니다.");
       }
     } catch (error) {
       console.error("로그인 에러", error);
+      Alert.alert("에러", "서버에 연결할 수 없습니다.");
     }
   };
 
