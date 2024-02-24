@@ -19,6 +19,7 @@ import {default as LoginPage_1} from "./src/screens/LoginPages/LoginPage_1.js";
 import {default as LoginPage_2} from "./src/screens/LoginPages/LoginPage_2.js";
 import {default as LoginPage_3} from "./src/screens/LoginPages/LoginPage_3.js";
 import {default as LoginPage_4} from "./src/screens/LoginPages/LoginPage_4.js";
+import {default as LoginSucceed} from "./src/screens/LoginPages/LoginSucceed.js"
 import {default as EditInfo} from "./src/screens/EditInfo.js";
 import {default as Settings} from "./src/screens/Settings.js";
 import {default as ReportPage_1} from "./src/screens/ReportPages/ReportPage_1.js";
@@ -26,6 +27,7 @@ import {default as ReportPage_2} from "./src/screens/ReportPages/ReportPage_2.js
 import {default as FindAccount} from "./src/screens/FindAccounts/FindAccount.js";
 import {default as FindEmail} from "./src/screens/FindAccounts/FindEmail.js";
 import {default as FindPassword} from "./src/screens/FindAccounts/FindPassword.js";
+import ConfirmMypage from './src/screens/ConfirmMypage.js';
 
 enableScreens();
 const stack = createStackNavigator();
@@ -49,6 +51,7 @@ function App() {
         <stack.Screen name="LoginPage_2" component={LoginPage_2}/>
         <stack.Screen name="LoginPage_3" component={LoginPage_3}/>
         <stack.Screen name="LoginPage_4" component={LoginPage_4}/>
+        <stack.Screen name="LoginSucceed" component={LoginSucceed}/>
         <stack.Screen name="EditInfo" component={EditInfo}/>
         <stack.Screen name="Settings" component={Settings}/>
         <stack.Screen name="ReportPage_1" component={ReportPage_1}/>
@@ -56,6 +59,7 @@ function App() {
         <stack.Screen name="FindAccount" component={FindAccount}/>
         <stack.Screen name = "FindEmail" component={FindEmail}/>
         <stack.Screen name = "FindPassword" component={FindPassword}/>
+        <stack.Screen name = "ConfirmMypage" component={ConfirmMypage}/>
       
 
 
