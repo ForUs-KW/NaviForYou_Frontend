@@ -5,6 +5,7 @@ import { View, Text, TextInput, ScrollView} from "react-native";
 import {Dropdown} from 'react-native-element-dropdown';
 //https://github.com/hoaphantn7604/react-native-element-dropdown
 
+import BackBtn from "../../component/BackBtn";
 import CustomButton from "../../component/CustomButton.js";
 import viewStyles from "../../Style/ViewStyles.js";
 import textStyles from '../../Style/TextStyles.js';
@@ -47,12 +48,7 @@ const ReportPage_1=({navigation})=> {
     return (
         <ScrollView style={{flex:1}}>
             <View>
-                <CustomButton
-                    buttonColor={'(0, 0, 0, 0)'}
-                    buttonWidth={'15%'}
-                    title={'<'}
-                    titleSize={30}
-                    onPress={()=> navigation.navigate('MyPage')}/>
+                <BackBtn onPress={()=> navigation.navigate('MyPage')}/>
 
                 <View>
                     <Text style={textStyles.title1}>제보하기</Text>     
@@ -89,8 +85,9 @@ const ReportPage_1=({navigation})=> {
                        
                         {/* <Dropdown
                             style={[viewStyles.dropdown, placeSubcategories && { borderColor:'blue' }]}
-                            data={placeSubcategories[placeTypeValue]}
+                            //data={placeSubcategories[placeTypeValue]}
                             //data={placeSubcategories}
+                            //data={placeTypeValue ? placeSubcategories[placeTypeValue] : []}
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
@@ -107,6 +104,7 @@ const ReportPage_1=({navigation})=> {
                 <View>
                     <Text style={textStyles.content20}>위치</Text>
                      <View style={viewStyles.tabview}>
+
                         <CustomButton
                             buttonColor={'skyblue'}
                             buttonWidth={'40%'}
@@ -168,6 +166,7 @@ const ReportPage_1=({navigation})=> {
                 </View> 
 
             </View>
+            
         </ScrollView>
     );
 };

@@ -1,7 +1,7 @@
 //CustomButton.js
 
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, StyleSheet,} from 'react-native';
+import { TouchableOpacity, Text, Image, StyleSheet,} from 'react-native';
 
 import textStyles from '../Style/TextStyles';
 
@@ -9,15 +9,17 @@ import textStyles from '../Style/TextStyles';
 export default class CustomButton extends Component{
 
     static defaultProps = {
+        imageSource: null,
+        imageStyle: {},
         title: 'untitled',
-        buttonColor: 'blue',
+        buttonColor: '#5796F5',
         lineWidth: 0,
         buttonWidth: '85%',
         borderRad: 5,
-        titleColor: 'black',
+        titleColor: '#3A3A3A',
         titleSize: 18,
         onPress: () => null,
-      }
+      };
 
   constructor(props){
     super(props);
@@ -33,6 +35,9 @@ export default class CustomButton extends Component{
         {borderWidth: this.props.lineWidth},
       ]}
       onPress={this.props.onPress}>
+        <Image
+          source={this.props.imageSource}
+          style={[styles.image, this.props.imageStyle]}/>
         <Text style={[
           {color: this.props.titleColor},
           {fontSize: this.props.titleSize}
@@ -45,12 +50,17 @@ export default class CustomButton extends Component{
 
 const styles = StyleSheet.create({
     button: {
+      flexDirection: 'row',
       alignItems: 'center',
+      justifyContent:'center',
       borderColor:'grey',
-      borderWidth: 1,
+      borderWidth: 0,
       paddingVertical: 10,
       paddingHorizontal: 20,
       marginBottom: 10,
       marginHorizontal: 10,
-    }
+    },
+    image: {
+      marginRight:10,
+    },
 });
